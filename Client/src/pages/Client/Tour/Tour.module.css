@@ -1,0 +1,13 @@
+@media(max-width:768px){
+
+    .filte{
+        display: none !important;;
+    }
+}
+.pointer{
+    cursor: pointer !important;
+}
+
+.selected {
+    color: #ffc107; 
+  }

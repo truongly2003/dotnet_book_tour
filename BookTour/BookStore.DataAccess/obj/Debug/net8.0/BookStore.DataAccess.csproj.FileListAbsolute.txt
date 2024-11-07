@@ -1,0 +1,5 @@
+E:\_Net\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.csproj.AssemblyReference.cache
+E:\_Net\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+E:\_Net\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.AssemblyInfoInputs.cache
+E:\_Net\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.AssemblyInfo.cs
+E:\_Net\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.csproj.CoreCompileInputs.cache
