@@ -13,6 +13,6 @@ namespace BookStore.DataAccess
         public BookTourDbContext(DbContextOptions<BookTourDbContext> options) : base(options)
         {
         }
-        public DbSet<User> Users { get; set; }
+        
     }
 }

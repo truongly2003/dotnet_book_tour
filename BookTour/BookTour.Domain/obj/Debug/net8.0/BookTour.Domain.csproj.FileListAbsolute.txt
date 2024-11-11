@@ -1,0 +1,13 @@
+E:\_Net\Tour\BookTour\BookTour.Domain\bin\Debug\net8.0\BookTour.Domain.deps.json
+E:\_Net\Tour\BookTour\BookTour.Domain\bin\Debug\net8.0\BookTour.Domain.dll
+E:\_Net\Tour\BookTour\BookTour.Domain\bin\Debug\net8.0\BookTour.Domain.pdb
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.csproj.AssemblyReference.cache
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.AssemblyInfoInputs.cache
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.AssemblyInfo.cs
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.csproj.CoreCompileInputs.cache
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.sourcelink.json
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.dll
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\refint\BookTour.Domain.dll
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.pdb
+E:\_Net\Tour\BookTour\BookTour.Domain\obj\Debug\net8.0\ref\BookTour.Domain.dll

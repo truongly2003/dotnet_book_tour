@@ -11,7 +11,7 @@ function SearchSideBar({ selectArrivalName }) {
     const fet = async () => {
       try {
         const data = await getAllArrival();
-        setArrival(data.result);
+        setArrival(data);
       } catch (error) {
         console.error(error);
       }
@@ -22,6 +22,7 @@ function SearchSideBar({ selectArrivalName }) {
     selectArrivalName(arrivalName);
     setSelectedArrivalIndex(index);
   };
+  console.log(arrival);
   return (
     <div>
     

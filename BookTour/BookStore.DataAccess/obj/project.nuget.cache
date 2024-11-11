@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SsaNMTV8Fxo=",
+  "dgSpecHash": "AHPN/n5I0TQ=",
   "success": true,
-  "projectFilePath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+  "projectFilePath": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ACER\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\ACER\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

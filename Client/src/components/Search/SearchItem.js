@@ -7,7 +7,7 @@ function SearchItem({ handleSelectedArrival }) {
     const fetItem = async () => {
       try {
         const result = await getAllArrival();
-        setSearchItem(result.result);
+        setSearchItem(result);
       } catch (error) {
         console.error(error);
       }

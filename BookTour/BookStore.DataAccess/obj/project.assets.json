@@ -4239,11 +4239,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+      "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
       "projectName": "BookStore.DataAccess",
-      "projectPath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+      "projectPath": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\obj\\",
+      "outputPath": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4261,8 +4261,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
-              "projectPath": "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
+            "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+              "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
             }
           }
         }

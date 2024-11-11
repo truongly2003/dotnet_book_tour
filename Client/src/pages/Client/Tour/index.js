@@ -16,7 +16,7 @@ import {
 
 function Tour() {
   const [routes, setRoutes] = useState([]);
-  const pageSize = 1;
+  const pageSize = 4;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [searchParams, setSearchParams] = useState({});
@@ -52,17 +52,20 @@ function Tour() {
             selectedSortOption
           );
         } else {
-          data = await getAllRoutes(currentPage, pageSize, selectedSortOption);
+          // data = await getAllRoutes(currentPage, pageSize, selectedSortOption);
+          data = await getAllRoutes(currentPage, pageSize,selectedSortOption);
         }
-        setRoutes(data.result.routes);
-        setTotalPages(data.result.totalPages);
-        setTotalElements(data.result.totalElements);
+        
+        setRoutes(data.data);
+        setTotalPages(data.totalPages);
+        setTotalElements(data.totalElements);
       } catch (error) {
         console.error("Error fetching routes", error);
       }
     };
     fetchRoute();
   }, [currentPage, searchParams, selectArrivalName, selectedSortOption]);
+ 
   //  lọc chỉ the tên bên side bar
   const handleArrivalSelect = (arrival) => {
     setSelectArrivalName(arrival);

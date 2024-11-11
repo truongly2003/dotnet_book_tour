@@ -1,4 +1,8 @@
 ﻿using BookStore.DataAccess;
+using BookStore.DataAccess.Repository;
+using BookTour.Application.Interface;
+using BookTour.Application.Service;
+using BookTour.Domain.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +22,32 @@ namespace BookStore.Infrastructure.Configuration
             services.AddDbContext<BookTourDbContext>(options =>
             options.UseSqlServer(ConnectionString));
         }
-       
+        public static void RegisterDI(this IServiceCollection services)
+        {
+            // 1
+            services.AddScoped<IRouteRepository, RouteRepository>();
+            services.AddScoped<IDepartureRepository, DepartureRepository>();
+            services.AddScoped<IArrivalRepository, ArrivalRepository>();
+            services.AddScoped<IDetailRouteRepository, DetailRouteRepository>();
+            services.AddScoped<ILegRepository, LegRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
+            // 2
+            services.AddScoped<IRouteService, RouteService>();
+            services.AddScoped<IDepartureService, DepartureService>();
+            services.AddScoped<IArrivalService, ArrivalService>();
+            services.AddScoped<IDetailRouteService, DetailRouteService>();
+            services.AddScoped<ILegService, LegService>();
+            services.AddScoped<IImageService, ImageService>();
+        }
+        public static void ConfigApi(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("http://localhost:3000")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
+        }
     }
 }

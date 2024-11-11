@@ -46,7 +46,7 @@ function SearchInput({ onSearchResults, currentPage, pageSize,isHomePage  }) {
     const fetchDeparture = async () => {
       try {
         const fetchDeparture = await getAllDeparture();
-        setDepartures(fetchDeparture.result);
+        setDepartures(fetchDeparture);
       } catch (error) {
         console.error(error);
       }

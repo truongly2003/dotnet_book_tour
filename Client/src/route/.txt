@@ -1,0 +1,36 @@
+ public async Task<Application.Dto.Page<BookResponse>> GetAllRouteAsync(int page, int size)
+ {
+     var data = await (from route in _dbContext.routes
+                       join arrival in _dbContext.arrival on route.ArrivalId equals arrival.Id
+                       join departure in _dbContext.departure on route.DepartureId equals departure.Id
+                       join detail in _dbContext.detailRoute on route.Id equals detail.Id
+                       join img in _dbContext.images on detail.Id equals img.DetailRouteId
+                       where img.IsPrimary
+                       select new RouteResponse
+                       {
+                           DetailRouteId = detail.Id,
+                           RouteId = route.Id,
+                           DetailRouteName = detail.DetailRouteName,
+                           Description = detail.Description,
+                           Stock = detail.Stock,
+                           TimeToDeparture = detail.TimeToDeparture,
+                           TimeToFinish = detail.TimeToFinish,
+                           ImageId = img.Id,
+                           TextImage = img.TextImage,
+                           ArrivalId = arrival.Id,
+                           ArrivalName = arrival.ArrivalName,
+                           Price = detail.Price
+                       })
+              
+                .ToListAsync();
+     var TotalElements = await data.CountAsync();
+     var TotalPages = (int)Math.Ceiling(TotalElements / (int)size);
+     var result = new Application.Dto.Page<RouteResponse>
+     {
+         TotalElement = TotalElements,
+         TotalPages = TotalPages,
+         Data = data,
+     };
+     return result;
+
+ }

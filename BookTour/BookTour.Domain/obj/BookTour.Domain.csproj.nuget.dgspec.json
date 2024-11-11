@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {}
+    "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {}
   },
   "projects": {
-    "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+    "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
         "projectName": "BookTour.Domain",
-        "projectPath": "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\_Net\\BookTour\\BookTour.Domain\\obj\\",
+        "outputPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",

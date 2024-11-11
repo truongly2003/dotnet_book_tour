@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_Net\\BookTour\\BookTour\\BookTour.csproj": {}
+    "E:\\_Net\\Tour\\BookTour\\BookTour\\BookTour.csproj": {}
   },
   "projects": {
-    "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+    "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
         "projectName": "BookStore.DataAccess",
-        "projectPath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "projectPath": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\obj\\",
+        "outputPath": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
-                "projectPath": "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
+              "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+                "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "E:\\_Net\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+    "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_Net\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
         "projectName": "BookStore.Infrastructure",
-        "projectPath": "E:\\_Net\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "projectPath": "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\_Net\\BookTour\\BookStore.Infrastructure\\obj\\",
+        "outputPath": "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -116,11 +116,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
-                "projectPath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+              "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+                "projectPath": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
               },
-              "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
-                "projectPath": "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
+              "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+                "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
               }
             }
           }
@@ -140,6 +140,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.10, )"
@@ -185,14 +189,14 @@
         }
       }
     },
-    "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+    "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
+        "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
         "projectName": "BookTour.Application",
-        "projectPath": "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
+        "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\_Net\\BookTour\\BookTour.Application\\obj\\",
+        "outputPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -210,8 +214,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
-                "projectPath": "E:\\_Net\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+              "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+                "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
               }
             }
           }
@@ -250,14 +254,14 @@
         }
       }
     },
-    "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+    "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
         "projectName": "BookTour.Domain",
-        "projectPath": "E:\\_Net\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\_Net\\BookTour\\BookTour.Domain\\obj\\",
+        "outputPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -321,14 +325,14 @@
         }
       }
     },
-    "E:\\_Net\\BookTour\\BookTour\\BookTour.csproj": {
+    "E:\\_Net\\Tour\\BookTour\\BookTour\\BookTour.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_Net\\BookTour\\BookTour\\BookTour.csproj",
+        "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookTour\\BookTour.csproj",
         "projectName": "BookTour",
-        "projectPath": "E:\\_Net\\BookTour\\BookTour\\BookTour.csproj",
+        "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour\\BookTour.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\_Net\\BookTour\\BookTour\\obj\\",
+        "outputPath": "E:\\_Net\\Tour\\BookTour\\BookTour\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -346,11 +350,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_Net\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
-                "projectPath": "E:\\_Net\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
+              "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+                "projectPath": "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
               },
-              "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
-                "projectPath": "E:\\_Net\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
+              "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+                "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
               }
             }
           }
