@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BookTour.Domain.Entity
+namespace BookTour.Domain.Entity;
+
+public partial class Departure
 {
-    public class Departure
-    {
-    }
+    public int DepartureId { get; set; }
+
+    public string? DepartureName { get; set; }
+
+    public virtual ICollection<Route> Routes { get; set; } = new List<Route>();
 }

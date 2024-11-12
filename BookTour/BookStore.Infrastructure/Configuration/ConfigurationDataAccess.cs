@@ -18,10 +18,13 @@ namespace BookStore.Infrastructure.Configuration
     {
         public static void RegisterDB(this IServiceCollection services, IConfiguration configuration)
         {
-            var ConnectionString = configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+            var connectionString = configuration.GetConnectionString("DefaultConnection")
+                                    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             services.AddDbContext<BookTourDbContext>(options =>
-            options.UseSqlServer(ConnectionString));
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
         }
+
+
         public static void RegisterDI(this IServiceCollection services)
         {
             // 1
