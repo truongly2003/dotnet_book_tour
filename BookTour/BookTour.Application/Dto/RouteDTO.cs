@@ -13,8 +13,8 @@ namespace BookTour.Application.Dto
         public string DetailRouteName { get; set; }
         public string Description { get; set; }
         public int Stock { get; set; }
-        public DateTime TimeToDeparture { get; set; }
-        public DateTime TimeToFinish { get; set; }
+        public DateOnly TimeToDeparture { get; set; }
+        public DateOnly TimeToFinish { get; set; }
         public int ImageId { get; set; }
         public string TextImage { get; set; }
         public double Price { get; set; }

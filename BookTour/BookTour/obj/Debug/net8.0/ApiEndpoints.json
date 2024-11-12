@@ -1,5 +1,41 @@
 [
   {
+    "ContainingType": "BookTour.Controllers.RouteController",
+    "Method": "Test",
+    "RelativePath": "api/Route/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.RouteController",
+    "Method": "getAllTestPage",
+    "RelativePath": "api/Route/testpage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/User/login",

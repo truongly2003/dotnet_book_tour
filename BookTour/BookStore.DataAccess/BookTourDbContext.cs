@@ -25,7 +25,7 @@ namespace BookStore.DataAccess
         public DbSet<Detailroute> Detailroutes { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Feedback> Feedback { get; set; }
-        public DbSet<Image> Image { get; set; }
+        public DbSet<Image> Images { get; set; }
         public DbSet<Leg> Legs { get; set; }
         //public DbSet<Object> Objects { get; set; }
         public DbSet<Operation> Operations { get; set; }
