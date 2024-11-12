@@ -14,8 +14,10 @@ namespace BookTour.Application.Interface
 
         Task<User> AddUser();
 
-        Task<UserDTO> Login(UserDTO request);
+        Task<UserDTO> Login(LoginRequestDTO request);
 
-        Task<TokenInfo> GenerateToken(User user);  // Sửa thành TokenInfo
+        TokenInfo GenerateToken(User user); 
+
+        Task<List<User>> getListUser();
     }
 }

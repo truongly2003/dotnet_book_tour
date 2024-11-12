@@ -11,5 +11,7 @@ namespace BookTour.Domain.Interface
     public interface IUserRepository
     {
         Task<User> findByUsername(string username);
+
+        Task<List<User>> findAllUser();
     }
 }

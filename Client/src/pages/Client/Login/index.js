@@ -65,7 +65,7 @@ export default function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const url = "http://localhost:8080/api/login";
+        const url = "http://localhost:7146/api/login";
 
         if (!validateForm()) return;
 

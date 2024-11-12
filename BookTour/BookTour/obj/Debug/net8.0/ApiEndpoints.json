@@ -1,6 +1,16 @@
 [
   {
     "ContainingType": "BookTour.Controllers.UserController",
+    "Method": "getList",
+    "RelativePath": "api/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.UserController",
     "Method": "Login",
     "RelativePath": "api/User/login",
     "HttpMethod": "POST",
@@ -9,7 +19,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "BookTour.Application.Dto.UserDTO",
+        "Type": "BookTour.Application.Dto.LoginRequestDTO",
         "IsRequired": true
       }
     ],

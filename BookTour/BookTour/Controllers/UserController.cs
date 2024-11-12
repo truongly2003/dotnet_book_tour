@@ -1,4 +1,4 @@
-﻿﻿using BookTour.Application.Dto;
+﻿using BookTour.Application.Dto;
 using BookTour.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -18,35 +18,46 @@ namespace BookTour.Controllers
             _userService = userService;  // Sửa cách gán tham chiếu service đúng
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserDTO request)
+        [HttpGet]
+        public async Task<IActionResult> getList()
         {
+            var a = await _userService.getListUser();
+            return Ok(a);
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
+        {
+            Console.WriteLine("ok");
             UserDTO result;
             try
             {
-                result = await _userService.Login(request);
+                result = await  _userService.Login(request);
             }
             catch (Exception ex)
             {
                 var errorResponse = new ApiResponse<UserDTO>
                 {
-                    code = 1001, 
-                    message = ex.Message,  
-                    result = null 
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
                 };
                 return BadRequest(errorResponse);
             }
 
             var response = new ApiResponse<UserDTO>
             {
-                code = 1000, 
-                message = "Login successful",  
-                result = result  
+                code = 1000,
+                message = "Login successful",
+                result = result
             };
 
-            // Trả về response dưới dạng OK (HTTP 200)
+            Console.WriteLine($"code: {response.code}, message: {response.message}, result: {response.result}");
+
+
             return Ok(response);
+        }
+
 
     }
-}
 }

@@ -1,16 +1,12 @@
-﻿﻿using BookTour.Application.Dto;
+﻿using BookTour.Application.Dto;
 using BookTour.Application.Interface;
 using BookTour.Domain.Entity;
 using BookTour.Domain.Exception;
 using BookTour.Domain.Interface;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
-using BCrypt.Net;
 
 namespace BookTour.Application.Service
 {
@@ -26,20 +22,31 @@ namespace BookTour.Application.Service
             _customerRepository = customerRepository;
         }
 
-        public async Task<UserDTO> Login(UserDTO request)
-        {
-            Console.WriteLine("Username: " + request.username);
 
-            var user = await _userRepository.findByUsername(request.username);
+
+        async Task<UserDTO> IUserService.Login(LoginRequestDTO request)
+        {
+            Console.WriteLine("Request username : " + request.Username);
+
+            User user = await _userRepository.findByUsername(request.Username);
+
+            Console.WriteLine("User: ", user);
+
             if (user == null)
                 throw new AppException(ErrorCode.USER_NOT_EXISTED);
 
-            bool authenticated = BCrypt.Net.BCrypt.Verify(request.password, user.Password);
+            bool authenticated = BCrypt.Net.BCrypt.Verify(request.Password, user.Password);
             if (!authenticated)
                 throw new AppException(ErrorCode.USER_OR_PASSWORD_WRONG);
 
+            if (user.Role == null)
+            {
+                throw new AppException(ErrorCode.UNAUTHENTICATED);
+            }
+
             int roleId = user.Role.RoleId;
             string roleName = user.Role.RoleName;
+            string email = user.Email;
             string userName;
             int userId = user.UserId;
 
@@ -58,55 +65,56 @@ namespace BookTour.Application.Service
             }
 
             // Generate token
-            var tokenInfo = await GenerateToken(user);
+            var tokenInfo = GenerateToken(user);
 
             // Create UserDTO with the correct token information
-            var userDTO = new UserDTO
+            UserDTO userDTO = new UserDTO
             {
                 id = userId,
                 roleId = roleId,
                 roleName = roleName,
                 username = userName,
-                token = tokenInfo.Token, // Assign only the token string
-                expiryTime = tokenInfo.ExpiryDate // Use the correct expiry date
+                token = tokenInfo.Token,
+                expiryTime = tokenInfo.ExpiryDate,
+                email = email
             };
+
+            Console.WriteLine("user response :", userDTO);
 
             return userDTO;
         }
 
-        public async Task<TokenInfo> GenerateToken(User user)
+
+        TokenInfo GenerateToken(User user)
         {
             var issueTime = DateTime.UtcNow;
-            var expiryTime = issueTime.AddHours(1);
+            var expiryTime = issueTime.AddHours(1);  // Token expires in 1 hour
 
-            // Tạo claims (thông tin bổ sung cho token)
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Username),
                 new Claim(JwtRegisteredClaimNames.Iss, "hoangtuan.com"),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("user_id", user.UserId.ToString())
+                new Claim("user_id", user.UserId.ToString()),
             };
 
-            // Tạo đối tượng SecurityKey
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signerKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
-            // Tạo token
             var token = new JwtSecurityToken(
                 issuer: "hoangtuan.com",
-                audience: "hoangtuan.com", // Có thể tùy chỉnh audience
+                audience: "hoangtuan.com",
                 claims: claims,
                 expires: expiryTime,
                 signingCredentials: creds
             );
 
-            // Serialize token thành string
             var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
 
-            // Trả về token và thời gian hết hạn
             return new TokenInfo(tokenString, expiryTime);
         }
+
+
 
         public Task<Page<User>> GetAllUserAsync(int page, int size)
         {
@@ -117,5 +125,17 @@ namespace BookTour.Application.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<User>> getListUser()
+        {
+            return _userRepository.findAllUser();
+        }
+
+        TokenInfo IUserService.GenerateToken(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
