@@ -24,9 +24,10 @@ namespace BookStore.Infrastructure.Configuration
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
         }
 
+
         public static void RegisterDI(this IServiceCollection services)
         {
-            // 1
+            // 1 repository
             services.AddScoped<IRouteRepository, RouteRepository>();
             services.AddScoped<IDepartureRepository, DepartureRepository>();
             services.AddScoped<IArrivalRepository, ArrivalRepository>();
@@ -36,7 +37,7 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-            // 2
+            // 2 service
             services.AddScoped<IRouteService, RouteService>();
             services.AddScoped<IDepartureService, DepartureService>();
             services.AddScoped<IArrivalService, ArrivalService>();
@@ -44,6 +45,8 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<ILegService, LegService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
+
+
         }
         public static void ConfigApi(this IServiceCollection services)
         {
