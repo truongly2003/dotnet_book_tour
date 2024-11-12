@@ -27,14 +27,14 @@ namespace BookStore.Infrastructure.Configuration
 
         public static void RegisterDI(this IServiceCollection services)
         {
-            // 1
+            // 1 repository
             services.AddScoped<IRouteRepository, RouteRepository>();
             services.AddScoped<IDepartureRepository, DepartureRepository>();
             services.AddScoped<IArrivalRepository, ArrivalRepository>();
             services.AddScoped<IDetailRouteRepository, DetailRouteRepository>();
             services.AddScoped<ILegRepository, LegRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
-            // 2
+            // 2 service
             services.AddScoped<IRouteService, RouteService>();
             services.AddScoped<IDepartureService, DepartureService>();
             services.AddScoped<IArrivalService, ArrivalService>();
