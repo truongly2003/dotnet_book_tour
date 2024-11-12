@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookTour.Application.Interface
 {
-    public class IDetailRouteService
+    public interface IDetailRouteService
     {
     }
 }

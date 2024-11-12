@@ -19,7 +19,6 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.AssemblyInfoInputs.cache
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.AssemblyInfo.cs
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.csproj.CoreCompileInputs.cache
-C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.sourcelink.json
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\refint\BookTour.Domain.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Domain\obj\Debug\net8.0\BookTour.Domain.pdb

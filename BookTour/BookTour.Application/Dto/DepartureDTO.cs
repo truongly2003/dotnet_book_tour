@@ -8,7 +8,7 @@ namespace BookTour.Application.Dto
 {
     public class DepartureDTO
     {
-        public int id { get; set; }
-        public string departureName { get; set; }
+        public int Id { get; set; }
+        public string DepartureName { get; set; }
     }
 }

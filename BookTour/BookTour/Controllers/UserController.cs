@@ -1,4 +1,4 @@
-﻿using BookTour.Application.Dto;
+﻿﻿using BookTour.Application.Dto;
 using BookTour.Application.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -46,6 +46,7 @@ namespace BookTour.Controllers
 
             // Trả về response dưới dạng OK (HTTP 200)
             return Ok(response);
-        }
+
     }
+}
 }

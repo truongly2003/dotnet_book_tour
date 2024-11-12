@@ -6,7 +6,7 @@ using System;
 
 namespace BookStore.DataAccess.Repository
 {
-   public class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly BookTourDbContext _context;
 
@@ -17,10 +17,12 @@ namespace BookStore.DataAccess.Repository
 
         public async Task<User> findByUsername(string username)
         {
-          return await _context.Users
-                .Where(u => u.Username == username)
-                .FirstOrDefaultAsync();
+            return await _context.Users
+                  .Where(u => u.Username == username)
+                  .FirstOrDefaultAsync();
         }
 
+
     }
+
 }

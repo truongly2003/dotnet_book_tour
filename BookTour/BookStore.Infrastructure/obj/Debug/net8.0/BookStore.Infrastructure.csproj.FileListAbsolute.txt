@@ -35,7 +35,6 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\De
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.AssemblyInfo.cs
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.sourcelink.json
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStor.0723F12B.Up2Date
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\refint\BookStore.Infrastructure.dll

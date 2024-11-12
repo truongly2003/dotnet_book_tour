@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "ContainingType": "BookTour.Controllers.UserController",
@@ -37,3 +38,6 @@
     "EndpointName": "GetWeatherForecast"
   }
 ]
+=======
+[]
+>>>>>>> 0f09373bbdf2c969964e6f7d9fd925b76a62a292
