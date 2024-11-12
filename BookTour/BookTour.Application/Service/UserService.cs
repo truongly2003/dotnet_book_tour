@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿using BookTour.Application.Dto;
+﻿﻿using BookTour.Application.Dto;
 using BookTour.Application.Interface;
 using BookTour.Domain.Entity;
 using BookTour.Domain.Exception;
@@ -118,18 +117,5 @@ namespace BookTour.Application.Service
         {
             throw new NotImplementedException();
         }
-=======
-﻿using BookTour.Application.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookTour.Application.Service
-{
-    public class UserService: IUserService
-    {
->>>>>>> 0f09373bbdf2c969964e6f7d9fd925b76a62a292
     }
 }

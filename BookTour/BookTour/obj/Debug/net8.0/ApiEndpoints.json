@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
   {
     "ContainingType": "BookTour.Controllers.UserController",
@@ -15,29 +14,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookTour.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BookTour.WeatherForecast, BookTour, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]
-=======
-[]
->>>>>>> 0f09373bbdf2c969964e6f7d9fd925b76a62a292
