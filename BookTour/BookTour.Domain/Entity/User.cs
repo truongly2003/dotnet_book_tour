@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookTour.Domain.Entity;
 
 public partial class User
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("user_id")]
     public int UserId { get; set; }
 
@@ -15,12 +18,10 @@ public partial class User
     [Column("password")]
     public string Password { get; set; } = null!;
 
-    [Column("identity_id")]
-    public string? IdentityId { get; set; }
     [Column("role_id")]
     public int RoleId { get; set; }
     [Column("email")]
-    public string Email { get; set; } = null!;
+    public string? Email { get; set; } = null!;
     [Column("status")]
     public int Status { get; set; }
 

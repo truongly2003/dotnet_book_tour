@@ -14,6 +14,13 @@ namespace BookStore.DataAccess.Repository
             _context = context;
         }
 
+        public async Task<bool> existsByUsernameAsync(string username)
+        {
+            return await _context.Users.AnyAsync(u => u.Username == username);
+        }
+
+       
+
         public async Task<List<User>> findAllUser()
         {
             return await _context.Users.ToListAsync();
@@ -38,7 +45,12 @@ namespace BookStore.DataAccess.Repository
             return user;  // Trả về user, có thể là null nếu không tìm thấy
         }
 
-
+        public async Task<User> saveUser(User user)
+        {
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
+            return user;
+        }
     }
 
 }

@@ -44,3 +44,19 @@ export const getAllRole = async () => {
     return response.data;
   } catch (error) {}
 };
+
+export const loginAuthentication = async (username, password) => {
+  try {
+    const response = await httpRequest.post("/User/login", {
+      username,
+      password,
+    });
+    if (response.data.code !== 1000) {
+      throw new Error(response.data.message);
+    }
+    return response.data.result;
+  } catch (error) {
+    console.error("Error during login:", error);
+    throw error;
+  }
+};

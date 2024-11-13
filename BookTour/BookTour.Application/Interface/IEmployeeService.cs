@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookTour.Domain.Interface
+namespace BookTour.Application.Interface
 {
-    public interface IRoleRepository
+    public interface IEmployeeService
     {
-        Task<Role> findById(int id);
+        Task<string> generateEmployeeIdBy();
     }
 }

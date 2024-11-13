@@ -12,7 +12,7 @@ namespace BookTour.Application.Interface
     {
         Task<Page<User>> GetAllUserAsync(int page, int size);
 
-        Task<User> AddUser();
+        Task<User> AddUser(UserCreateRequest request);
 
         Task<UserDTO> Login(LoginRequestDTO request);
 

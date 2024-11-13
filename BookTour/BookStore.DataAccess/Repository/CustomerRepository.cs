@@ -35,6 +35,34 @@ namespace BookStore.DataAccess.Repository
             return customer;
         }
 
+        public async Task<Customer> saveCustomer(Customer customer)
+        {
+
+            Console.WriteLine($"Saving customer: {customer.CustomerId}, {customer.CustomerName}");
+            try
+            {
+                await _context.Customers.AddAsync(customer);
+                await _context.SaveChangesAsync();
+                return customer;
+            }
+            catch (DbUpdateException ex)
+            {
+                // Ghi log chi tiết lỗi
+                Console.WriteLine($"Database update error: {ex.Message}");
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner exception: {ex.InnerException.Message}");
+                }
+                throw; // Ném lại lỗi để xử lý ở nơi khác nếu cần thiết
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi chung
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                throw;
+            }
+        }
+
 
 
 
