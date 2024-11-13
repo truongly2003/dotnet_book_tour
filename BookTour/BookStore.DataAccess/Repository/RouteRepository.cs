@@ -16,13 +16,7 @@ namespace BookStore.DataAccess.Repository
         {
             _dbContext = dbContext;
         }
-
-        public async Task<List<Route>> getAllRouteAsync()
-        {
-            return await _dbContext.Routes.ToListAsync();
-        }
-
-        public async Task<List<Detailroute>> GetAllRouteAsyncTest()
+        public async Task<List<Detailroute>> GetAllRouteAsync()
         {
             var query = await _dbContext.Detailroutes
                  .Join(_dbContext.Images, detail => detail.DetailRouteId, img => img.DetailRouteId, (detail, img) => new { detail, img })
@@ -37,7 +31,6 @@ namespace BookStore.DataAccess.Repository
                      TimeToDeparture = x.detail.TimeToDeparture,
                      TimeToFinish = x.detail.TimeToFinish,
                      Price = x.detail.Price,
-                     // lấy ảnh
                      Images = _dbContext.Images
                     .Where(img => img.DetailRouteId == x.detail.DetailRouteId && img.IsPrimary == 1)
                     .Select(img => new BookTour.Domain.Entity.Image

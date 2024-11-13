@@ -10,6 +10,11 @@ namespace BookStore.DataAccess.Repository
 {
     public class ImageRepository : IImageRepository
     {
+        private readonly BookTourDbContext _dbContext;
+        public ImageRepository(BookTourDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Task<List<Image>> GetImageByDetailRouteIdAsync(int detailRouteId)
         {
             throw new NotImplementedException();

@@ -10,6 +10,11 @@ namespace BookStore.DataAccess.Repository
 {
     public class LegRepository : ILegRepository
     {
+        private readonly BookTourDbContext _dbContext;
+        public LegRepository(BookTourDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public Task<List<Leg>> GetAllLegByDetailRouteIdAsync(int detailRouteId)
         {
             throw new NotImplementedException();

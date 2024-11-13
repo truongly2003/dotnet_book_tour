@@ -1,8 +1,18 @@
 [
   {
-    "ContainingType": "BookTour.Controllers.RouteController",
-    "Method": "Test",
-    "RelativePath": "api/Route/test",
+    "ContainingType": "BookTour.Controllers.ArrivalController",
+    "Method": "GetAllArrival",
+    "RelativePath": "api/Arrival",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.DepartureController",
+    "Method": "getAllDeparture",
+    "RelativePath": "api/Departure",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -11,8 +21,8 @@
   },
   {
     "ContainingType": "BookTour.Controllers.RouteController",
-    "Method": "getAllTestPage",
-    "RelativePath": "api/Route/testpage",
+    "Method": "getAllRoute",
+    "RelativePath": "api/Route",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

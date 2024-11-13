@@ -26,12 +26,12 @@ namespace BookTour.Controllers
 
         //    return Ok(arrival);
         //}
-        //[HttpGet("departure")]
-        //public async Task<IActionResult> getAllDeparture()
-        //{
-        //    var arrival = await _routeService.getAllDeparture();
+        [HttpGet()]
+        public async Task<IActionResult> getAllDeparture()
+        {
+            var arrival = await _departureService.getAllDepartureAsync();
 
-        //    return Ok(arrival);
-        //}
+            return Ok(arrival);
+        }
     }
 }

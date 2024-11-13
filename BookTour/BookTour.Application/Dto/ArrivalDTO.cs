@@ -10,8 +10,7 @@ namespace BookTour.Application.Dto
     {
         public int Id { get; set; }
         public string ArrivalName { get; set; }
-        public string TextImage { get; set; }
-
+     
         public int CountRoute { get; set; }
     }
 }

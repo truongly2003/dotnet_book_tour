@@ -18,30 +18,10 @@ namespace BookTour.Application.Service
         {
             _routeRepository = routeRepository;
         }
-
+        // get all tour
         public async Task<Page<RouteDTO>> GetAllRouteAsync(int page, int size, string sort)
         {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Page<RouteDTO>> GetAllRouteByArrival(string arrivalName, int page, int size, string sort)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Page<RouteDTO>> GetAllRouteByArrivalAndDepartureAndDateAsync(string arrivalName, string departureName, DateOnly timeToDeparture, int page, int size, string sort)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<RouteDTO> GetDetailRouteByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Page<RouteDTO>> getAllRouteAsyncTestPage(int page, int size, string sort)
-        {
-            var data = await _routeRepository.GetAllRouteAsyncTest();
+            var data = await _routeRepository.GetAllRouteAsync();
             if (sort == "asc")
             {
                 data = data.OrderBy(d => d.Price).ToList();
@@ -78,9 +58,22 @@ namespace BookTour.Application.Service
             return result;
         }
 
-        public Task<List<Route>> getAllRoute()
+        public async Task<Page<RouteDTO>> GetAllRouteByArrival(string arrivalName, int page, int size, string sort)
         {
-            return _routeRepository.getAllRouteAsync();
+            throw new NotImplementedException();
         }
+
+        public async Task<Page<RouteDTO>> GetAllRouteByArrivalAndDepartureAndDateAsync(string arrivalName, string departureName, DateOnly timeToDeparture, int page, int size, string sort)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<RouteDTO> GetDetailRouteByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
     }
 }

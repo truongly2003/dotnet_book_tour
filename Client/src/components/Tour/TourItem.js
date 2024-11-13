@@ -8,10 +8,12 @@ function TourItem({ routes }) {
     <div className="row">
       {routes.map((route, index) => (
         <div key={index} className=" mb-4">
-          <div className="card" style={{
-            width: '100%',
-           
-          }}>
+          <div
+            className="card"
+            style={{
+              width: "100%",
+            }}
+          >
             <div className="row">
               <div className="col-md-4">
                 <div className="position-relative">

@@ -11,13 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // register db
 builder.Services.RegisterDB(builder.Configuration);
-// register api
-builder.Services.ConfigApi();
-// register DI
 builder.Services.RegisterDI();
-
+builder.Services.ConfigApi();
 var app = builder.Build();
-
+app.UseCors("AllowSpecificOrigin");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

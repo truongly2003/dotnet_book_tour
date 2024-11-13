@@ -16,8 +16,5 @@ namespace BookTour.Application.Interface
         Task<Page<RouteDTO>> GetAllRouteByArrival(string arrivalName,int page,int size, string sort);
 
 
-        Task<Page<RouteDTO>> getAllRouteAsyncTestPage(int page, int size, string sort);
-
-        Task<List<Route>> getAllRoute();
     }
 }
