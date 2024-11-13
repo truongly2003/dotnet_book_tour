@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookTour.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ebda07059b8ec856a123bd83ec09716fb977c6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+71155ae573a15cce6b41f6b429d2449d371767e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookTour.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookTour.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

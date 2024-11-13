@@ -319,4 +319,3 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\refin
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.pdb
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.genruntimeconfig.cache
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\ref\BookTour.dll
-

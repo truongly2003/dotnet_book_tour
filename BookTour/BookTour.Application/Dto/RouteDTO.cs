@@ -18,7 +18,7 @@ namespace BookTour.Application.Dto
         public int ImageId { get; set; }
         public string TextImage { get; set; }
         public double Price { get; set; }
-        public double Rating { get; set; }
+        public float Rating { get; set; }
         public int ArrivalId { get; set; }
         public string ArrivalName { get; set; }
 

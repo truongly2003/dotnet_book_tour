@@ -10,5 +10,6 @@ namespace BookTour.Domain.Interface
     public interface IRouteRepository
     {
         Task<List<Detailroute>> GetAllRouteAsync();
+        Task<List<Detailroute>> GetAllRouteByArrivalNameAsync(string ArrivalName);
     }
 }

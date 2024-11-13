@@ -15,14 +15,14 @@ namespace BookTour.Controllers
         [HttpGet]
         public async Task<IActionResult> getAllRoute(int page, int size, string sort)
         {
-            var arrival = await _routeService.GetAllRouteAsync(page, size, sort);
-            return Ok(arrival);
+            var route = await _routeService.GetAllRouteAsync(page, size, sort);
+            return Ok(route);
         }
-        //[HttpGet("test")]
-        //public async Task<IActionResult> Test()
-        //{
-        //    var a = await _routeService.getAllRoute();
-        //  return Ok(a);
-        //}
+        [HttpGet("search/arrivalName")]
+        public async Task<IActionResult> getAllRouteByArrivalName(string ArrivalName,int page, int size, string sort)
+        {
+            var route = await _routeService.GetAllRouteByArrivalName(ArrivalName, page, size, sort);
+            return Ok(route);
+        }
     }
 }

@@ -29,9 +29,9 @@ namespace BookTour.Controllers
         [HttpGet()]
         public async Task<IActionResult> getAllDeparture()
         {
-            var arrival = await _departureService.getAllDepartureAsync();
+            var departure = await _departureService.getAllDepartureAsync();
 
-            return Ok(arrival);
+            return Ok(departure);
         }
     }
 }

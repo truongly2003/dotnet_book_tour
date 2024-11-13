@@ -46,6 +46,37 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookTour.Controllers.RouteController",
+    "Method": "getAllRouteByArrivalName",
+    "RelativePath": "api/Route/search/arrivalName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ArrivalName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.UserController",
     "Method": "getList",
     "RelativePath": "api/User",
