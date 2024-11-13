@@ -12,10 +12,12 @@ namespace BookTour.Application.Interface
     {
         Task<Page<User>> GetAllUserAsync(int page, int size);
 
-        Task<User> AddUser();
+        Task<User> AddUser(UserCreateRequest request);
 
-        Task<UserDTO> Login(UserDTO request);
+        Task<UserDTO> Login(LoginRequestDTO request);
 
-        Task<TokenInfo> GenerateToken(User user);  // Sửa thành TokenInfo
+        TokenInfo GenerateToken(User user); 
+
+        Task<List<User>> getListUser();
     }
 }

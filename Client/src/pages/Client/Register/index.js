@@ -69,7 +69,7 @@ export default function Register() {
         event.preventDefault();
         if (!validateForm()) return;
 
-        fetch("http://localhost:8080/api/user/register", {
+        fetch("https://localhost:7146/api/User/createUser", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

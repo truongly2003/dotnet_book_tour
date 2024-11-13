@@ -1,5 +1,6 @@
-﻿﻿using BookTour.Application.Dto;
+﻿using BookTour.Application.Dto;
 using BookTour.Application.Interface;
+using BookTour.Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -18,35 +19,76 @@ namespace BookTour.Controllers
             _userService = userService;  // Sửa cách gán tham chiếu service đúng
         }
 
+        [HttpGet]
+        public async Task<IActionResult> getList()
+        {
+            var a = await _userService.getListUser();
+            return Ok(a);
+        }
+
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] UserDTO request)
+        public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
         {
             UserDTO result;
             try
             {
-                result = await _userService.Login(request);
+                result = await  _userService.Login(request);
             }
             catch (Exception ex)
             {
                 var errorResponse = new ApiResponse<UserDTO>
                 {
-                    code = 1001, 
-                    message = ex.Message,  
-                    result = null 
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
                 };
                 return BadRequest(errorResponse);
             }
 
             var response = new ApiResponse<UserDTO>
             {
-                code = 1000, 
-                message = "Login successful",  
-                result = result  
+                code = 1000,
+                message = "Login successful",
+                result = result
             };
 
-            // Trả về response dưới dạng OK (HTTP 200)
+            Console.WriteLine($"code: {response.code}, message: {response.message}, result: {response.result}");
+
+
             return Ok(response);
+        }
+
+
+        [HttpPost("createUser")]
+        public async Task<IActionResult> createUser([FromBody] UserCreateRequest request)
+        {
+            Console.WriteLine("create user");
+            User result;
+            try
+            {
+                Console.WriteLine("test");
+
+                result = await _userService.AddUser(request);
+            }catch(Exception ex)
+            {
+                var errorResponse = new ApiResponse<UserDTO>
+                {
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
+                };
+                return BadRequest(errorResponse);
+            }
+
+            var response = new ApiResponse<User>
+            {
+                code = 1000,
+                message = "User Create Successful",
+                result = result
+            };
+
+            return Ok(response);
+        }
 
     }
-}
 }

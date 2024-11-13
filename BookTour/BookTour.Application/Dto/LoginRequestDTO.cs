@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace BookTour.Application.Dto
 {
-    public class ApiResponse<T>
+    public class LoginRequestDTO
     {
-        public int code { get; set; }
-        public string message { get; set; }
-        public T result { get; set; }
-
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }

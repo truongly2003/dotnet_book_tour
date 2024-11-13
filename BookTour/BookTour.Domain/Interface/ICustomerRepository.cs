@@ -10,5 +10,6 @@ namespace BookTour.Domain.Interface
     public interface ICustomerRepository
     {
         Task<Customer> FindByCustomerIdAsync(int customerId);
+        Task<Customer> saveCustomer(Customer customer);
     }
 }

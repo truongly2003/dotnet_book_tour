@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace BookTour.Domain.Interface
 {
-    public interface IRoleRepository
+    public interface IEmployeeRepository
     {
-        Task<Role> findById(int id);
+        Task<Employee> saveEmployee(Employee employee);
+        Task<int> CountAsync();
     }
 }
