@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { getAllArrival } from "../../../services/arrivalService";
 
 import styles from "./Tour.module.css";
-function SearchSideBar({ selectArrivalName }) {
+function SearchSideBar({ selectArrivalName,isReset}) {
   const [arrival, setArrival] = useState([]);
   const [selectedArrivalIndex, setSelectedArrivalIndex] = useState(null);
-
+  
   useEffect(() => {
     const fet = async () => {
       try {
@@ -16,12 +16,17 @@ function SearchSideBar({ selectArrivalName }) {
       }
     };
     fet();
-  }, []);
+  },[]);
+  useEffect(() => {
+    if (isReset) {
+      setSelectedArrivalIndex(null);
+    }
+  }, [isReset]);
   const handleItemClick = (arrivalName, index) => {
     selectArrivalName(arrivalName);
     setSelectedArrivalIndex(index);
   };
- 
+
   return (
     <div>
       <div className={`${styles.filte} card mt-2`}>

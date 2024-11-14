@@ -12,7 +12,7 @@ namespace BookTour.Application.Interface
     {
         Task<Page<RouteDTO>> GetAllRouteAsync(int page, int size, string sort);
         Task<RouteDTO> GetDetailRouteByIdAsync(int id);
-        Task<Page<RouteDTO>> GetAllRouteByArrivalAndDepartureAndDateAsync(string arrivalName,string departureName,DateOnly timeToDeparture,int page, int size, string sort);
+        Task<Page<RouteDTO>> GetAllRouteByArrivalAndDepartureAndDateAsync(string ArrivalName,string DepartureName,DateOnly TimeToDeparture,int page, int size, string sort);
         Task<Page<RouteDTO>> GetAllRouteByArrivalName(string ArrivalName,int page,int size, string sort);
     }
 }
