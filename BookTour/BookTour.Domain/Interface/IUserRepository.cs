@@ -13,7 +13,7 @@ namespace BookTour.Domain.Interface
         Task<User> findByUsername(string username);
         Task<bool> existsByUsernameAsync(string username);
 
-        Task<List<User>> findAllUser();
+        Task<List<User>> FindAllByStatusAsync(int status);
         Task<User> saveUser(User user);
     }
 }

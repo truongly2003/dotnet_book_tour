@@ -1,8 +1,8 @@
-﻿using BookTour.Domain.Entity;
+﻿using Azure;
+using BookTour.Domain.Entity;
 using BookTour.Domain.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
-
 namespace BookStore.DataAccess.Repository
 {
     public class UserRepository : IUserRepository
@@ -19,13 +19,17 @@ namespace BookStore.DataAccess.Repository
             return await _context.Users.AnyAsync(u => u.Username == username);
         }
 
-       
-
-        public async Task<List<User>> findAllUser()
+        public async Task<List<User>> FindAllByStatusAsync(int status)
         {
-            return await _context.Users.ToListAsync();
-        }
+            var query = await _context.Users
+                .Include(u => u.Role) // Bao gồm thông tin từ bảng Role
+                .Where(u => u.Status == status)
+                .ToListAsync();
 
+            Console.WriteLine("query: " + query);
+
+            return query;
+        }
 
         public async Task<User> findByUsername(string username)
         {
@@ -34,8 +38,6 @@ namespace BookStore.DataAccess.Repository
           .Include(u => u.Role)
           .Where(u => u.Username.ToLower() == username.ToLower())
           .FirstOrDefaultAsync();
-
-
 
             if (user == null)
             {

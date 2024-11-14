@@ -25,7 +25,7 @@ export const getTour = async () => {
 };
 export const getListUser = async (page, size) => {
   try {
-    const response = await httpRequest.get(`/user?page=${page}&size=${size}`);
+    const response = await httpRequest.get(`/User?page=${page}&size=${size}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching user");
@@ -34,10 +34,11 @@ export const getListUser = async (page, size) => {
 };
 export const getUserByAllSearch = async (username) => {
   try {
-    const response = await httpRequest.get(`/user/search?username=${username}`);
+    const response = await httpRequest.get(`/User/search?username=${username}`);
     return response.data;
   } catch (error) {}
 };
+
 export const getAllRole = async () => {
   try {
     const response = await httpRequest.get(`/role`);

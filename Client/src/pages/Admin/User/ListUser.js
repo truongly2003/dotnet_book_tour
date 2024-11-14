@@ -39,7 +39,6 @@ function ListUser() {
   const [notificationMessage, setNotificationMessage] = useState("");
   const [roles, setRoles] = useState([]);
 
-  // Debounced search state
   const [debouncedSearchUser, setDebouncedSearchUser] = useState(searchUser);
 
   useEffect(() => {
@@ -89,6 +88,7 @@ function ListUser() {
   
     fetchUsers();
     fetchRoles();
+
   }, [currentPage, debouncedSearchUser]);
     
 
@@ -121,7 +121,7 @@ function ListUser() {
 
   const handleAddUserSave = async (newUser) => {
     try {
-      const response = await axios.post("http://localhost:8080/api/user", newUser);
+      const response = await axios.post("http://localhost:7146/api/User/createUser", newUser);
       setUsers((prevUsers) => [...prevUsers, response.data]);
       setNotificationMessage(`User ${newUser.username} added successfully.`);
       setNotificationOpen(true);

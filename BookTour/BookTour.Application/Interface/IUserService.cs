@@ -10,11 +10,11 @@ namespace BookTour.Application.Interface
 {
     public interface IUserService
     {
-        Task<Page<User>> GetAllUserAsync(int page, int size);
+        Task<Page<UserDTO>> GetAllUserAsync(int page, int size);
 
         Task<User> AddUser(UserCreateRequest request);
 
-        Task<UserDTO> Login(LoginRequestDTO request);
+        Task<LoginDTO> Login(LoginRequestDTO request);
 
         TokenInfo GenerateToken(User user); 
 

@@ -1,5 +1,6 @@
 ﻿using BookTour.Application.Dto;
 using BookTour.Application.Interface;
+using BookTour.Application.Service;
 using BookTour.Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -10,7 +11,6 @@ namespace BookTour.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // Đảm bảo dùng Dependency Injection cho IUserService
         private readonly IUserService _userService;
 
         // Constructor để Inject IUserService vào controller
@@ -19,24 +19,26 @@ namespace BookTour.Controllers
             _userService = userService;  // Sửa cách gán tham chiếu service đúng
         }
 
+
+        //
         [HttpGet]
-        public async Task<IActionResult> getList()
+        public async Task<IActionResult> getALlUser(int page, int size)
         {
-            var a = await _userService.getListUser();
-            return Ok(a);
+            var users = await _userService.GetAllUserAsync(page, size);
+            return Ok(users);
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
         {
-            UserDTO result;
+            LoginDTO result;
             try
             {
-                result = await  _userService.Login(request);
+                result = await _userService.Login(request);
             }
             catch (Exception ex)
             {
-                var errorResponse = new ApiResponse<UserDTO>
+                var errorResponse = new ApiResponse<LoginDTO>
                 {
                     code = 1001,
                     message = ex.Message,
@@ -45,7 +47,7 @@ namespace BookTour.Controllers
                 return BadRequest(errorResponse);
             }
 
-            var response = new ApiResponse<UserDTO>
+            var response = new ApiResponse<LoginDTO>
             {
                 code = 1000,
                 message = "Login successful",
@@ -57,6 +59,7 @@ namespace BookTour.Controllers
 
             return Ok(response);
         }
+
 
 
         [HttpPost("createUser")]
