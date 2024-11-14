@@ -15,11 +15,11 @@ namespace BookTour.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> getAllRole()
-        {
-            var users = await _userService.getAllRole();
-            return Ok(users);
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> getAllRole()
+        //{
+        //    var users = await _userService.getAllRole();
+        //    return Ok(users);
+        //}
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BookTour.Domain.Entity;
 using BookTour.Domain.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,17 @@ namespace BookStore.DataAccess.Repository
 {
     public class ArrivalRepository : IArrivalRepository
     {
-        public Task<List<Arrival>> getAllArrivalAsync()
+        private readonly BookTourDbContext _dbContext;
+        public ArrivalRepository(BookTourDbContext dbContext)
         {
-            throw new NotImplementedException();
+            _dbContext = dbContext;
+        }
+        public async Task<List<Arrival>> getAllArrivalAsync()
+        {
+            var query = _dbContext.Arrivals
+              .Include(arrival => arrival.Routes)
+                .ThenInclude(route => route.Detailroutes);  
+            return await query.ToListAsync();
         }
     }
 }

@@ -1,9 +1,9 @@
 import httpRequest from "../utils/httpRequest";
 export const getAllRoutes = async (page, size,sort) => {
   try {
-    // const response = await httpRequest.get(`/route?page=${page}&size=${size}&sort=${sort}`);
-    const response = await httpRequest.get(`/Route?page=${page}&size=${size}&sort=${sort}`);
+    const response = await httpRequest.get(`/Route/?page=${page}&size=${size}&sort=${sort}`);
     return response.data;
+    
   } catch (error) {
     console.error("Error fetching user");
     throw error;

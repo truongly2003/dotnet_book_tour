@@ -158,6 +158,8 @@ E:\_Net\Tour\BookTour\BookTour\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Worksp
 E:\_Net\Tour\BookTour\BookTour\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\_Net\Tour\BookTour\BookTour\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\_Net\Tour\BookTour\BookTour\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\_Net\Tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+E:\_Net\Tour\BookTour\BookTour\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.Design.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\appsettings.json
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\BookTour.exe
@@ -317,3 +319,5 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\refin
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.pdb
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.genruntimeconfig.cache
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\ref\BookTour.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.Design.dll

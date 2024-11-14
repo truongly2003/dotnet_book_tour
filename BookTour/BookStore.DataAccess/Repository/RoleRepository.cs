@@ -23,10 +23,10 @@ namespace BookStore.DataAccess.Repository
             return await _context.Roles.FirstOrDefaultAsync(r => r.RoleId == id);
         }
 
-        public async Task<Role> getAllRoleAsync()
-        {
-            return await _context.Roles.ToListAsync();
-        }
+        //public async Task<Role> getAllRoleAsync()
+        //{
+        //    return await _context.Roles.ToListAsync();
+        //}
     }
 
 }

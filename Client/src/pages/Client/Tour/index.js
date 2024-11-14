@@ -25,7 +25,6 @@ function Tour() {
   const [selectArrivalName, setSelectArrivalName] = useState("");
   const [selectedSortOption, setSelectedSortOption] = useState("Mặc Định");
   const [selectedSortTitle, setSelectedSortTitle] = useState("Mặc Định");
-  // lấy ra danh sách route
   useEffect(() => {
     const fetchRoute = async () => {
       try {
@@ -52,20 +51,19 @@ function Tour() {
             selectedSortOption
           );
         } else {
-          // data = await getAllRoutes(currentPage, pageSize, selectedSortOption);
-          data = await getAllRoutes(currentPage, pageSize,selectedSortOption);
+          data = await getAllRoutes(currentPage, pageSize, selectedSortOption);
         }
-        
+
         setRoutes(data.data);
         setTotalPages(data.totalPages);
-        setTotalElements(data.totalElements);
+        setTotalElements(data.totalElement);
       } catch (error) {
         console.error("Error fetching routes", error);
       }
     };
     fetchRoute();
   }, [currentPage, searchParams, selectArrivalName, selectedSortOption]);
- 
+
   //  lọc chỉ the tên bên side bar
   const handleArrivalSelect = (arrival) => {
     setSelectArrivalName(arrival);
@@ -82,7 +80,6 @@ function Tour() {
     setSelectedSortOption(option.value);
     setSelectedSortTitle(option.title);
     setCurrentPage(1);
-    // Trigger sorting logic based on `option.value` if needed
   };
   return (
     <div className="container">

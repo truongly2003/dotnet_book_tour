@@ -6,7 +6,6 @@ function SearchSideBar({ selectArrivalName }) {
   const [arrival, setArrival] = useState([]);
   const [selectedArrivalIndex, setSelectedArrivalIndex] = useState(null);
 
-
   useEffect(() => {
     const fet = async () => {
       try {
@@ -22,11 +21,9 @@ function SearchSideBar({ selectArrivalName }) {
     selectArrivalName(arrivalName);
     setSelectedArrivalIndex(index);
   };
-  console.log(arrival);
+ 
   return (
     <div>
-    
-      {/* list tour */}
       <div className={`${styles.filte} card mt-2`}>
         <div className="card-header bg-light fw-bold fs-5">Danh Sách Tour</div>
         <div className="card-body">

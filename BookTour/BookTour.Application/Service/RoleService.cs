@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookTour.Application.Service
 {
-    public class RoleService :IRoleService
+    public class RoleService
     {
     }
 }

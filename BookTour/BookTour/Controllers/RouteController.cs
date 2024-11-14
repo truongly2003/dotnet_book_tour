@@ -12,17 +12,17 @@ namespace BookTour.Controllers
         {
             _routeService = routeService;
         }
-        [HttpGet("testpage")]
-        public async Task<IActionResult> getAllTestPage(int page, int size, string sort="asc")
+        [HttpGet]
+        public async Task<IActionResult> getAllRoute(int page, int size, string sort)
         {
-            var arrival = await _routeService.getAllRouteAsyncTestPage(page, size, sort);
-            return Ok(arrival);
+            var route = await _routeService.GetAllRouteAsync(page, size, sort);
+            return Ok(route);
         }
-        [HttpGet("test")]
-        public async Task<IActionResult> Test()
+        [HttpGet("search/arrivalName")]
+        public async Task<IActionResult> getAllRouteByArrivalName(string ArrivalName,int page, int size, string sort)
         {
-            var a = await _routeService.getAllRoute();
-          return Ok(a);
+            var route = await _routeService.GetAllRouteByArrivalName(ArrivalName, page, size, sort);
+            return Ok(route);
         }
     }
 }
