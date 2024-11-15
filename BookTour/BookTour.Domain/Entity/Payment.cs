@@ -10,7 +10,7 @@ public partial class Payment
     [Column("payment_id")]
     public int PaymentId { get; set; }
 
-    [Column("payment_id")]
+    [Column("payment_name")]
     public string? PaymentName { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();

@@ -53,7 +53,8 @@ function Book() {
             <div className="card-body d-flex align-items-center justify-content-between">
               <div>
                 <h5 className="tour-title mb-2">{booking.name}</h5>
-                <div className="tour-info text-muted">
+                <span className="mb-2">Ngày đặt : 2024</span>
+                <div className="tour-info text-muted mt-2">
                   <div className="d-flex align-items-center mb-2">
                     <i className="far fa-calendar-alt mr-2"></i>
                     <span>

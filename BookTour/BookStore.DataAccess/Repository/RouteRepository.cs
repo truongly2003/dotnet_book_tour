@@ -22,19 +22,6 @@ namespace BookStore.DataAccess.Repository
             var query = await _dbContext.Detailroutes
                 .Include(detail => detail.Images)
                 .Include(detail => detail.Feedbacks)
-                .Select(detail => new Detailroute
-                {
-                    DetailRouteId = detail.DetailRouteId,
-                    RouteId = detail.RouteId,
-                    Price = detail.Price,
-                    DetailRouteName = detail.DetailRouteName,
-                    Description = detail.Description,
-                    TimeToDeparture = detail.TimeToDeparture,
-                    TimeToFinish = detail.TimeToFinish,
-                    Stock = detail.Stock,
-                    Images = detail.Images.Where(img => img.IsPrimary == 1).ToList(),
-                    Feedbacks = detail.Feedbacks.ToList(),
-                })
                 .ToListAsync();
             return query;
         }
@@ -49,45 +36,19 @@ namespace BookStore.DataAccess.Repository
                             detail.Route.Departure.DepartureName == DepartureName &&
                             detail.TimeToDeparture >= TimeToDeparture && detail.TimeToDeparture >= curendate
             )
-            .Select(detail => new Detailroute
-            {
-                DetailRouteId = detail.DetailRouteId,
-                RouteId = detail.RouteId,
-                Price = detail.Price,
-                DetailRouteName = detail.DetailRouteName,
-                Description = detail.Description,
-                TimeToDeparture = detail.TimeToDeparture,
-                TimeToFinish = detail.TimeToFinish,
-                Stock = detail.Stock,
-                Images = detail.Images.Where(img => img.IsPrimary == 1).ToList(),
-                Feedbacks = detail.Feedbacks.ToList(),
-            })
+          
             .ToListAsync();
             return query;
         }
-
         public async Task<List<Detailroute>> GetAllRouteByArrivalNameAsync(string ArrivalName)
         {
             var query = await _dbContext.Detailroutes
                .Include(detail => detail.Images)
                .Include(detail => detail.Feedbacks)
                .Where(detail => detail.Route.Arrival.ArrivalName == ArrivalName)
-               .Select(detail => new Detailroute
-               {
-                   DetailRouteId = detail.DetailRouteId,
-                   RouteId = detail.RouteId,
-                   Price = detail.Price,
-                   DetailRouteName = detail.DetailRouteName,
-                   Description = detail.Description,
-                   TimeToDeparture = detail.TimeToDeparture,
-                   TimeToFinish = detail.TimeToFinish,
-                   Stock = detail.Stock,
-                   Images = detail.Images.Where(img => img.IsPrimary == 1).ToList(),
-               })
                .ToListAsync();
             return query;
         }
-
         public async Task<Detailroute> GetDetailRouteByIdAsync(int DetailRouteId)
         {
             var query = await _dbContext.Detailroutes
@@ -98,16 +59,7 @@ namespace BookStore.DataAccess.Repository
              .Where(detail => detail.DetailRouteId==DetailRouteId)
              .Select(detail => new Detailroute
              {
-                 DetailRouteId = detail.DetailRouteId,
-                 RouteId = detail.RouteId,
-                 Price = detail.Price,
-                 DetailRouteName = detail.DetailRouteName,
-                 Description = detail.Description,
-                 TimeToDeparture = detail.TimeToDeparture,
-                 TimeToFinish = detail.TimeToFinish,
-                 Stock = detail.Stock,
-                 
-                 Feedbacks = detail.Feedbacks.ToList(),
+                
                  Route=new Route
                  {
                      Departure=new Departure
