@@ -99,6 +99,22 @@
   },
   {
     "ContainingType": "BookTour.Controllers.RouteController",
+    "Method": "GetDetailRouteById",
+    "RelativePath": "api/Route/detail/{DetailRouteId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DetailRouteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.RouteController",
     "Method": "GetAllRouteByArrivalName",
     "RelativePath": "api/Route/search/arrivalName",
     "HttpMethod": "GET",

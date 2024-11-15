@@ -12,11 +12,14 @@ namespace BookTour.Application.Service
 {
     public class RouteService : IRouteService
     {
-        
         private readonly IRouteRepository _routeRepository;
-        public RouteService(IRouteRepository routeRepository)
+        private readonly IImageRepository _imageRepository;
+        private readonly ILegRepository _legRepository;
+        public RouteService(IRouteRepository routeRepository, IImageRepository imageRepository, ILegRepository legRepository)
         {
             _routeRepository = routeRepository;
+            _imageRepository = imageRepository;
+            _legRepository = legRepository;
         }
         public async Task<Page<RouteDTO>> GetAllRouteAsync(int page, int size, string sort)
         {
@@ -39,8 +42,8 @@ namespace BookTour.Application.Service
                 TimeToFinish = detail.TimeToFinish,
                 Stock = detail.Stock,
                 RouteId = detail.RouteId,
-                ImageId = detail.Images.First().ImageId,
-                TextImage = detail.Images.First().TextImage ?? string.Empty,
+                ImageId = detail.Images?.FirstOrDefault()?.ImageId ?? 0,
+                TextImage = detail.Images?.FirstOrDefault()?.TextImage ?? string.Empty,
                 Rating = detail.Feedbacks.Any() ? detail.Feedbacks.Average(f => f.Rating) : 0
             })
             .Skip((page - 1) * size)
@@ -78,11 +81,13 @@ namespace BookTour.Application.Service
                 TimeToFinish = detail.TimeToFinish,
                 Stock = detail.Stock,
                 RouteId = detail.RouteId,
-                ImageId = detail.Images.FirstOrDefault()?.ImageId ?? 0,
-                TextImage = detail.Images.FirstOrDefault()?.TextImage ?? string.Empty,
-                Rating = detail.Feedbacks.Any() ? detail.Feedbacks.Average(f => f.Rating) : 0
+                ImageId = detail.Images?.FirstOrDefault()?.ImageId ?? 0,
+                TextImage = detail.Images?.FirstOrDefault()?.TextImage ?? "default.jpg",
+
+                Rating = detail.Feedbacks?.Any() == true ? detail.Feedbacks.Average(f => f.Rating) : 0
+                
             })
-            .Skip((page - 1) * size)
+             .Skip((page - 1) * size)
             .Take(size)
             .ToList();
             var totalElement = data.Count();
@@ -120,7 +125,7 @@ namespace BookTour.Application.Service
                 RouteId = detail.RouteId,
                 ImageId = detail.Images.FirstOrDefault()?.ImageId ?? 0,
                 TextImage = detail.Images.FirstOrDefault()?.TextImage ?? string.Empty,
-                Rating = detail.Feedbacks.Any() ? detail.Feedbacks.Average(f => f.Rating) : 0
+                Rating = detail.Feedbacks?.Any() == true ? detail.Feedbacks.Average(f => f.Rating) : 0
             })
             .Skip((page - 1) * size)
             .Take(size)
@@ -136,12 +141,44 @@ namespace BookTour.Application.Service
             return result;
         }
 
-        public async Task<RouteDTO> GetDetailRouteByIdAsync(int id)
+        public async Task<DetailRouteResponse> GetDetailRouteByIdAsync(int DetailRouteId)
         {
+            var detailRoute = await _routeRepository.GetDetailRouteByIdAsync(DetailRouteId);
+            if (detailRoute == null)
+            {
+                throw new Exception("DetailRoute not found.");
+            }
+            var image = await _imageRepository.GetImageByDetailRouteIdAsync(DetailRouteId) ?? new List<Image>();
+            var leg = await _legRepository.GetAllLegByDetailRouteIdAsync(DetailRouteId) ?? new List<Leg>();
+            var detailDTO = new DetailRouteResponse
+            {
+                DetailRouteId = detailRoute.DetailRouteId,
+                DetailRouteName = detailRoute.DetailRouteName,
+                RouteId = detailRoute.RouteId,
+                TimeToDeparture = detailRoute.TimeToDeparture,
+                TimeToFinish = detailRoute.TimeToFinish,
+                Description = detailRoute.Description,
+                Price = detailRoute.Price,
+
+                Rating = detailRoute.Feedbacks?.Any() == true ? detailRoute.Feedbacks.Average(f => f.Rating) : 0,
+           
+                Stock = detailRoute.Stock,
+                DepartureName = detailRoute.Route.Departure.DepartureName ?? "Default Name",
+                ImageList = image.Select(img => new ImageDTO
+                {
+                    Id = img.ImageId,
+                    TextImage = img.TextImage ?? "default.jpg"
+                }).ToList(),
+                LegList = leg.Select(le => new LegDTO
+                {
+                    Id = le.LegId,
+                    Title = le.Title,
+                    Description = le.Description,
+                    Sequence = le.Sequence
+                }).ToList()
+            };
+            return detailDTO;
             throw new NotImplementedException();
         }
-
-       
-
     }
 }

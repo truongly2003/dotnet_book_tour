@@ -1,16 +1,17 @@
 import { useState,useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 function TourCarousel({ detailRoute }) {
+
   const [activeImage,setActiveImage]=useState(0)
   const intervalTime = 2000; 
   useEffect(()=>{
     const interval=setInterval(()=>{
       setActiveImage((prev)=>
-        prev===detailRoute.textImageList.length -1 ? 0 : prev +1
+        prev===detailRoute.imageList.length -1 ? 0 : prev +1
       );
     },intervalTime);
     return ()=>clearInterval(interval)
-  },[detailRoute.textImageList.length])
+  },[detailRoute.imageList.length])
   const handleThumbnailClick=(index)=>{
     setActiveImage(index)
   }
@@ -18,7 +19,7 @@ function TourCarousel({ detailRoute }) {
     <div className="">
       <div className="position-relative">
         <Carousel activeIndex={activeImage} interval={intervalTime}>
-          {detailRoute.textImageList.map((item, index) => (
+          {detailRoute.imageList.map((item, index) => (
             <Carousel.Item key={index}>
               <img
                 className="d-block w-100"
@@ -33,7 +34,7 @@ function TourCarousel({ detailRoute }) {
             overflowX: "auto", 
             whiteSpace: "nowrap", 
           }}>
-          {detailRoute.textImageList.map((item,index) => (
+          {detailRoute.imageList.map((item,index) => (
             <img
               onClick={()=>handleThumbnailClick(index)}
               key={index}
@@ -43,7 +44,6 @@ function TourCarousel({ detailRoute }) {
               style={{ width: "80px", height: "60px", objectFit: "cover",cursor: "pointer"  }}
             />
           ))}
-          
         </div>
       </div>
     </div>

@@ -15,14 +15,15 @@ function DetailTour() {
     const fetchDetailRoute = async () => {
       try {
         const data = await getRouteDetailById(id);
-        setDetailRoute(data.result || {});
-        setTitle(data.result.detailRouteName);
+        setDetailRoute(data);
+        setTitle(data.detailRouteName);
       } catch (error) {
         console.log(error);
       }
     };
     fetchDetailRoute();
   }, [id]);
+  
   return (
     <div className="container">
       <div className="mt-4">
@@ -35,9 +36,12 @@ function DetailTour() {
       </div>
       <div className="row mt-4">
         <div className="col-8">
-          {Object.keys(detailRoute).length > 0 && (
+          {detailRoute.imageList && detailRoute.imageList.length > 0 ? (
             <TourCarousel detailRoute={detailRoute} />
+          ) : (
+            <p>No images available</p>
           )}
+          {/* <TourCarousel detailRoute={detailRoute} />  */}
         </div>
         <div className="col-4">
           <div className="border p-4">

@@ -1,5 +1,6 @@
 ﻿using BookTour.Domain.Entity;
 using BookTour.Domain.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,12 @@ namespace BookStore.DataAccess.Repository
         {
             _dbContext = dbContext;
         }
-        public Task<List<Image>> GetImageByDetailRouteIdAsync(int detailRouteId)
+        public async Task<List<Image>> GetImageByDetailRouteIdAsync(int detailRouteId)
         {
-            throw new NotImplementedException();
+            var query =await _dbContext.Images
+                .Where(img=>img.DetailRouteId == detailRouteId)
+                .ToListAsync();
+            return query;
         }
     }
 }

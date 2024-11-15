@@ -17,5 +17,5 @@ public partial class Leg
     [Column("sequence")]
     public int Sequence { get; set; }
 
-    public virtual Detailroute? DetailRoute { get; set; }
+    public virtual Detailroute DetailRoute { get; set; }
 }
