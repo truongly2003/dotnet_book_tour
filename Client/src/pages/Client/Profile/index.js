@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { getUsers } from "../../../services/userService";
-
 function Profile() {
   const [user, setUser] = useState({
     lastName: "",
@@ -111,36 +110,7 @@ function Profile() {
             />
           </div>
         </div>
-        <div className="row mb-3">
-          <div className="col-md-6">
-            <label htmlFor="gender" className="form-label">
-              Giới tính <span className="text-danger">*</span>
-            </label>
-            <select
-              id="gender"
-              className="form-control"
-              value={user.gender}
-              onChange={handleChange}
-            >
-              <option value="">Chọn giới tính</option>
-              <option value="male">Nam</option>
-              <option value="female">Nữ</option>
-              <option value="other">Khác</option>
-            </select>
-          </div>
-          <div className="col-md-6">
-            <label htmlFor="birthDate" className="form-label">
-              Ngày sinh <span className="text-danger">*</span>
-            </label>
-            <input
-              type="date"
-              className="form-control"
-              id="birthDate"
-              value={user.birthDate}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+      
         <div className="mb-3">
           <label htmlFor="address" className="form-label">
             Địa chỉ
