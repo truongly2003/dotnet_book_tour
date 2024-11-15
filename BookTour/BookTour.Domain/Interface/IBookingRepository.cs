@@ -10,5 +10,6 @@ namespace BookTour.Domain.Interface
     public interface IBookingRepository
     {
         Task<List<Booking>> GetAllBookingByCustomerIdAsync(int CustomerId);
+        Task<Booking> findById(int id);
     }
 }

@@ -18,13 +18,18 @@ namespace BookStore.DataAccess.Repository
         }
         public async Task<List<Booking>> GetAllBookingByCustomerIdAsync(int CustomerId)
         {
-           var query=await _dbContext.Bookings
-                .Include(book=>book.Customer)
-                .Include(book=>book.Payment)
-                .Include(book=>book.DetailRoute)
-                //.Include(book=>book.T)
-                .ToListAsync();
+            var query = await _dbContext.Bookings
+                 .Include(book => book.Customer)
+                 .Include(book => book.Payment)
+                 .Include(book => book.DetailRoute)
+                 //.Include(book=>book.T)
+                 .ToListAsync();
             return query;
+        }
+      
+        public async Task<Booking> findById(int id)
+        {
+            return await _dbContext.Bookings.FirstOrDefaultAsync(b => b.BookingId == id);
         }
     }
 }

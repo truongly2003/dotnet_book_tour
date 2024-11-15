@@ -24,7 +24,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import Notification from "../../../components/Notification";
 import BlockIcon from "@mui/icons-material/Block";
 import AddUser from "./AddUser";
-import { getAllRole, getListUser, getUserByAllSearch } from "../../../services/userService";
+import {
+  getAllRole,
+  getListUser,
+  getUserByAllSearch,
+} from "../../../services/userService";
 
 function ListUser() {
   const [users, setUsers] = useState([]); // This is already correct in your code
@@ -39,7 +43,6 @@ function ListUser() {
   const [notificationMessage, setNotificationMessage] = useState("");
   const [roles, setRoles] = useState([]);
 
-  // Debounced search state
   const [debouncedSearchUser, setDebouncedSearchUser] = useState(searchUser);
 
   useEffect(() => {
@@ -51,12 +54,12 @@ function ListUser() {
       clearTimeout(handler);
     };
   }, [searchUser]);
-  
+
   useEffect(() => {
     const fetchUsers = async () => {
-      try { 
+      try {
         let response;
-  
+
         if (debouncedSearchUser) {
           // Search API
           response = await getUserByAllSearch(debouncedSearchUser);
@@ -65,10 +68,10 @@ function ListUser() {
           // Fetch paginated users if no search term
           response = await getListUser(currentPage, pageSize);
         }
-  
+
         // Ensure the response is valid before accessing its properties
         if (response && response.code === 1000) {
-          setUsers(response.result.users || []); // Update this line to correctly access users
+          setUsers(response.result.data || []); // Update this line to correctly access users
           setTotalPages(response.result.totalPages || 1);
         } else {
           setUsers([]); // If not successful, set users to an empty array
@@ -77,20 +80,19 @@ function ListUser() {
         console.error("Error fetching users:", error);
       }
     };
-  
+
     const fetchRoles = async () => {
       try {
         const response = await getAllRole();
-        setRoles(response.data.result || []);
-      } catch (error) { 
+        setRoles(response.result.data || []);
+      } catch (error) {
         console.error("Error fetching roles:", error);
       }
     };
-  
+
     fetchUsers();
     fetchRoles();
   }, [currentPage, debouncedSearchUser]);
-    
 
   const handleSearchChange = (event) => {
     setSearchUser(event.target.value);
@@ -121,7 +123,10 @@ function ListUser() {
 
   const handleAddUserSave = async (newUser) => {
     try {
-      const response = await axios.post("http://localhost:8080/api/user", newUser);
+      const response = await axios.post(
+        "http://localhost:7039/api/User/createUser",
+        newUser
+      );
       setUsers((prevUsers) => [...prevUsers, response.data]);
       setNotificationMessage(`User ${newUser.username} added successfully.`);
       setNotificationOpen(true);
@@ -135,7 +140,9 @@ function ListUser() {
   const handleBlockUser = async () => {
     if (selectedUser) {
       try {
-        await axios.put(`http://localhost:8080/api/user/${selectedUser.id}?status=0`);
+        await axios.put(
+          `http://localhost:8080/api/user/${selectedUser.id}?status=0`
+        );
         setUsers((prevUsers) =>
           prevUsers.map((user) =>
             user.id === selectedUser.id ? { ...user, status: 0 } : user
@@ -157,7 +164,13 @@ function ListUser() {
   return (
     <div>
       <Paper>
-        <Box display="flex" justifyContent="center" alignItems="center" mb={2} gap={2}>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mb={2}
+          gap={2}
+        >
           <TextField
             variant="outlined"
             placeholder="Search user"
@@ -165,7 +178,14 @@ function ListUser() {
             onChange={handleSearchChange}
             style={{ width: "300px" }}
           />
-          <div onClick={handleAddUserOpen} style={{ cursor: "pointer", marginLeft: "8px", textAlign: "center" }}>
+          <div
+            onClick={handleAddUserOpen}
+            style={{
+              cursor: "pointer",
+              marginLeft: "8px",
+              textAlign: "center",
+            }}
+          >
             <GroupAddIcon />
           </div>
         </Box>
@@ -193,10 +213,25 @@ function ListUser() {
                   <TableCell>{user.roleName || "default"}</TableCell>
                   <TableCell>
                     <Box display="flex" alignItems="center">
-                      <div onClick={() => alert(`Edit ${user.username}`)} style={{ marginRight: 8, cursor: "pointer", padding: "8px", textAlign: "center" }}>
+                      <div
+                        onClick={() => alert(`Edit ${user.username}`)}
+                        style={{
+                          marginRight: 8,
+                          cursor: "pointer",
+                          padding: "8px",
+                          textAlign: "center",
+                        }}
+                      >
                         <EditIcon />
                       </div>
-                      <div onClick={() => handleOpenDialog(user)} style={{ cursor: "pointer", padding: "8px", textAlign: "center" }}>
+                      <div
+                        onClick={() => handleOpenDialog(user)}
+                        style={{
+                          cursor: "pointer",
+                          padding: "8px",
+                          textAlign: "center",
+                        }}
+                      >
                         <BlockIcon />
                       </div>
                     </Box>
@@ -206,6 +241,7 @@ function ListUser() {
             </TableBody>
           </Table>
         </TableContainer>
+        
         <PaginationComponent
           totalPages={totalPages}
           currentPage={currentPage}
@@ -214,16 +250,22 @@ function ListUser() {
           color="primary"
           shape="rounded"
         />
+
         <Dialog open={openDialog} onClose={handleCloseDialog}>
           <DialogTitle>Confirm Block</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Are you sure you want to block user <strong>{selectedUser?.username}</strong>?
+              Are you sure you want to block user{" "}
+              <strong>{selectedUser?.username}</strong>?
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleCloseDialog} color="primary">Cancel</Button>
-            <Button onClick={handleBlockUser} color="error">Block</Button>
+            <Button onClick={handleCloseDialog} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={handleBlockUser} color="error">
+              Block
+            </Button>
           </DialogActions>
         </Dialog>
         <AddUser
@@ -233,7 +275,11 @@ function ListUser() {
           roles={roles}
         />
       </Paper>
-      <Notification open={notificationOpen} message={notificationMessage} onClose={handleNotificationClose} />
+      <Notification
+        open={notificationOpen}
+        message={notificationMessage}
+        onClose={handleNotificationClose}
+      />
     </div>
   );
 }

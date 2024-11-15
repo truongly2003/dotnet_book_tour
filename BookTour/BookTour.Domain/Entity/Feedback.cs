@@ -17,9 +17,11 @@ public partial class Feedback
     [Column("rating")]
     public float Rating { get; set; }
     [Column("date_create")]
-    public DateOnly DateCreate { get; set; }
+    public DateTime DateCreate { get; set; }
 
     public virtual Booking Booking { get; set; }
 
     public virtual Detailroute DetailRoute { get; set; }
+
+ 
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookTour.Application.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace BookTour.Application.Interface
 {
     public interface IBookingService
     {
+        Task<List<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId);
     }
 }

@@ -1,18 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\_Net\\Tour\\BookTour\\",
+  "WorkspaceRootPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|e:\\_net\\tour\\booktour\\bookstore.dataaccess\\repository\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|e:\\_net\\tour\\booktour\\bookstore.dataaccess\\repository\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|e:\\_net\\tour\\booktour\\booktour.domain\\interface\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 8eef63ded2c9a9b7092981b3d5639597bf77ff76
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\feedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\feedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|e:\\_net\\tour\\booktour\\bookstore.dataaccess\\repository\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|e:\\_net\\tour\\booktour\\bookstore.dataaccess\\repository\\arrivalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,6 +27,170 @@
     {
       "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|e:\\_net\\tour\\booktour\\booktour.domain\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\service\\feedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\interface\\ifeedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\ifeedbackrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\controllers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\interface\\ifeedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\interface\\ifeedbackservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\passenger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\service\\routeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\service\\routeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\service\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\service\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\bookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\dto\\request\\feedbackrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\dto\\request\\feedbackrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D345ABB-67A3-4CA5-B0C3-EB47C44F5E7D}|BookStore.Infrastructure\\BookStore.Infrastructure.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.infrastructure\\configuration\\configurationdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D345ABB-67A3-4CA5-B0C3-EB47C44F5E7D}|BookStore.Infrastructure\\BookStore.Infrastructure.csproj|solutionrelative:bookstore.infrastructure\\configuration\\configurationdataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\routerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\interface\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\ibookingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\detailrouterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\detailrouterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\interface\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\interface\\irouterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\irouterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\interface\\idetailrouterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\interface\\idetailrouterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\interface\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\interface\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\controllers\\arrivalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\arrivalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\interface\\iarrivalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\interface\\iarrivalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\service\\arrivalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\service\\arrivalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\dto\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\dto\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\repository\\arrivalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\repository\\arrivalrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\detailroute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\detailroute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|c:\\users\\hoang\\desktop\\dotnet_book_tour\\booktour\\booktour.application\\dto\\page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}|BookTour.Application\\BookTour.Application.csproj|solutionrelative:booktour.application\\dto\\page.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 8eef63ded2c9a9b7092981b3d5639597bf77ff76
     }
   ],
   "DocumentGroupContainers": [
@@ -30,24 +200,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+<<<<<<< HEAD
+              "DocumentIndex": 1,
               "Title": "RouteRepository.cs",
               "DocumentMoniker": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\Repository\\RouteRepository.cs",
               "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\RouteRepository.cs",
-              "ToolTip": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\Repository\\RouteRepository.cs*",
-              "RelativeToolTip": "BookStore.DataAccess\\Repository\\RouteRepository.cs*",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAA==",
+              "ToolTip": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\Repository\\RouteRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\RouteRepository.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T13:50:08.083Z",
+=======
+              "DocumentIndex": 6,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "BookTour\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\UserController.cs",
+              "RelativeToolTip": "BookTour\\Controllers\\UserController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAYwBsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:29:41.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FeedbackController.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\FeedbackController.cs",
+              "RelativeDocumentMoniker": "BookTour\\Controllers\\FeedbackController.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\FeedbackController.cs",
+              "RelativeToolTip": "BookTour\\Controllers\\FeedbackController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAAB4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T11:27:22.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IFeedbackService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IFeedbackService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Interface\\IFeedbackService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IFeedbackService.cs",
+              "RelativeToolTip": "BookTour.Application\\Interface\\IFeedbackService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T08:09:35.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FeedbackService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\FeedbackService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Service\\FeedbackService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\FeedbackService.cs",
+              "RelativeToolTip": "BookTour.Application\\Service\\FeedbackService.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAowDkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T08:12:32.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FeedbackRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\FeedbackRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\FeedbackRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\FeedbackRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\FeedbackRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T09:56:25.4Z",
+>>>>>>> 8eef63ded2c9a9b7092981b3d5639597bf77ff76
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+<<<<<<< HEAD
               "Title": "ArrivalRepository.cs",
               "DocumentMoniker": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\Repository\\ArrivalRepository.cs",
               "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\ArrivalRepository.cs",
@@ -73,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BookingRepository.cs",
               "DocumentMoniker": "E:\\_Net\\Tour\\BookTour\\BookStore.DataAccess\\Repository\\BookingRepository.cs",
               "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\BookingRepository.cs",
@@ -86,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "IBookingRepository.cs",
               "DocumentMoniker": "E:\\_Net\\Tour\\BookTour\\BookTour.Domain\\Interface\\IBookingRepository.cs",
               "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IBookingRepository.cs",
@@ -96,6 +327,461 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T13:33:16.636Z",
               "EditorCaption": ""
+=======
+              "Title": "IFeedbackRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IFeedbackRepository.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IFeedbackRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IFeedbackRepository.cs",
+              "RelativeToolTip": "BookTour.Domain\\Interface\\IFeedbackRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T09:46:23.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Booking.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Booking.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Booking.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\Booking.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAtwB8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T11:38:36.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RouteController.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\RouteController.cs",
+              "RelativeDocumentMoniker": "BookTour\\Controllers\\RouteController.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\RouteController.cs",
+              "RelativeToolTip": "BookTour\\Controllers\\RouteController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:49:14.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "BookTour\\Controllers\\BookingController.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "BookTour\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:29:47.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Ticket.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Ticket.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Ticket.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\Ticket.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:30:46.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Passenger.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Passenger.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Passenger.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Passenger.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\Passenger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:40:29.707Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Service\\UserService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\UserService.cs",
+              "RelativeToolTip": "BookTour.Application\\Service\\UserService.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T08:50:26.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Payment.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Payment.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Payment.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:40:29.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Route.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Route.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Route.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Route.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\Route.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:30:59.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IUserRepository.cs",
+              "RelativeToolTip": "BookTour.Domain\\Interface\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T06:48:33.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "BookTour\\Controllers\\RoleController.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "BookTour\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:19:52.225Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IUserService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Interface\\IUserService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IUserService.cs",
+              "RelativeToolTip": "BookTour.Application\\Interface\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T06:30:36.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:12:03.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "RouteService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\RouteService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Service\\RouteService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\RouteService.cs",
+              "RelativeToolTip": "BookTour.Application\\Service\\RouteService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:07:11.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BookingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\BookingRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\BookingRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\BookingRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\BookingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T10:02:24.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\RoleService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Service\\RoleService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\RoleService.cs",
+              "RelativeToolTip": "BookTour.Application\\Service\\RoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T09:03:13.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "FeedbackRequest.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\Request\\FeedbackRequest.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Dto\\Request\\FeedbackRequest.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\Request\\FeedbackRequest.cs",
+              "RelativeToolTip": "BookTour.Application\\Dto\\Request\\FeedbackRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T08:10:46.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Feedback.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Feedback.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Feedback.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Feedback.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\Feedback.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAYwBkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T11:26:23.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Program.cs",
+              "RelativeDocumentMoniker": "BookTour\\Program.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Program.cs",
+              "RelativeToolTip": "BookTour\\Program.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T06:58:53.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ConfigurationDataAccess.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\Configuration\\ConfigurationDataAccess.cs",
+              "RelativeDocumentMoniker": "BookStore.Infrastructure\\Configuration\\ConfigurationDataAccess.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\Configuration\\ConfigurationDataAccess.cs",
+              "RelativeToolTip": "BookStore.Infrastructure\\Configuration\\ConfigurationDataAccess.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwDYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T09:01:43.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "RouteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\RouteRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\RouteRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\RouteRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\RouteRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T09:59:50.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IBookingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IBookingRepository.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IBookingRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IBookingRepository.cs",
+              "RelativeToolTip": "BookTour.Domain\\Interface\\IBookingRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T10:02:03.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DetailRouteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\DetailRouteRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\DetailRouteRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\DetailRouteRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\DetailRouteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T10:00:09.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "RoleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\RoleRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\RoleRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\RoleRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\RoleRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T10:00:36.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IRoleRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IRoleRepository.cs",
+              "RelativeToolTip": "BookTour.Domain\\Interface\\IRoleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:24:41.431Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IDetailRouteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IDetailRouteRepository.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IDetailRouteRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IDetailRouteRepository.cs",
+              "RelativeToolTip": "BookTour.Domain\\Interface\\IDetailRouteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T09:59:26.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "IRouteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IRouteRepository.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Interface\\IRouteRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Interface\\IRouteRepository.cs",
+              "RelativeToolTip": "BookTour.Domain\\Interface\\IRouteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T09:58:40.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IRoleService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Interface\\IRoleService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IRoleService.cs",
+              "RelativeToolTip": "BookTour.Application\\Interface\\IRoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:22:06.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "UserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\UserDTO.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Dto\\UserDTO.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\UserDTO.cs",
+              "RelativeToolTip": "BookTour.Application\\Dto\\UserDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:04:06.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "ArrivalController.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\ArrivalController.cs",
+              "RelativeDocumentMoniker": "BookTour\\Controllers\\ArrivalController.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\ArrivalController.cs",
+              "RelativeToolTip": "BookTour\\Controllers\\ArrivalController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T14:18:47.541Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "IArrivalService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IArrivalService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Interface\\IArrivalService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Interface\\IArrivalService.cs",
+              "RelativeToolTip": "BookTour.Application\\Interface\\IArrivalService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T14:15:52.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ArrivalService.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\ArrivalService.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Service\\ArrivalService.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Service\\ArrivalService.cs",
+              "RelativeToolTip": "BookTour.Application\\Service\\ArrivalService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T14:14:33.134Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "RoleDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\RoleDTO.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Dto\\RoleDTO.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\RoleDTO.cs",
+              "RelativeToolTip": "BookTour.Application\\Dto\\RoleDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T14:14:55.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ArrivalRepository.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\ArrivalRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.DataAccess\\Repository\\ArrivalRepository.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\Repository\\ArrivalRepository.cs",
+              "RelativeToolTip": "BookStore.DataAccess\\Repository\\ArrivalRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T14:12:59.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\appsettings.json",
+              "RelativeDocumentMoniker": "BookTour\\appsettings.json",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\appsettings.json",
+              "RelativeToolTip": "BookTour\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-14T08:20:24.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "DetailRoute.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\DetailRoute.cs",
+              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\DetailRoute.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\DetailRoute.cs",
+              "RelativeToolTip": "BookTour.Domain\\Entity\\DetailRoute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T13:36:57.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "LoginDTO.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\LoginDTO.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Dto\\LoginDTO.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\LoginDTO.cs",
+              "RelativeToolTip": "BookTour.Application\\Dto\\LoginDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T06:57:13.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Page.cs",
+              "DocumentMoniker": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\Page.cs",
+              "RelativeDocumentMoniker": "BookTour.Application\\Dto\\Page.cs",
+              "ToolTip": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\Dto\\Page.cs",
+              "RelativeToolTip": "BookTour.Application\\Dto\\Page.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-13T14:01:45.746Z"
+>>>>>>> 8eef63ded2c9a9b7092981b3d5639597bf77ff76
             }
           ]
         }

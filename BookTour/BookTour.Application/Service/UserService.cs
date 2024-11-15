@@ -7,6 +7,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Linq;
+using System.Collections.Generic;
 using BCrypt.Net;
 namespace BookTour.Application.Service
 {
@@ -19,7 +21,7 @@ namespace BookTour.Application.Service
         private readonly IEmployeeRepository _employeeRepository;
         private readonly IEmployeeService _employeeService;
 
-        public UserService(IUserRepository userRepository, ICustomerRepository customerRepository, IRoleRepository roleRepository, IEmployeeRepository  employeeRepository, IEmployeeService employeeService)
+        public UserService(IUserRepository userRepository, ICustomerRepository customerRepository, IRoleRepository roleRepository, IEmployeeRepository employeeRepository, IEmployeeService employeeService)
         {
             _userRepository = userRepository;
             _customerRepository = customerRepository;
@@ -28,68 +30,6 @@ namespace BookTour.Application.Service
             _employeeService = employeeService;
         }
 
-
-
-
-        async Task<UserDTO> IUserService.Login(LoginRequestDTO request)
-        {
-            Console.WriteLine("Request username : " + request.Username);
-
-            User user = await _userRepository.findByUsername(request.Username);
-
-            Console.WriteLine("User: ", user);
-
-            if (user == null)
-                throw new AppException(ErrorCode.USER_NOT_EXISTED);
-
-            bool authenticated = BCrypt.Net.BCrypt.Verify(request.Password, user.Password);
-            if (!authenticated)
-                throw new AppException(ErrorCode.USER_OR_PASSWORD_WRONG);
-
-            if (user.Role == null)
-            {
-                throw new AppException(ErrorCode.UNAUTHENTICATED);
-            }
-
-            int roleId = user.Role.RoleId;
-            string roleName = user.Role.RoleName;
-            string email = user.Email;
-            string userName;
-            int userId = user.UserId;
-
-            Console.WriteLine("user_id : " + userId);
-            if (roleId == 3)
-            {
-                var customer = await _customerRepository.FindByCustomerIdAsync(userId);
-                if (customer == null)
-                    throw new AppException(ErrorCode.CUSTOMER_NOT_EXIST);
-
-                userName = customer.CustomerName;
-            }
-            else
-            {
-                userName = user.Username;
-            }
-
-            // Generate token
-            var tokenInfo = GenerateToken(user);
-
-            // Create UserDTO with the correct token information
-            var userDTO = new UserDTO
-            {
-                id = userId,
-                roleId = roleId,
-                roleName = roleName,
-                username = userName,
-                token = tokenInfo.Token,
-                expiryTime = tokenInfo.ExpiryDate,
-                email = email
-            };
-
-            Console.WriteLine("user response :", userDTO);
-
-            return userDTO;
-        }
 
 
         TokenInfo GenerateToken(User user)
@@ -122,17 +62,36 @@ namespace BookTour.Application.Service
         }
 
 
-        public Task<Page<User>> GetAllUserAsync(int page, int size)
+        public async Task<Page<UserDTO>> GetAllUserAsync(int page, int size)
         {
-            throw new NotImplementedException();
+            var data = await _userRepository.FindAllByStatusAsync(1);
+
+            var userDTO = data.Select(user => new UserDTO
+            {
+                id = user.UserId,
+                username = user.Username,
+                password = user.Password,
+                email = user.Email,
+                roleId = user.RoleId,
+                roleName = user.Role != null ? user.Role.RoleName : null,
+                status = user.Status
+            })
+            .Skip((page - 1) * size)
+            .Take(size)
+            .ToList();
+
+            var totalElement = data.Count();
+            var totalPage = (int)Math.Ceiling((double)totalElement / size);
+            var result = new Page<UserDTO>
+            {
+                Data = userDTO,
+                TotalElement = totalElement,
+                TotalPages = totalPage
+            };
+
+            return result;
         }
 
-    
-
-        public Task<List<User>> getListUser()
-        {
-            return _userRepository.findAllUser();
-        }
 
         TokenInfo IUserService.GenerateToken(User user)
         {
@@ -145,8 +104,7 @@ namespace BookTour.Application.Service
             bool a = await _userRepository.existsByUsernameAsync(request.Username);
             Console.WriteLine("exist:", a);
 
-            // Kiểm tra sự tồn tại của người dùng
-            if (a) // Thay vì gọi lại _userRepository.existsByUsernameAsync(request.Username)
+            if (a) 
             {
                 throw new AppException(ErrorCode.USER_EXISTS);
             }
@@ -157,13 +115,12 @@ namespace BookTour.Application.Service
                 throw new AppException(ErrorCode.PASSWORD_TOO_SHORT);
             }
 
-            // Tạo đối tượng User từ request
             User user = new User
             {
                 Username = request.Username,
                 Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
                 Status = 1,
-                Email = $"{request.Username}@example.com"
+                Email = $"{request.Email}@example.com"
             };
 
             Role role;
@@ -174,7 +131,7 @@ namespace BookTour.Application.Service
                        ?? throw new Exception("Default role not found");
 
                 user.Role = role;
-                user = await _userRepository.saveUser(user); // Save user và nhận đối tượng đã cập nhật, bao gồm UserId
+                user = await _userRepository.saveUser(user); 
 
 
                 Console.WriteLine("username create :", user.Username);
@@ -217,5 +174,67 @@ namespace BookTour.Application.Service
             return user;
         }
 
+        public async Task<LoginDTO> Login(LoginRequestDTO request)
+        {
+            Console.WriteLine("Request username : " + request.Username);
+
+            User user = await _userRepository.findByUsername(request.Username);
+
+            Console.WriteLine("User: ", user);
+
+            if (user == null)
+                throw new AppException(ErrorCode.USER_NOT_EXISTED);
+
+            bool authenticated = BCrypt.Net.BCrypt.Verify(request.Password, user.Password);
+            if (!authenticated)
+                throw new AppException(ErrorCode.USER_OR_PASSWORD_WRONG);
+
+            if (user.Role == null)
+            {
+                throw new AppException(ErrorCode.UNAUTHENTICATED);
+            }
+
+            int roleId = user.Role.RoleId;
+            string roleName = user.Role.RoleName;
+            string email = user.Email;
+            string userName;
+            int userId = user.UserId;
+
+            Console.WriteLine("user_id : " + userId);
+            if (roleId == 3)
+            {
+                var customer = await _customerRepository.FindByCustomerIdAsync(userId);
+                if (customer == null)
+                    throw new AppException(ErrorCode.CUSTOMER_NOT_EXIST);
+
+                userName = customer.CustomerName;
+            }
+            else
+            {
+                userName = user.Username;
+            }
+
+            var tokenInfo = GenerateToken(user);
+
+            var userDTO = new LoginDTO
+            {
+                id = userId,
+                roleId = roleId,
+                roleName = roleName,
+                username = userName,
+                token = tokenInfo.Token,
+                expiryTime = tokenInfo.ExpiryDate,
+                email = email
+            };
+
+            Console.WriteLine("user response :", userDTO);
+
+            return userDTO;
+        }
+
+        public Task<List<User>> getListUser()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace BookTour.Domain.Interface
     public interface IRoleRepository
     {
         Task<Role> findById(int id);
+        Task<List<Role>> getAllRoleAsync();
     }
 }

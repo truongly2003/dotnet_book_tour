@@ -7,6 +7,7 @@ namespace BookTour.Domain.Entity;
 public partial class Booking
 {
 
+
     [Column("booking_id")]
     public int BookingId { get; set; }
 
