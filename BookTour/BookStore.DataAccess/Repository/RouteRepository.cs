@@ -16,30 +16,6 @@ namespace BookStore.DataAccess.Repository
         {
             _dbContext = dbContext;
         }
-
-        //var query = await _dbContext.Detailroutes
-        //     .Join(_dbContext.Images, detail => detail.DetailRouteId, img => img.DetailRouteId, (detail, img) => new { detail, img })
-        //     .Where(x => x.img.IsPrimary==1)
-        //     .Select(x => new Detailroute
-        //     {
-        //         DetailRouteId = x.detail.DetailRouteId,
-        //         DetailRouteName = x.detail.DetailRouteName,
-        //         RouteId = x.detail.RouteId,
-        //         Description = x.detail.Description,
-        //         Stock = x.detail.Stock,
-        //         TimeToDeparture = x.detail.TimeToDeparture,
-        //         TimeToFinish = x.detail.TimeToFinish,
-        //         Price = x.detail.Price,
-        //         Images = _dbContext.Images
-        //        .Where(img => img.DetailRouteId == x.detail.DetailRouteId && img.IsPrimary == 1)
-        //        .Select(img => new BookTour.Domain.Entity.Image
-        //        {
-        //            ImageId = img.ImageId,
-        //            TextImage = img.TextImage,
-        //        })
-        //        .ToList()
-        //     }).ToListAsync();
-        //return query;
         public async Task<List<Detailroute>> GetAllRouteAsync()
         {
 
@@ -56,10 +32,38 @@ namespace BookStore.DataAccess.Repository
                     TimeToDeparture = detail.TimeToDeparture,
                     TimeToFinish = detail.TimeToFinish,
                     Stock = detail.Stock,
-                    Images = detail.Images.Where(img=>img.IsPrimary==1).ToList(),
+                    Images = detail.Images.Where(img => img.IsPrimary == 1).ToList(),
                     Feedbacks = detail.Feedbacks.ToList(),
                 })
                 .ToListAsync();
+            return query;
+        }
+
+        public async Task<List<Detailroute>> GetAllRouteByArrivalAndDepartureAndDateAsync(string ArrivalName, string DepartureName, DateOnly TimeToDeparture)
+        {
+            var curendate = DateOnly.FromDateTime(DateTime.Now);
+            var query = await _dbContext.Detailroutes
+            .Include(detail => detail.Images)
+            .Include(detail => detail.Feedbacks)
+            .Where(detail => detail.Route.Arrival.ArrivalName == ArrivalName &&
+                            detail.Route.Departure.DepartureName == DepartureName &&
+                            detail.TimeToDeparture >= TimeToDeparture && detail.TimeToDeparture >= curendate
+
+            )
+            .Select(detail => new Detailroute
+            {
+                DetailRouteId = detail.DetailRouteId,
+                RouteId = detail.RouteId,
+                Price = detail.Price,
+                DetailRouteName = detail.DetailRouteName,
+                Description = detail.Description,
+                TimeToDeparture = detail.TimeToDeparture,
+                TimeToFinish = detail.TimeToFinish,
+                Stock = detail.Stock,
+                Images = detail.Images.Where(img => img.IsPrimary == 1).ToList(),
+                Feedbacks = detail.Feedbacks.ToList(),
+            })
+            .ToListAsync();
             return query;
         }
 
@@ -68,7 +72,7 @@ namespace BookStore.DataAccess.Repository
             var query = await _dbContext.Detailroutes
                .Include(detail => detail.Images)
                .Include(detail => detail.Feedbacks)
-               .Where(detail=>detail.Route.Arrival.ArrivalName==ArrivalName)
+               .Where(detail => detail.Route.Arrival.ArrivalName == ArrivalName)
                .Select(detail => new Detailroute
                {
                    DetailRouteId = detail.DetailRouteId,
@@ -83,8 +87,12 @@ namespace BookStore.DataAccess.Repository
                    Feedbacks = detail.Feedbacks.ToList(),
                })
                .ToListAsync();
-            Console.WriteLine("hello" + query);
             return query;
+        }
+
+        public Task<Detailroute> GetDetailRouteByIdAsync(int DetailRouteId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

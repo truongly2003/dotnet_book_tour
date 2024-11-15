@@ -26,10 +26,11 @@ const AddUser = ({ open, onClose }) => {
     const [errorMessage, setErrorMessage] = useState("");
     const [snackbarOpen, setSnackbarOpen] = useState(false);
 
+
     useEffect(() => {
         const fetchRoles = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/role");
+                const response = await axios.get("https://localhost:7146/api/Role");
                 if (Array.isArray(response.data.result)) {
                     setRoles(response.data.result);
                 }
@@ -78,7 +79,7 @@ const AddUser = ({ open, onClose }) => {
         try {
             const newUser = { username, password, email, roleId};
             console.log("role id :",roleId)
-            await axios.post("http://localhost:8080/api/user/create", newUser);
+            await axios.post("http://localhost:7146/api/User/createUser", newUser);
             // Clear form fields
             setUsername("");
             setPassword("");
@@ -156,8 +157,8 @@ const AddUser = ({ open, onClose }) => {
                         margin="dense"
                     >
                         {roles.map((role) => (
-                            <MenuItem key={role.id} value={role.id}>
-                                {role.id}-{role.name}
+                            <MenuItem key={role.roleId} value={role.roleId}>
+                                {role.roleId}-{role.roleName}
                             </MenuItem>
                         ))}
                     </TextField>

@@ -11,7 +11,7 @@ import styles from "./Tour.module.css";
 import {
   getAllRoutes,
   getRouteByAllSearch,
-  getRouteFilter,
+  getAllRouteByArrivalName,
 } from "../../../services/routeService";
 
 function Tour() {
@@ -25,6 +25,7 @@ function Tour() {
   const [selectArrivalName, setSelectArrivalName] = useState("");
   const [selectedSortOption, setSelectedSortOption] = useState("Mặc Định");
   const [selectedSortTitle, setSelectedSortTitle] = useState("Mặc Định");
+  const [isReset, setIsReset] = useState(false);
   useEffect(() => {
     const fetchRoute = async () => {
       try {
@@ -34,6 +35,7 @@ function Tour() {
           searchParams.departureName ||
           searchParams.timeToDeparture;
         if (hasSearchParamsData) {
+          setIsReset(true);
           const { arrivalName, departureName, timeToDeparture } = searchParams;
           data = await getRouteByAllSearch(
             arrivalName,
@@ -44,7 +46,7 @@ function Tour() {
             selectedSortOption
           );
         } else if (selectArrivalName) {
-          data = await getRouteFilter(
+          data = await getAllRouteByArrivalName(
             selectArrivalName,
             currentPage,
             pageSize,
@@ -53,7 +55,6 @@ function Tour() {
         } else {
           data = await getAllRoutes(currentPage, pageSize, selectedSortOption);
         }
-
         setRoutes(data.data);
         setTotalPages(data.totalPages);
         setTotalElements(data.totalElement);
@@ -67,15 +68,17 @@ function Tour() {
   //  lọc chỉ the tên bên side bar
   const handleArrivalSelect = (arrival) => {
     setSelectArrivalName(arrival);
-    setCurrentPage(1);
     setSearchParams({});
+    setCurrentPage(1);
   };
   // lọc theo tìm kiếm có đủ 3 tham số
-  const onSearchResults = async (searchData) => {
+  const onSearchResults = (searchData) => {
     setSearchParams(searchData);
     setSelectArrivalName("");
     setCurrentPage(1);
+    setIsReset(false);
   };
+
   const onSortOptionSelect = (option) => {
     setSelectedSortOption(option.value);
     setSelectedSortTitle(option.title);
@@ -96,7 +99,10 @@ function Tour() {
         </div>
         <div className="row mt-4">
           <div className="col-md-3">
-            <SearchSideBar selectArrivalName={handleArrivalSelect} />
+            <SearchSideBar
+              selectArrivalName={handleArrivalSelect}
+              isReset={isReset}
+            />
           </div>
           <div className="col-md-9">
             <div

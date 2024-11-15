@@ -1,4 +1,5 @@
-﻿using BookTour.Application.Interface;
+﻿using BookTour.Application.Dto;
+using BookTour.Application.Interface;
 using BookTour.Application.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +15,36 @@ namespace BookTour.Controllers
             _roleService = roleService;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> getAllRole()
+        {
+            ApiResponse<List<RoleDTO>> response;  // Đổi kiểu thành List<RoleDTO>
+            List<RoleDTO> result;
 
-        //[HttpGet]
-        //public async Task<IActionResult> getAllRole()
-        //{
-        //    var users = await _userService.getAllRole();
-        //    return Ok(users);
-        //}
+            try
+            {
+                result = await _roleService.getAllRole();  // Giả sử trả về List<RoleDTO>
+            }
+            catch (Exception ex)
+            {
+                response = new ApiResponse<List<RoleDTO>>
+                {
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
+                };
+                return BadRequest(response);
+            }
+
+            response = new ApiResponse<List<RoleDTO>>
+            {
+                code = 1000,
+                message = "Role list fetched successfully",
+                result = result
+            };
+
+            return Ok(response);
+        }
+
     }
 }

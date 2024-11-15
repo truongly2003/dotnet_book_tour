@@ -66,16 +66,6 @@ namespace BookTour.Application.Service
         {
             var data = await _userRepository.FindAllByStatusAsync(1);
 
-            Console.WriteLine("Danh sáchs người dùng lấy được từ repository:");
-            foreach (var user in data)
-            {
-                Console.WriteLine($"ID: {user.UserId}, Username: {user.Username}, RoleId: {user.RoleId}, Status: {user.Status}");
-                if (user.Role != null)
-                {
-                    Console.WriteLine($"RoleName: {user.Role.RoleName}");
-                }
-            }
-
             var userDTO = data.Select(user => new UserDTO
             {
                 id = user.UserId,

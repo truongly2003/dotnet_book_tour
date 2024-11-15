@@ -41,7 +41,7 @@ export const getUserByAllSearch = async (username) => {
 
 export const getAllRole = async () => {
   try {
-    const response = await httpRequest.get(`/role`);
+    const response = await httpRequest.get(`/Role`);
     return response.data;
   } catch (error) {}
 };

@@ -1,4 +1,5 @@
-﻿using BookTour.Domain.Entity;
+﻿using BookTour.Application.Dto;
+using BookTour.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace BookTour.Application.Interface
 {
     public interface IRoleService
     {
-        public Task<Role> getAllRole();
+        public Task<List<RoleDTO>> getAllRole();
     }
 }

@@ -22,11 +22,36 @@ namespace BookTour.Controllers
 
         //
         [HttpGet]
-        public async Task<IActionResult> getALlUser(int page, int size)
+        public async Task<IActionResult> getListUser(int page, int size)
         {
-            var users = await _userService.GetAllUserAsync(page, size);
-            return Ok(users);
+            ApiResponse<Page<UserDTO>> response;
+            Page<UserDTO> result;
+
+            try
+            {
+                result = await _userService.GetAllUserAsync(page, size);
+            }
+            catch (Exception ex)
+            {
+                response = new ApiResponse<Page<UserDTO>>
+                {
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
+                };
+                return BadRequest(response);
+            }
+
+            response = new ApiResponse<Page<UserDTO>>
+            {
+                code = 1000,
+                message = "User list fetched successfully",
+                result = result
+            };
+
+            return Ok(response);
         }
+
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)

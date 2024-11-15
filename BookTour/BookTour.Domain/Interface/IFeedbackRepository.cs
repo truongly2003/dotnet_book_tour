@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace BookTour.Domain.Interface
 {
-    public interface IDetailRouteRepository
+    public interface IFeedbackRepository
     {
-        Task<Detailroute> findById(int id);
+        Task<List<Feedback>> getListFeedbackAsync(int detailRouteId);
+        Task<Feedback> saveFeedback(Feedback feedback);
     }
 }

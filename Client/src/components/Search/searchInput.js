@@ -1,4 +1,5 @@
 import React from "react";
+import { format } from "date-fns"; 
 import { useState, useEffect } from "react";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
@@ -12,24 +13,30 @@ function SearchInput({ onSearchResults, currentPage, pageSize }) {
   const [departures, setDepartures] = useState([]);
   const [arrivals, setArrivals] = useState([]);
   const [departureName, setDepartureName] = useState("");
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [arrivalName, setArrivalName] = useState("");
-  const [timeToDeparture, setTimeToDeparture] = useState("2024-10-29");
 
+  const [arrivalName, setArrivalName] = useState("");
+  const [timeToDeparture, setTimeToDeparture] = useState(new Date());
+
+  // lấy năm
+  const currentYear = new Date().getFullYear();
+  const minDate = new Date(currentYear, 0, 1); 
   const handleSearchClick = () => {
     if (arrivalName.trim() === "" && departureName.trim() === "") {
       alert("Vui lòng chọn cả điểm khởi hành và điểm đến.");
     } else {
+      const formattedDate = format(timeToDeparture, "yyyy-MM-dd");
+      console.log(formattedDate);
       const searchData = {
         arrivalName,
         departureName,
-        timeToDeparture,
+        timeToDeparture: formattedDate,
         currentPage,
         pageSize,
       };
       onSearchResults(searchData);
       setArrivalName("");
       setDepartureName("");
+      setTimeToDeparture(new Date());
     }
   };
   // api departure
@@ -61,11 +68,11 @@ function SearchInput({ onSearchResults, currentPage, pageSize }) {
   const handleSelectedDeparture = (departure) => {
     setDepartureName(departure);
   };
-  // slect arival
+  // select arival
   const handleSelectedArrival = (arrival) => {
     setArrivalName(arrival);
   };
-
+ 
   return (
     <div className="container rounded border z-100 p-2 position-relative ">
       <div className="row">
@@ -115,9 +122,9 @@ function SearchInput({ onSearchResults, currentPage, pageSize }) {
                   <CiCalendar size={24} className={styles.icon_search} />
 
                   <DatePicker
-                    selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
-                    dateFormat="eeee, dd-MM-yyyy"
+                    selected={timeToDeparture}
+                    onChange={(date) => setTimeToDeparture(date)}
+                    dateFormat="eeee, yyyy--MM-dd"
                     locale={vi}
                     className={`${styles.datepicker} form-control `}
                     id="datePickerInput"
@@ -126,6 +133,8 @@ function SearchInput({ onSearchResults, currentPage, pageSize }) {
                     dropdownMode="select"
                     popperClassName={styles.custom}
                     wrapperClassName={styles.react_datepicker_wrapper}
+                    minDate={minDate}
+                   
                   />
                 </div>
               </div>

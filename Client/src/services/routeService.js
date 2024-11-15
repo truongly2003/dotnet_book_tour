@@ -27,14 +27,14 @@ export const getRouteByAllSearch = async (
 ) => {
   try {
     const response = await httpRequest.get(
-      `/route/search?arrivalName=${arrivalName}&departureName=${departureName}&timeToDeparture=${timeToDeparture}&page=${page}&size=${size}&sort=${sort}`
+      `/Route/search/body?ArrivalName=${arrivalName}&DepartureName=${departureName}&TimeToDeparture=${timeToDeparture}&page=${page}&size=${size}&sort=${sort}`
     );
     return response.data;
   } catch (error) {
     console.error("Error fetching route");
   }
 };
-export const getRouteFilter = async (
+export const getAllRouteByArrivalName = async (
   arrivalName,
   page,
   size,
@@ -42,7 +42,7 @@ export const getRouteFilter = async (
 ) => {
   try {
     const response = await httpRequest.get(
-      `/route/filter-arrivalName?arrivalName=${arrivalName}&page=${page}&size=${size}&sort=${sort}`
+      `/Route/search/arrivalName?ArrivalName=${arrivalName}&page=${page}&size=${size}&sort=${sort}`
     );
     return response.data;
   } catch (error) {

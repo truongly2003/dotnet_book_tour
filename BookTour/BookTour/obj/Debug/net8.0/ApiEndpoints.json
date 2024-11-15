@@ -20,8 +20,60 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookTour.Controllers.FeedbackController",
+    "Method": "getListFeedback",
+    "RelativePath": "api/Feedback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "detailRouteId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.FeedbackController",
+    "Method": "createComment",
+    "RelativePath": "api/Feedback/comment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookTour.Application.Dto.Request.FeedbackRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.RoleController",
+    "Method": "getAllRole",
+    "RelativePath": "api/Role",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.RouteController",
-    "Method": "getAllRoute",
+    "Method": "GetAllRoute",
     "RelativePath": "api/Route",
     "HttpMethod": "GET",
     "IsController": true,
@@ -47,7 +99,7 @@
   },
   {
     "ContainingType": "BookTour.Controllers.RouteController",
-    "Method": "getAllRouteByArrivalName",
+    "Method": "GetAllRouteByArrivalName",
     "RelativePath": "api/Route/search/arrivalName",
     "HttpMethod": "GET",
     "IsController": true,
@@ -77,8 +129,49 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookTour.Controllers.RouteController",
+    "Method": "GetAllRouteByArrivalAndDepartureAndDate",
+    "RelativePath": "api/Route/search/body",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ArrivalName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DepartureName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TimeToDeparture",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.UserController",
-    "Method": "getALlUser",
+    "Method": "getListUser",
     "RelativePath": "api/User",
     "HttpMethod": "GET",
     "IsController": true,

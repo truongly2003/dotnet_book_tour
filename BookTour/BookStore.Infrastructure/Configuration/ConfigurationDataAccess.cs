@@ -39,6 +39,9 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+            services.AddScoped<IBookingRepository, BookingRepository>();
 
             // 2 service
             services.AddScoped<IRouteService, RouteService>();
@@ -49,6 +52,8 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IFeedbackService, FeedbackService>();
         }
         public static void ConfigApi(this IServiceCollection services)
         {
