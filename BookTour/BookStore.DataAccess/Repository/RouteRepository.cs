@@ -48,7 +48,6 @@ namespace BookStore.DataAccess.Repository
             .Where(detail => detail.Route.Arrival.ArrivalName == ArrivalName &&
                             detail.Route.Departure.DepartureName == DepartureName &&
                             detail.TimeToDeparture >= TimeToDeparture && detail.TimeToDeparture >= curendate
-
             )
             .Select(detail => new Detailroute
             {
@@ -84,15 +83,41 @@ namespace BookStore.DataAccess.Repository
                    TimeToFinish = detail.TimeToFinish,
                    Stock = detail.Stock,
                    Images = detail.Images.Where(img => img.IsPrimary == 1).ToList(),
-                   Feedbacks = detail.Feedbacks.ToList(),
                })
                .ToListAsync();
             return query;
         }
 
-        public Task<Detailroute> GetDetailRouteByIdAsync(int DetailRouteId)
+        public async Task<Detailroute> GetDetailRouteByIdAsync(int DetailRouteId)
         {
-            throw new NotImplementedException();
+            var query = await _dbContext.Detailroutes
+             .Include(detail => detail.Images)
+             .Include(detail => detail.Feedbacks)
+             .Include(detail=>detail.Route)
+             .ThenInclude(route=>route.Departure)
+             .Where(detail => detail.DetailRouteId==DetailRouteId)
+             .Select(detail => new Detailroute
+             {
+                 DetailRouteId = detail.DetailRouteId,
+                 RouteId = detail.RouteId,
+                 Price = detail.Price,
+                 DetailRouteName = detail.DetailRouteName,
+                 Description = detail.Description,
+                 TimeToDeparture = detail.TimeToDeparture,
+                 TimeToFinish = detail.TimeToFinish,
+                 Stock = detail.Stock,
+                 
+                 Feedbacks = detail.Feedbacks.ToList(),
+                 Route=new Route
+                 {
+                     Departure=new Departure
+                     {
+                         DepartureName=detail.Route.Departure.DepartureName
+                     }
+                 }
+             })
+             .FirstOrDefaultAsync();
+            return query;
         }
     }
 }

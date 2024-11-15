@@ -13,19 +13,6 @@ namespace BookTour.Controllers
         {
             _departureService = departureService;
         }
-        //[HttpGet]
-        //public async Task<IActionResult> Index(int page = 1, int size = 10, string sort = "")
-        //{
-        //    var book = await _routeService.getAllRouteAsync(page, size, sort);
-        //    return Ok(book);
-        //}
-        //[HttpGet("arrival")]
-        //public async Task<IActionResult> getAllArrival()
-        //{
-        //    var arrival = await _routeService.getAllArrivalAsync();
-
-        //    return Ok(arrival);
-        //}
         [HttpGet()]
         public async Task<IActionResult> getAllDeparture()
         {

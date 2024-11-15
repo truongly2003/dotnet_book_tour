@@ -11,7 +11,7 @@ namespace BookTour.Application.Dto
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string Sequence { get; set; }
+        public int Sequence { get; set; }
         public string TextImage { get; set; }
     }
 }

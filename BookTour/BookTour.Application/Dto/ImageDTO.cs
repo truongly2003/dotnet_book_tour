@@ -8,7 +8,7 @@ namespace BookTour.Application.Dto
 {
     public class ImageDTO
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string TextImage { get; set; }
     }
 }
