@@ -22,7 +22,7 @@ public partial class Passenger
     [Column("date_birth")]
     public DateOnly DateBirth { get; set; }
 
-    public virtual Object? Object { get; set; }
+    public virtual Objects? Object { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 }

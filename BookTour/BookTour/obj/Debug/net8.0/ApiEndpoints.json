@@ -10,6 +10,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookTour.Controllers.BookingController",
+    "Method": "GetBookingCustomerId",
+    "RelativePath": "api/Booking/profile/customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CustomerId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.DepartureController",
     "Method": "getAllDeparture",
     "RelativePath": "api/Departure",

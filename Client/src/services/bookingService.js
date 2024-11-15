@@ -19,3 +19,11 @@ export const handleBooking = async (payload) => {
     }
 };
 
+export const getBookingByCustomerId = async (id,page,size) => {
+    try {
+        const response = await httpRequest.get(`/Booking/profile/customer?CustomerId=${id}&page=${page}&size=${size}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching route");
+    }
+};

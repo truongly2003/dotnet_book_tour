@@ -18,9 +18,31 @@ namespace BookTour.Application.Service
             _bookingRepository = bookingRepository;
         }
 
-        public async Task<List<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId)
+        public async Task<Page<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId, int page, int size)
         {
-            throw new NotImplementedException();
+            var data = await _bookingRepository.GetAllBookingByCustomerIdAsync(CustomerId);
+            var bookingResponse = data.Select(booking => new BookingResponse
+            {
+                BookingId = booking.BookingId,
+                DetailRouteName = booking.DetailRoute?.DetailRouteName,
+                PaymentStatusName = booking.PaymentStatus.StatusName,
+                TimeToDeparture = booking.DetailRoute.TimeToDeparture,
+                TimeToFinish = booking.DetailRoute.TimeToFinish,
+                TimeToOrder = booking.TimeToOrder,
+                TotalPassengers = booking.Ticket.Select(ticket => ticket.Passenger).Count()
+            })
+            .Skip((page - 1) * size)
+            .Take(size)
+            .ToList();
+            var totalElement = data.Count();
+            var totalPage = (int)Math.Ceiling((double)totalElement / size);
+            var result = new Page<BookingResponse>
+            {
+                Data = bookingResponse,
+                TotalElement = totalElement,
+                TotalPages = totalPage
+            };
+            return result;
         }
     }
 }

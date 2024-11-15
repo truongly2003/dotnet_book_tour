@@ -9,6 +9,6 @@ namespace BookTour.Application.Interface
 {
     public interface IBookingService
     {
-        Task<List<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId);
+        Task<Page<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId,int page,int size);
     }
 }

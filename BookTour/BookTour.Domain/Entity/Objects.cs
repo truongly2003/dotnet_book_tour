@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookTour.Domain.Entity;
 
-public partial class Object
+public partial class Objects
 {
 
     [Column("object_id")]

@@ -27,17 +27,17 @@ namespace BookStore.DataAccess
         public DbSet<Feedback> Feedback { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Leg> Legs { get; set; }
-        //public DbSet<Object> Objects { get; set; }
+        public DbSet<Objects> Objects { get; set; }
         public DbSet<Operation> Operations { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<Paymentstatus> Paymentstatuses { get; set; }
+        public DbSet<Paymentstatus> Paymentstatus { get; set; }
         public DbSet<Permission> Permissions { get; set; }
        
         public DbSet<Roleoperation> Roleoperations { get; set; }
         public DbSet<Route> Routes { get; set; }
         public DbSet<Statusroleoperation> Statusroleoperation { get; set; }
-       
+        public DbSet<Ticket> Tickets { get; set; }
 
 
 
@@ -45,7 +45,8 @@ namespace BookStore.DataAccess
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-          
+            modelBuilder.Entity<Ticket>()
+         .HasKey(t => new { t.BookingId, t.PassengerId });
         }
     }
 }

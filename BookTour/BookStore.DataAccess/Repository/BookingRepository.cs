@@ -19,10 +19,11 @@ namespace BookStore.DataAccess.Repository
         public async Task<List<Booking>> GetAllBookingByCustomerIdAsync(int CustomerId)
         {
             var query = await _dbContext.Bookings
-                 .Include(book => book.Customer)
-                 .Include(book => book.Payment)
+                .Where(book => book.CustomerId == CustomerId)
+                 .Include(book => book.PaymentStatus)
                  .Include(book => book.DetailRoute)
-                 //.Include(book=>book.T)
+                 .Include(book=>book.Ticket)
+                 .ThenInclude(tickit=>tickit.Passenger)
                  .ToListAsync();
             return query;
         }

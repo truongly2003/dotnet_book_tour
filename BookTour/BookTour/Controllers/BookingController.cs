@@ -6,7 +6,7 @@ namespace BookTour.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class BookingController : Controller
+    public class BookingController : ControllerBase
     {
 
         private readonly IBookingService _bookingService;
@@ -14,9 +14,11 @@ namespace BookTour.Controllers
         {
             _bookingService = bookingService;
         }
-        public IActionResult Index()
+        [HttpGet("profile/customer")]
+        public async Task<IActionResult> GetBookingCustomerId(int CustomerId,int page,int size)
         {
-            return View();
+            var booking = await _bookingService.GetAllBookingByCustomerIdAsync(CustomerId,page,size);
+            return Ok(booking);
         }
     }
 }
