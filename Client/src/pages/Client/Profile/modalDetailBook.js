@@ -1,8 +1,24 @@
-import React from "react";
-
+import { useEffect, useState } from "react";
+import { getDetailBookingByUserId } from "../../../services/bookingService";
 function ModalDetailBook({ booking, onClose }) {
-  if (!booking) return null;
   console.log(booking);
+  const [details, setDetail] = useState({});
+  useEffect(() => {
+    const fet = async () => {
+      try {
+        if (booking) {
+          const data = await getDetailBookingByUserId(6, booking.bookingId);
+          setDetail(data);
+        }
+      } catch (error) {
+        console.error("Error fetching booking details:", error);
+      }
+    };
+    fet();
+  }, [booking]);
+  
+  if (!booking) return null;
+
   return (
     <div className="modal show d-block" tabIndex="-1">
       <div className="modal-dialog modal-lg">
@@ -37,7 +53,8 @@ function ModalDetailBook({ booking, onClose }) {
                       (new Date(booking.timeToFinish) -
                         new Date(booking.timeToDeparture)) /
                         (1000 * 60 * 60 * 24)
-                    )} - ngày
+                    )}{" "}
+                    - ngày
                   </p>
                   <p>
                     <strong>Ngày khởi hành:</strong> {booking.timeToDeparture}
@@ -48,8 +65,7 @@ function ModalDetailBook({ booking, onClose }) {
                     <strong>Khởi hành từ:</strong> {booking.departureName}
                   </p>
                   <p>
-                    <strong>Số khách:</strong> {booking.adults} người lớn,{" "}
-                    {booking.children} trẻ em
+                    <strong>Số khách:</strong> {booking.totalPassengers} {" "}
                   </p>
                   <p>
                     <strong>Ngày kết thúc:</strong> {booking.timeToFinish}
@@ -61,14 +77,14 @@ function ModalDetailBook({ booking, onClose }) {
             <div className="border-top pt-3">
               <h6>Thông tin khách hàng</h6>
               <p>
-                <strong>Họ tên:</strong> {booking.customer_name}
+                <strong>Họ tên:</strong> {details.customerName}
               </p>
               <p>
-                <strong>Điện thoại:</strong> {booking.phone}
+                <strong>Điện thoại:</strong> {details.customerPhone}
               </p>
               <p>
                 <strong>Email:</strong>{" "}
-                <a href={`mailto:${booking.email}`}>{booking.email}</a>
+                <a href={`mailto:${booking.email}`}>{details.customerEmail}</a>
               </p>
             </div>
 
@@ -84,19 +100,21 @@ function ModalDetailBook({ booking, onClose }) {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Giá tour cơ bản</td>
-                    <td>{booking.price_per_person} VND</td>
-                    <td>{booking.quantity}</td>
-                    <td>{booking.price_per_person * booking.quantity} VND</td>
-                  </tr>
+                  {details.listTicket?.map((item, index) => (
+                    <tr key={index}>
+                      <td>{item.objectName}</td>
+                      <td>{item.price} VND</td>
+                      <td>{item.quantity}</td>
+                      <td>{item.price * item.quantity} VND</td>
+                    </tr>
+                  ))}
                 </tbody>
                 <tfoot>
                   <tr>
                     <th colSpan="3" className="text-end">
                       Tổng giá tour
                     </th>
-                    <th>{booking.price_per_person * booking.quantity} VND</th>
+                    <th>{booking.totalPrice} VND</th>
                   </tr>
                 </tfoot>
               </table>

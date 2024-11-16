@@ -16,14 +16,14 @@ namespace BookStore.DataAccess.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<List<Ticket>> GetAllTicketByCustomerIdAsync(int customerId)
+        public async Task<List<Ticket>> GetAllTicketByUserIdAsync(int UserId, int BookingId)
         {
             var query= await _dbContext.Tickets
                 .Include(t=>t.Passenger)
                 .ThenInclude(pas=>pas.Object)
                 .Include(t=>t.Booking)
                 .ThenInclude(book=>book.DetailRoute)
-                .Where(book=>book.Booking.CustomerId == customerId)
+                .Where(book=>book.Booking.Customer.UserId == UserId && book.BookingId==BookingId)
                 .ToListAsync();
             return query;
         }   

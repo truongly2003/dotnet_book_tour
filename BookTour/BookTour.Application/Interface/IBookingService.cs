@@ -9,7 +9,7 @@ namespace BookTour.Application.Interface
 {
     public interface IBookingService
     {
-        Task<Page<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId,int page,int size);
-        Task<BookingDetailResponse> GetDetailBookingResponseByCustomerIdAsync(int CustomerId);
+        Task<Page<BookingResponse>> GetAllBookingByUserIdAsync(int UserId,int page,int size);
+        Task<BookingDetailResponse> GetDetailBookingResponseByUserIdAsync(int UserId,int BookingId);
     }
 }

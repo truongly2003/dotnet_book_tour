@@ -14,16 +14,16 @@ namespace BookTour.Controllers
         {
             _bookingService = bookingService;
         }
-        [HttpGet("profile/customer")]
-        public async Task<IActionResult> GetBookingCustomerId(int CustomerId,int page,int size)
+        [HttpGet("profile/user")]
+        public async Task<IActionResult> GetBookingCustomerId(int UserId, int page,int size)
         {
-            var booking = await _bookingService.GetAllBookingByCustomerIdAsync(CustomerId,page,size);
+            var booking = await _bookingService.GetAllBookingByUserIdAsync(UserId, page,size);
             return Ok(booking);
         }
         [HttpGet("profile/detail")]
-        public async Task<IActionResult> GetBookingDetailByCustomerId(int CustomerId)
+        public async Task<IActionResult> GetBookingDetailByCustomerId(int UserId,int BookingId)
         {
-            var booking=await _bookingService.GetDetailBookingResponseByCustomerIdAsync(CustomerId);
+            var booking=await _bookingService.GetDetailBookingResponseByUserIdAsync(UserId,BookingId);
             return Ok(booking);
         }
     }

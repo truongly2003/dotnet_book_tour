@@ -9,8 +9,8 @@ namespace BookTour.Domain.Interface
 {
     public interface IBookingRepository
     {
-        Task<List<Booking>> GetAllBookingByCustomerIdAsync(int CustomerId);
-        Task<Customer> GetDetailBookingResponseByCustomerIdAsync(int CustomerId);
+        Task<List<Booking>> GetAllBookingByUserIdAsync(int UserId);
+        Task<User> GetDetailBookingResponseByUserIdAsync(int UserId, int BookingId);
         Task<Booking> findById(int id);
     }
 }

@@ -20,12 +20,14 @@ namespace BookTour.Application.Service
             _ticketRepository = ticketRepository;
         }
 
-        public async Task<Page<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId, int page, int size)
+        public async Task<Page<BookingResponse>> GetAllBookingByUserIdAsync(int UserId, int page, int size)
         {
-            var data = await _bookingRepository.GetAllBookingByCustomerIdAsync(CustomerId);
+            var data = await _bookingRepository.GetAllBookingByUserIdAsync(UserId);
             var bookingResponse = data.Select(booking => new BookingResponse
             {
+                UserId=booking.Customer.UserId,
                 BookingId = booking.BookingId,
+                TotalPrice=booking.TotalPrice ?? 0,
                 DetailRouteName = booking.DetailRoute?.DetailRouteName,
                 PaymentStatusName = booking.PaymentStatus.StatusName,
                 TimeToDeparture = booking.DetailRoute.TimeToDeparture,
@@ -48,21 +50,35 @@ namespace BookTour.Application.Service
             return result;
         }
 
-        public async Task<BookingDetailResponse> GetDetailBookingResponseByCustomerIdAsync(int CustomerId)
+        public async Task<BookingDetailResponse> GetDetailBookingResponseByUserIdAsync(int UserId,int BookingId)
         {
-            var data = await _bookingRepository.GetDetailBookingResponseByCustomerIdAsync(CustomerId);
-            var ticket = await _ticketRepository.GetAllTicketByCustomerIdAsync(CustomerId);
+            var data = await _bookingRepository.GetDetailBookingResponseByUserIdAsync(UserId,BookingId);
+            var ticket = await _ticketRepository.GetAllTicketByUserIdAsync(UserId,BookingId);
+            var groupedTickets = ticket.GroupBy(t => t.Passenger.Object.ObjectId)
+                               .ToList();
+
             var bookingResponse = new BookingDetailResponse
             {
-                CustomerEmail = data.CustomerEmail,
-                CustomerName = data.CustomerName,
-                CustomerPhone = data.CustomerPhone,
-                ListTicket = ticket.Select(t => new TicketResponse
+                CustomerEmail = data.Customers?.FirstOrDefault()?.CustomerName ?? "",
+                CustomerName = data.Customers?.FirstOrDefault()?.CustomerName ?? "",
+                CustomerPhone = data.Customers?.FirstOrDefault()?.CustomerPhone ?? "",
+
+                ListTicket = groupedTickets.Select(group => 
                 {
-                    ObjectName = t.Passenger?.Object?.ObjectName ?? "",
-                    Price = 1000,
-                    Quantity = 1,
-                    TotalPrice = 10
+                    var ticketTypeId = group.Key;
+                    var ticketPrice = group.FirstOrDefault()?.Booking.DetailRoute.Price ?? 0;
+                    var adjustedPrice = ticketPrice;
+                    if (ticketTypeId == 2)
+                        adjustedPrice *= 0.8;
+                    else if (ticketTypeId == 3)
+                        adjustedPrice *= 0.5;
+                    return new TicketResponse
+                    {
+                        ObjectName = group.FirstOrDefault()?.Passenger?.Object?.ObjectName ?? "",
+                        Price = adjustedPrice,
+                        Quantity = group.Count(),
+                        TotalPrice = adjustedPrice * group.Count() 
+                    };
                 }).ToList()
             }; 
             return bookingResponse;

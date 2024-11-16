@@ -16,32 +16,32 @@ namespace BookStore.DataAccess.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<List<Booking>> GetAllBookingByCustomerIdAsync(int CustomerId)
+        public async Task<List<Booking>> GetAllBookingByUserIdAsync(int UserId)
         {
             var query = await _dbContext.Bookings
-                .Where(book => book.CustomerId == CustomerId)
+                 .Include(book => book.Customer)
+                 .Where(cus => cus.Customer.UserId == UserId)
                  .Include(book => book.PaymentStatus)
                  .Include(book => book.DetailRoute)
-                 .ThenInclude(detail=>detail.Route)
-                 .ThenInclude(route=>route.Departure)
-                 .Include(book=>book.Ticket)
-                 .ThenInclude(tickit=>tickit.Passenger)
+                 .ThenInclude(detail => detail.Route)
+                 .ThenInclude(route => route.Departure)
+                 .Include(book => book.Ticket)
+                 .ThenInclude(tickit => tickit.Passenger)
                  .ToListAsync();
             return query;
         }
-      
+
         public async Task<Booking> findById(int id)
         {
             return await _dbContext.Bookings.FirstOrDefaultAsync(b => b.BookingId == id);
         }
 
-        public async Task<Customer> GetDetailBookingResponseByCustomerIdAsync(int CustomerId)
+        public async Task<User> GetDetailBookingResponseByUserIdAsync(int UserId, int BookingId)
         {
-            var query = await _dbContext.Customers
-                .Where(cus => cus.CustomerId == CustomerId)
-                .Include(cus => cus.Bookings)
-                .ThenInclude(book => book.Ticket)
-                .ThenInclude(ticket => ticket.Passenger)
+            var query = await _dbContext.Users
+                .Include(user => user.Customers)
+                .ThenInclude(cus => cus.Bookings)
+                .Where(user => user.UserId == UserId && user.Customers.Any(cus => cus.Bookings.Any(book => book.BookingId == BookingId)))
                 .FirstOrDefaultAsync();
             return query;
         }

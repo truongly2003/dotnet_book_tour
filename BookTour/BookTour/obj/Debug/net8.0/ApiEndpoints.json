@@ -11,14 +11,35 @@
   },
   {
     "ContainingType": "BookTour.Controllers.BookingController",
-    "Method": "GetBookingCustomerId",
-    "RelativePath": "api/Booking/profile/customer",
+    "Method": "GetBookingDetailByCustomerId",
+    "RelativePath": "api/Booking/profile/detail",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "CustomerId",
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "BookingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.BookingController",
+    "Method": "GetBookingCustomerId",
+    "RelativePath": "api/Booking/profile/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -29,22 +50,6 @@
       },
       {
         "Name": "size",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookTour.Controllers.BookingController",
-    "Method": "GetBookingDetailByCustomerId",
-    "RelativePath": "api/Booking/profile/detail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "CustomerId",
         "Type": "System.Int32",
         "IsRequired": false
       }
