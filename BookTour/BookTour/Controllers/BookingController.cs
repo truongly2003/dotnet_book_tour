@@ -20,5 +20,11 @@ namespace BookTour.Controllers
             var booking = await _bookingService.GetAllBookingByCustomerIdAsync(CustomerId,page,size);
             return Ok(booking);
         }
+        [HttpGet("profile/detail")]
+        public async Task<IActionResult> GetBookingDetailByCustomerId(int CustomerId)
+        {
+            var booking=await _bookingService.GetDetailBookingResponseByCustomerIdAsync(CustomerId);
+            return Ok(booking);
+        }
     }
 }

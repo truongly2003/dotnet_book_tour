@@ -15,7 +15,7 @@ function Book() {
     const fetch = async () => {
       try {
         const response = await getBookingByCustomerId(
-          47,
+          1,
           currentPage,
           pageSize
         );
@@ -29,9 +29,8 @@ function Book() {
     fetch();
   }, [currentPage, pageSize]);
 
-  console.log(bookings);
-  const handleShowModal = (booking) => {
-    setSelectedBooking(booking);
+  const handleShowModal = (bookings) => {
+    setSelectedBooking(bookings);
     setShowModal(true);
   };
 

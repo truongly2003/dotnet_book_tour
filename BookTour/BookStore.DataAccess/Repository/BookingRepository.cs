@@ -22,6 +22,8 @@ namespace BookStore.DataAccess.Repository
                 .Where(book => book.CustomerId == CustomerId)
                  .Include(book => book.PaymentStatus)
                  .Include(book => book.DetailRoute)
+                 .ThenInclude(detail=>detail.Route)
+                 .ThenInclude(route=>route.Departure)
                  .Include(book=>book.Ticket)
                  .ThenInclude(tickit=>tickit.Passenger)
                  .ToListAsync();
@@ -31,6 +33,17 @@ namespace BookStore.DataAccess.Repository
         public async Task<Booking> findById(int id)
         {
             return await _dbContext.Bookings.FirstOrDefaultAsync(b => b.BookingId == id);
+        }
+
+        public async Task<Customer> GetDetailBookingResponseByCustomerIdAsync(int CustomerId)
+        {
+            var query = await _dbContext.Customers
+                .Where(cus => cus.CustomerId == CustomerId)
+                .Include(cus => cus.Bookings)
+                .ThenInclude(book => book.Ticket)
+                .ThenInclude(ticket => ticket.Passenger)
+                .FirstOrDefaultAsync();
+            return query;
         }
     }
 }

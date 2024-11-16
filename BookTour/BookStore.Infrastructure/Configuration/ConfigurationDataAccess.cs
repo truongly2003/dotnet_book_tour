@@ -42,7 +42,7 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
-
+            services.AddScoped<ITicketRepository, TicketRepository>();
             // 2 service
             services.AddScoped<IRouteService, RouteService>();
             services.AddScoped<IDepartureService, DepartureService>();

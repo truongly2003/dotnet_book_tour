@@ -15,5 +15,6 @@ namespace BookTour.Application.Dto
         public DateOnly TimeToFinish { get; set; }
         public string PaymentStatusName { get; set; }
         public int TotalPassengers { get; set; }
+        public string DepartureName { get; set; }
     }
 }

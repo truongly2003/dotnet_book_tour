@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookTour.Domain.Entity;
 
 public partial class Objects
 {
-
+    [Key]
     [Column("object_id")]
     public int ObjectId { get; set; }
 

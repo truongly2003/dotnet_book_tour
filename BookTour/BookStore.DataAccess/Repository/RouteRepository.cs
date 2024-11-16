@@ -18,7 +18,6 @@ namespace BookStore.DataAccess.Repository
         }
         public async Task<List<Detailroute>> GetAllRouteAsync()
         {
-
             var query = await _dbContext.Detailroutes
                 .Include(detail => detail.Images)
                 .Include(detail => detail.Feedbacks)
