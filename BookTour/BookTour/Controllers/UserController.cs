@@ -12,15 +12,12 @@ namespace BookTour.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-
-        // Constructor để Inject IUserService vào controller
-        public UserController(IUserService userService)
+        private readonly ICustomerService _customerService;
+        public UserController(IUserService userService,ICustomerService customerService)
         {
-            _userService = userService;  // Sửa cách gán tham chiếu service đúng
+            _userService = userService;  
+            _customerService = customerService;
         }
-
-
-        //
         [HttpGet]
         public async Task<IActionResult> getListUser(int page, int size)
         {
@@ -118,5 +115,28 @@ namespace BookTour.Controllers
             return Ok(response);
         }
 
+
+
+        // phần của trưởng
+        [HttpGet("profile/user")]
+        public async Task<IActionResult> GetProfileByUserId(int userId)
+        {
+            var data=await _customerService.FindCustomerByUserIdAsync(userId);
+            return Ok(data);
+        }
+        [HttpPut("profile/user/update")]
+        public async Task<IActionResult> UpdateCustomer(int userId, [FromBody] CustomerDTO customerDTO)
+        {
+
+            var data = await _customerService.UpdateCustomerByUserIdAsync(userId, customerDTO);
+            if (data)
+            {
+                return Ok("Customer updated successfully");
+            }
+            else
+            {
+                return NotFound("Customer not found");
+            }
+        }
     }
 }

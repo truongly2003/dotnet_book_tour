@@ -35,6 +35,7 @@ namespace BookStore.DataAccess.Repository
             return customer;
         }
 
+      
         public async Task<Customer> saveCustomer(Customer customer)
         {
 
@@ -64,7 +65,21 @@ namespace BookStore.DataAccess.Repository
         }
 
 
-
-
+        // phần trưởng
+      
+        public async Task<Customer> FindCustomerByUserIdAsync(int UserId)
+        {
+            var query = await _context.Customers
+                .Include(c => c.User)
+                .Where(c => c.UserId == UserId)
+                .FirstOrDefaultAsync();
+            return query;
+        }
+        public async Task<bool> UpdateCustomerByUserIdAsync(int UserId, Customer customer)
+        {
+            _context.Customers.Update(customer);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

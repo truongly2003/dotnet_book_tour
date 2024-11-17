@@ -284,5 +284,42 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.UserController",
+    "Method": "GetProfileByUserId",
+    "RelativePath": "api/User/profile/user",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.UserController",
+    "Method": "UpdateCustomer",
+    "RelativePath": "api/User/profile/user/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "customerDTO",
+        "Type": "BookTour.Application.Dto.CustomerDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

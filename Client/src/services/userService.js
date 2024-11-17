@@ -61,3 +61,29 @@ export const loginAuthentication = async (username, password) => {
     throw error;
   }
 };
+
+
+// trưởng
+export const GetProfileByUserId = async (id) => {
+  try {
+    const response = await httpRequest.get(`/User/profile/user?userId=${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user");
+    throw error;
+  }
+};
+
+
+export const UpdateProfileByUserId = async (userId, data) => {
+  try {
+    const response = await httpRequest.put(`/User/profile/user/update?userId=${userId}`, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
+  }
+};
