@@ -29,7 +29,19 @@ namespace BookStore.DataAccess.Repository
                  .ToListAsync();
             return query;
         }
-      
+
+        public async Task<List<Booking>> GetAllBookingsAsync()
+        {
+            return await _dbContext.Bookings
+                .Include(book => book.PaymentStatus)
+                .Include(book => book.DetailRoute)
+                .ThenInclude(detail => detail.Route)
+                .ThenInclude(route => route.Departure)
+                .Include(book => book.Ticket)
+                .ThenInclude(ticket => ticket.Passenger)
+                .ToListAsync();
+        }
+
         public async Task<Booking> findById(int id)
         {
             return await _dbContext.Bookings.FirstOrDefaultAsync(b => b.BookingId == id);
@@ -45,5 +57,21 @@ namespace BookStore.DataAccess.Repository
                 .FirstOrDefaultAsync();
             return query;
         }
+
+
+        // Lấy booking theo id
+        public async Task<Booking> FindByIdAsync(int id)
+        {
+            return await _dbContext.Bookings
+                .Include(book => book.Customer)
+                .Include(book => book.PaymentStatus)
+                .Include(book => book.DetailRoute)
+                .ThenInclude(detail => detail.Route)
+                .ThenInclude(route => route.Departure)
+                .Include(book => book.Ticket)
+                .ThenInclude(ticket => ticket.Passenger)
+                .FirstOrDefaultAsync(book => book.BookingId == id);
+        }
+
     }
 }

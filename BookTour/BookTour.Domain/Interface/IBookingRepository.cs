@@ -11,6 +11,9 @@ namespace BookTour.Domain.Interface
     {
         Task<List<Booking>> GetAllBookingByCustomerIdAsync(int CustomerId);
         Task<Customer> GetDetailBookingResponseByCustomerIdAsync(int CustomerId);
-        Task<Booking> findById(int id);
+        Task<Booking> FindByIdAsync(int id);
+        Task<List<Booking>> GetAllBookingsAsync();
+
+
     }
 }

@@ -24,7 +24,7 @@ namespace BookTour.Application.Service
         }
         public async Task<FeedbackDTO> comment(FeedbackRequest request)
         {
-            Booking booking = await _bookRepository.findById(request.bookingId);
+            Booking booking = await _bookRepository.FindByIdAsync(request.bookingId);
             Detailroute detailroute = await _detailRouteRepository.findById(request.detailRouteId);
 
             Feedback feedback = new Feedback

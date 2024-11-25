@@ -26,5 +26,21 @@ namespace BookTour.Controllers
             var booking=await _bookingService.GetDetailBookingResponseByCustomerIdAsync(CustomerId);
             return Ok(booking);
         }
+        [HttpGet("export")]
+        public async Task<IActionResult> ExportBookings()
+        {
+            var bookings = await _bookingService.GetAllBookingsAsync();
+            return Ok(bookings);
+        }
+        [HttpGet("detail/{bookingId}")]
+        public async Task<IActionResult> GetBookingDetailById(int bookingId)
+        {
+            var bookingDetail = await _bookingService.GetBookingDetailByIdAsync(bookingId);
+            if (bookingDetail == null)
+            {
+                return NotFound();
+            }
+            return Ok(bookingDetail);
+        }
     }
 }

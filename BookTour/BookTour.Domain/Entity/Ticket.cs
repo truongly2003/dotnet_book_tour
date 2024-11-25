@@ -17,7 +17,9 @@ namespace BookTour.Domain.Entity
         public virtual Booking Booking { get; set; }
 
         public virtual Passenger Passenger { get; set; }
-
-
+        //public string ObjectName { get; set; }
+        //public int Quantity { get; set; }
+        //public double TotalPrice { get; set; }
+        //public double Price { get; set; }
     }
 }

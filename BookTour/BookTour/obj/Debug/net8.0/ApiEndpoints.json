@@ -11,6 +11,32 @@
   },
   {
     "ContainingType": "BookTour.Controllers.BookingController",
+    "Method": "GetBookingDetailById",
+    "RelativePath": "api/Booking/detail/{bookingId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.BookingController",
+    "Method": "ExportBookings",
+    "RelativePath": "api/Booking/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.BookingController",
     "Method": "GetBookingCustomerId",
     "RelativePath": "api/Booking/profile/customer",
     "HttpMethod": "GET",
@@ -225,6 +251,16 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetStatistics",
+    "RelativePath": "api/Statistics",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

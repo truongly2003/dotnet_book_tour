@@ -14,10 +14,13 @@ namespace BookTour.Application.Service
     {
         private readonly IBookingRepository _bookingRepository;
         private readonly ITicketRepository _ticketRepository;
-        public BookingService(IBookingRepository bookingRepository,ITicketRepository ticketRepository)
+        private readonly ICustomerRepository _customerRepository;
+
+        public BookingService(IBookingRepository bookingRepository, ITicketRepository ticketRepository, ICustomerRepository customerRepository)
         {
             _bookingRepository = bookingRepository;
             _ticketRepository = ticketRepository;
+            _customerRepository = customerRepository;
         }
 
         public async Task<Page<BookingResponse>> GetAllBookingByCustomerIdAsync(int CustomerId, int page, int size)
@@ -32,7 +35,7 @@ namespace BookTour.Application.Service
                 TimeToFinish = booking.DetailRoute.TimeToFinish,
                 TimeToOrder = booking.TimeToOrder,
                 TotalPassengers = booking.Ticket.Select(ticket => ticket.Passenger).Count(),
-                DepartureName=booking.DetailRoute.Route.Departure.DepartureName
+                DepartureName = booking.DetailRoute.Route.Departure.DepartureName
             })
             .Skip((page - 1) * size)
             .Take(size)
@@ -64,8 +67,56 @@ namespace BookTour.Application.Service
                     Quantity = 1,
                     TotalPrice = 10
                 }).ToList()
-            }; 
+            };
             return bookingResponse;
         }
+
+        
+
+        public async Task<List<BookingResponse>> GetAllBookingsAsync()
+        {
+            var data = await _bookingRepository.GetAllBookingsAsync();
+            var bookingResponse = data.Select(booking => new BookingResponse
+            {
+                BookingId = booking.BookingId,
+                DetailRouteName = booking.DetailRoute?.DetailRouteName,
+                PaymentStatusName = booking.PaymentStatus.StatusName,
+                TimeToDeparture = booking.DetailRoute.TimeToDeparture,
+                TimeToFinish = booking.DetailRoute.TimeToFinish,
+                TimeToOrder = booking.TimeToOrder,
+                TotalPassengers = booking.Ticket.Select(ticket => ticket.Passenger).Count(),
+                DepartureName = booking.DetailRoute.Route.Departure.DepartureName
+            }).ToList();
+
+            return bookingResponse;
+        }
+
+
+
+        // Lấy booking theo id
+        public async Task<BookingDetailResponse> GetBookingDetailByIdAsync(int bookingId)
+        {
+            var booking = await _bookingRepository.FindByIdAsync(bookingId);
+            if (booking == null)
+            {
+                return null;
+            }
+            var ticket = await _ticketRepository.GetAllTicketByBookingIdAsync(bookingId);
+            var bookingDetailResponse = new BookingDetailResponse
+            {
+                CustomerEmail = booking.Customer?.CustomerEmail,
+                CustomerName = booking.Customer?.CustomerName,
+                CustomerPhone = booking.Customer?.CustomerPhone,
+                ListTicket = ticket.Select(t => new TicketResponse
+                {
+                    ObjectName = t.Passenger?.Object?.ObjectName ?? "",
+                    Price = 1000,
+                    Quantity = 1,
+                    TotalPrice = 10
+                }).ToList()
+            };
+            return bookingDetailResponse;
+        }
+
     }
 }

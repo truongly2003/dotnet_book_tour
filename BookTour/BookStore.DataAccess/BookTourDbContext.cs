@@ -48,6 +48,36 @@ namespace BookStore.DataAccess
             modelBuilder.Entity<Ticket>()
          .HasKey(t => new { t.BookingId, t.PassengerId });
         }
+
+        public async Task<Dictionary<string, int>> GetStatisticsAsync()
+        {
+            var statistics = new Dictionary<string, int>
+            {   
+                { "Users", await Users.CountAsync() },
+                { "Roles", await Roles.CountAsync() },
+                { "Customers", await Customers.CountAsync() },
+                { "Arrivals", await Arrivals.CountAsync() },
+                { "Bookings", await Bookings.CountAsync() },
+                { "Departures", await Departures.CountAsync() },
+                { "Detailroutes", await Detailroutes.CountAsync() },
+                { "Employees", await Employees.CountAsync() },
+                { "Feedback", await Feedback.CountAsync() },
+                { "Images", await Images.CountAsync() },
+                { "Legs", await Legs.CountAsync() },
+                { "Objects", await Objects.CountAsync() },
+                { "Operations", await Operations.CountAsync() },
+                { "Passengers", await Passengers.CountAsync() },
+                { "Payments", await Payments.CountAsync() },
+                { "Paymentstatus", await Paymentstatus.CountAsync() },
+                { "Permissions", await Permissions.CountAsync() },
+                { "Roleoperations", await Roleoperations.CountAsync() },
+                { "Routes", await Routes.CountAsync() },
+                { "Statusroleoperation", await Statusroleoperation.CountAsync() },
+                { "Tickets", await Tickets.CountAsync() }
+            };
+
+            return statistics;
+        }
     }
 }
    
