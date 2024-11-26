@@ -78,6 +78,241 @@ namespace BookStore.DataAccess
 
             return statistics;
         }
+
+        // Thống kê số lượng booking theo từng trạng thái thanh toán
+        public async Task<List<BookingPaymentStatusStatistics>> GetBookingStatisticsByPaymentStatusAsync()
+        {
+            var result = await Bookings
+                .Join(Paymentstatus, b => b.PaymentStatusId, ps => ps.PaymentStatusId, (b, ps) => new { b, ps })
+                .GroupBy(x => x.ps.StatusName)
+                .Select(g => new BookingPaymentStatusStatistics
+                {
+                    StatusName = g.Key,
+                    TotalBookings = g.Count(),
+                    TotalRevenue = g.Sum(x => x.b.TotalPrice)
+                })
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class BookingPaymentStatusStatistics
+        {
+            public string StatusName { get; set; }
+            public int TotalBookings { get; set; }
+            public decimal? TotalRevenue { get; set; }
+        }
+
+        // Thống kê doanh thu theo từng tháng
+        public async Task<List<MonthlyRevenueStatistics>> GetMonthlyRevenueStatisticsAsync()
+        {
+            var result = await Bookings
+                .GroupBy(b => new { Year = b.TimeToOrder.Year, Month = b.TimeToOrder.Month })
+                .Select(g => new MonthlyRevenueStatistics
+                {
+                    Year = g.Key.Year,
+                    Month = g.Key.Month,
+                    TotalBookings = g.Count(),
+                    TotalRevenue = g.Sum(b => b.TotalPrice)
+                })
+                .OrderByDescending(mrs => mrs.Year)
+                .ThenByDescending(mrs => mrs.Month)
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class MonthlyRevenueStatistics
+        {
+            public int Year { get; set; }
+            public int Month { get; set; }
+            public int TotalBookings { get; set; }
+            public decimal? TotalRevenue { get; set; }
+        }
+
+        
+        // Thống kê Tôur phổ biến
+        public async Task<List<PopularTourStatistics>> GetPopularTourStatisticsAsync()
+        {
+            var result = await Detailroutes
+                .GroupJoin(Bookings, dr => dr.DetailRouteId, b => b.DetailRouteId, (dr, bookings) => new { dr, bookings })
+                .SelectMany(
+                    x => x.bookings.DefaultIfEmpty(),
+                    (x, b) => new { x.dr, b }
+                )
+                .GroupJoin(Feedback, x => x.dr.DetailRouteId, f => f.DetailRouteId, (x, feedbacks) => new { x.dr, x.b, feedbacks })
+                .SelectMany(
+                    x => x.feedbacks.DefaultIfEmpty(),
+                    (x, f) => new { x.dr, x.b, f }
+                )
+                .GroupBy(x => new { x.dr.DetailRouteId, x.dr.DetailRouteName })
+                .Select(g => new PopularTourStatistics
+                {
+                    DetailRouteName = g.Key.DetailRouteName,
+                    TotalBookings = g.Count(x => x.b != null),
+                    TotalRevenue = g.Sum(x => x.b != null ? x.b.TotalPrice : 0),
+                    AverageRating = g.Average(x => x.f != null ? x.f.Rating : 0)
+                })
+                .OrderByDescending(p => p.TotalBookings)
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class PopularTourStatistics
+        {
+            public string DetailRouteName { get; set; }
+            public int TotalBookings { get; set; }
+            public decimal? TotalRevenue { get; set; }
+            public double? AverageRating { get; set; }
+        }
+
+
+        // Thôngs kê khách hàng theo soo lan dat tour
+        public async Task<List<CustomerBookingStatistics>> GetCustomerBookingStatisticsAsync()
+        {
+            var result = await Customers
+                .GroupJoin(Bookings, c => c.CustomerId, b => b.CustomerId, (c, bookings) => new { c, bookings })
+                .SelectMany(
+                    x => x.bookings.DefaultIfEmpty(),
+                    (x, b) => new { x.c, b }
+                )
+                .GroupBy(x => new { x.c.CustomerId, x.c.CustomerName })
+                .Select(g => new CustomerBookingStatistics
+                {
+                    CustomerName = g.Key.CustomerName,
+                    TotalBookings = g.Count(x => x.b != null),
+                    TotalSpent = g.Sum(x => x.b != null ? x.b.TotalPrice : 0)
+                })
+                .OrderByDescending(cbs => cbs.TotalBookings)
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class CustomerBookingStatistics
+        {
+            public string CustomerName { get; set; }
+            public int TotalBookings { get; set; }
+            public decimal? TotalSpent { get; set; }
+        }
+
+        // Thống kê rating trung bình các tour Thịnh đẹp trai
+        public async Task<List<TourRatingStatistics>> GetTourRatingStatisticsAsync()
+        {
+            var result = await Detailroutes
+                .GroupJoin(Feedback, dr => dr.DetailRouteId, f => f.DetailRouteId, (dr, feedbacks) => new { dr, feedbacks })
+                .SelectMany(
+                    x => x.feedbacks.DefaultIfEmpty(),
+                    (x, f) => new { x.dr, f }
+                )
+                .GroupBy(x => new { x.dr.DetailRouteId, x.dr.DetailRouteName })
+                .Select(g => new TourRatingStatistics
+                {
+                    DetailRouteName = g.Key.DetailRouteName,
+                    TotalFeedback = g.Count(x => x.f != null),
+                    AverageRating = g.Average(x => x.f != null ? x.f.Rating : 0),
+                    LowestRating = g.Min(x => x.f != null ? x.f.Rating : (double?)null),
+                    HighestRating = g.Max(x => x.f != null ? x.f.Rating : (double?)null)
+                })
+                .Where(trs => trs.TotalFeedback > 0)
+                .OrderByDescending(trs => trs.AverageRating)
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class TourRatingStatistics
+        {
+            public string DetailRouteName { get; set; }
+            public int TotalFeedback { get; set; }
+            public double? AverageRating { get; set; }
+            public double? LowestRating { get; set; }
+            public double? HighestRating { get; set; }
+        }
+
+        // Thống kê các tuyến đường đẹp trai của Thịnh
+        public async Task<List<RouteTourStatistics>> GetRouteTourStatisticsAsync()
+        {
+            var result = await Routes
+                .Join(Departures, r => r.DepartureId, d => d.DepartureId, (r, d) => new { r, d })
+                .Join(Arrivals, rd => rd.r.ArrivalId, a => a.ArrivalId, (rd, a) => new { rd.r, rd.d, a })
+                .Join(Detailroutes, rda => rda.r.RouteId, dr => dr.RouteId, (rda, dr) => new { rda.r, rda.d, rda.a, dr })
+                .GroupBy(x => new { x.r.RouteId, x.d.DepartureName, x.a.ArrivalName })
+                .Select(g => new RouteTourStatistics
+                {
+                    DepartureName = g.Key.DepartureName,
+                    ArrivalName = g.Key.ArrivalName,
+                    TotalRoutes = g.Count(),
+                    AveragePrice = (decimal?)g.Average(x => x.dr.Price)
+                })
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class RouteTourStatistics
+        {
+            public string DepartureName { get; set; }
+            public string ArrivalName { get; set; }
+            public int TotalRoutes { get; set; }
+            public decimal? AveragePrice { get; set; }
+        }
+
+        // Thống kê loại khách
+        public async Task<List<PassengerTypeStatistics>> GetPassengerTypeStatisticsAsync()
+        {
+            var result = await Passengers
+                .Join(Objects, p => p.ObjectId, o => o.ObjectId, (p, o) => new { p, o })
+                .GroupBy(x => new { x.o.ObjectId, x.o.ObjectName })
+                .Select(g => new PassengerTypeStatistics
+                {
+                    ObjectName = g.Key.ObjectName,
+                    TotalPassengers = g.Count()
+                })
+                .ToListAsync();
+
+            return result;
+        }
+
+        public class PassengerTypeStatistics
+        {
+            public string ObjectName { get; set; }
+            public int TotalPassengers { get; set; }
+        }
+
+
+        //thống kê độ tuổi khách hàng
+        public async Task<List<PassengerAgeGroupStatistics>> GetPassengerAgeGroupStatisticsAsync()
+        {
+            var passengers = await Passengers.ToListAsync();
+
+            var result = passengers
+                .GroupBy(p => new
+                {
+                    AgeGroup = DateTime.Now.Year - p.DateBirth.Year < 12 ? "Trẻ em" :
+                               DateTime.Now.Year - p.DateBirth.Year < 18 ? "Thanh thiếu niên" :
+                               DateTime.Now.Year - p.DateBirth.Year < 60 ? "Người lớn" :
+                               "Người cao tuổi"
+                })
+                .Select(g => new PassengerAgeGroupStatistics
+                {
+                    AgeGroup = g.Key.AgeGroup,
+                    Total = g.Count()
+                })
+                .ToList();
+
+            return result;
+        }
+
+
+
+        public class PassengerAgeGroupStatistics
+        {
+            public string AgeGroup { get; set; }
+            public int Total { get; set; }
+        }
     }
 }
    
+    

@@ -13,5 +13,8 @@ public partial class Payment
     [Column("payment_name")]
     public string? PaymentName { get; set; }
 
+    [Column("payment_date")]
+    public DateTime PaymentDate { get; set; }
+
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 }

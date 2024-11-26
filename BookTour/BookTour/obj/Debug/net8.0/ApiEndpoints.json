@@ -255,8 +255,78 @@
   },
   {
     "ContainingType": "BookTour.Controllers.StatisticsController",
-    "Method": "GetStatistics",
-    "RelativePath": "api/Statistics",
+    "Method": "GetBookingStatisticsByPaymentStatus",
+    "RelativePath": "api/Statistics/booking-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetCustomerBookingStatistics",
+    "RelativePath": "api/Statistics/customer-bookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetMonthlyRevenueStatistics",
+    "RelativePath": "api/Statistics/monthly-revenue",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetPassengerAgeGroupStatistics",
+    "RelativePath": "api/Statistics/passenger-age-groups",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetPassengerTypeStatistics",
+    "RelativePath": "api/Statistics/passenger-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetPopularTourStatistics",
+    "RelativePath": "api/Statistics/popular-tours",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetRouteTourStatistics",
+    "RelativePath": "api/Statistics/route-tours",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.StatisticsController",
+    "Method": "GetTourRatingStatistics",
+    "RelativePath": "api/Statistics/tour-ratings",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
