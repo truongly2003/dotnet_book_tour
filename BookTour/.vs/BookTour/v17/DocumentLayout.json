@@ -50,8 +50,7 @@
               "RelativeToolTip": "BookTour.Application\\Service\\UserService.cs",
               "ViewState": "AgIAAMsAAAAAAAAAAAAswLQAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T04:02:25.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T04:02:25.253Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "BookTour.Application\\Interface\\ICustomerService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T04:00:54.981Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T04:00:54.981Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "BookTour.Application\\Dto\\CustomerDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:43:39.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T03:43:39.251Z"
             },
             {
               "$type": "Document",
@@ -89,8 +86,7 @@
               "RelativeToolTip": "BookTour\\Controllers\\UserController.cs",
               "ViewState": "AgIAAHAAAAAAAAAAAAAlwIAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:41:09.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T03:41:09.604Z"
             },
             {
               "$type": "Document",
@@ -98,8 +94,8 @@
               "Title": "CustomerService.cs",
               "DocumentMoniker": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\Service\\CustomerService.cs",
               "RelativeDocumentMoniker": "BookTour.Application\\Service\\CustomerService.cs",
-              "ToolTip": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\Service\\CustomerService.cs*",
-              "RelativeToolTip": "BookTour.Application\\Service\\CustomerService.cs*",
+              "ToolTip": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\Service\\CustomerService.cs",
+              "RelativeToolTip": "BookTour.Application\\Service\\CustomerService.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAApwCYAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-16T18:31:58.859Z",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "BookStore.DataAccess\\Repository\\CustomerRepository.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAgwEUAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-16T18:20:53.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-16T18:20:53.796Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "BookTour.Domain\\Interface\\ICustomerRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T03:58:48.89Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T03:58:48.89Z"
             }
           ]
         }
