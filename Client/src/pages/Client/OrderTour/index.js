@@ -26,8 +26,6 @@ function BookingTour() {
         ...formData,
         passengerRequestList,
     }
-    
-    // Update passenger array when the counts change
 
     const updatePassengerCount = (type, count) => {
         const newCount = Math.max(0, count);
@@ -38,40 +36,35 @@ function BookingTour() {
         const difference = newCount - formData[type];
     
         if (difference > 0) {
-            // Thêm hành khách mới
             for (let i = 0; i < difference; i++) {
-                const objectId = getPassengerType(type); // Lấy loại vé
+                const objectId = getPassengerType(type); 
                 updatedPassengers.push({ passengerName: '', passengerGender: 'Nam', passengerDateBirth: '', passengerObjectId: objectId });
             }
         } else if (difference < 0) {
-            // Xóa hành khách
             updatedPassengers.splice(totalPassengers + difference, -difference);
         }
     
         setPassengers(updatedPassengers);
     };
-    
-    // Hàm để xác định loại vé
+
     const getPassengerType = (type) => {
         switch (type) {
             case 'adults':
-                return 1; // Người lớn
+                return 1;
             case 'children':
-                return 2; // Trẻ em
+                return 2; 
             case 'infants':
-                return 3; // Trẻ sơ sinh
+                return 3;
             default:
                 return null;
         }
     };
-    
-    // Handle input changes
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // Update individual passenger info
     const handlePassengerChange = (index, event) => {
         const { name, value } = event.target;
     
@@ -123,10 +116,8 @@ function BookingTour() {
     
             const data = await response.json();
             console.log('Booking successful:', data);
-            // Handle success, e.g., show a success message or navigate
         } catch (error) {
             console.error('Error submitting form:', error);
-            // Handle error, e.g., show an error message to the user
         }
     };
     
