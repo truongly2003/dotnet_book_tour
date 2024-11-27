@@ -67,6 +67,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BookTour.Controllers.DetailRouteController",
+    "Method": "Index",
+    "RelativePath": "api/DetailRoute",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.FeedbackController",
     "Method": "getListFeedback",
     "RelativePath": "api/Feedback",
