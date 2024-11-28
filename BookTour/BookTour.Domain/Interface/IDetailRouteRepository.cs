@@ -10,5 +10,10 @@ namespace BookTour.Domain.Interface
     public interface IDetailRouteRepository
     {
         Task<Detailroute> findById(int id);
+        Task<List<Detailroute>> GetAllDetailRouteAsync();
+        Task<Detailroute> GetDetailRouteByIdAsync(int id);
+        Task<bool> InsertAsync(Detailroute detailroute);
+        Task<bool> UpdateAsync(Detailroute detailroute);
+        Task<bool> DeleteAsync(int id);
     }
 }

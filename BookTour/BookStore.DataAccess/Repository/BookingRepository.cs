@@ -45,5 +45,10 @@ namespace BookStore.DataAccess.Repository
                 .FirstOrDefaultAsync();
             return query;
         }
+
+        public async Task<bool> ExistsByDetailRouteIdAsync(int detailRouteId)
+        {
+            return await _dbContext.Bookings.AnyAsync(b => b.DetailRouteId == detailRouteId);
+        }
     }
 }

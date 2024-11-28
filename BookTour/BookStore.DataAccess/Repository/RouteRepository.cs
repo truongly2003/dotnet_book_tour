@@ -35,10 +35,16 @@ namespace BookStore.DataAccess.Repository
                             detail.Route.Departure.DepartureName == DepartureName &&
                             detail.TimeToDeparture >= TimeToDeparture && detail.TimeToDeparture >= curendate
             )
-          
+
             .ToListAsync();
             return query;
         }
+
+        public async Task<Route> GetByIdAsync(int id)
+        {
+            return await _dbContext.Routes.FirstOrDefaultAsync(d => d.RouteId == id);
+        }
+
         public async Task<List<Detailroute>> GetAllRouteByArrivalNameAsync(string ArrivalName)
         {
             var query = await _dbContext.Detailroutes
@@ -53,17 +59,17 @@ namespace BookStore.DataAccess.Repository
             var query = await _dbContext.Detailroutes
              .Include(detail => detail.Images)
              .Include(detail => detail.Feedbacks)
-             .Include(detail=>detail.Route)
-             .ThenInclude(route=>route.Departure)
-             .Where(detail => detail.DetailRouteId==DetailRouteId)
+             .Include(detail => detail.Route)
+             .ThenInclude(route => route.Departure)
+             .Where(detail => detail.DetailRouteId == DetailRouteId)
              .Select(detail => new Detailroute
              {
-                
-                 Route=new Route
+
+                 Route = new Route
                  {
-                     Departure=new Departure
+                     Departure = new Departure
                      {
-                         DepartureName=detail.Route.Departure.DepartureName
+                         DepartureName = detail.Route.Departure.DepartureName
                      }
                  }
              })
