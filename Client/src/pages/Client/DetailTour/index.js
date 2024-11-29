@@ -65,7 +65,10 @@ function DetailTour() {
                   </Link>
                 </div>
                 <div className="col-6">
-                  <Link to="" className="btn btn-primary fw-bold w-100">
+                <Link
+                    to={`/route/booking/${detailRoute.detailRouteId}`}
+                    className="btn btn-primary fw-bold w-100"
+                  >
                     Đặt Tour Ngay
                   </Link>
                 </div>

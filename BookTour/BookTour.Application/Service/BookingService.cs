@@ -4,9 +4,11 @@ using BookTour.Domain.Entity;
 using BookTour.Domain.Interface;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace BookTour.Application.Service
 {
@@ -14,10 +16,14 @@ namespace BookTour.Application.Service
     {
         private readonly IBookingRepository _bookingRepository;
         private readonly ITicketRepository _ticketRepository;
-        public BookingService(IBookingRepository bookingRepository,ITicketRepository ticketRepository)
+        private readonly IDetailRouteRepository _detailRouteRepository;
+        private readonly ILogger<BookingService> _logger;
+        public BookingService(IBookingRepository bookingRepository,ITicketRepository ticketRepository, IDetailRouteRepository detailRouteRepository, ILogger<BookingService> logger)
         {
             _bookingRepository = bookingRepository;
             _ticketRepository = ticketRepository;
+            _detailRouteRepository = detailRouteRepository;
+            _logger = logger;
         }
 
         public async Task<Page<BookingResponse>> GetAllBookingByUserIdAsync(int UserId, int page, int size)
@@ -82,6 +88,37 @@ namespace BookTour.Application.Service
                 }).ToList()
             }; 
             return bookingResponse;
+        }
+        
+        public async Task<bool> CheckAvailableQuantityAsync(int detailTourId, int totalPassengers)
+        {
+            var detailroute = await _detailRouteRepository.findById(detailTourId);
+
+            if (detailroute != null)
+            {
+                var availableSeats = detailroute.Stock - detailroute.BookInAdvance;
+
+                if (availableSeats >= totalPassengers)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public async Task<bool> UpdateBookingStatusAsync(int bookingId, int statusId)
+        {
+            try
+            {
+                var booking = await _bookingRepository.UpdateBookingStatusAsync(bookingId, statusId);
+                return booking != null;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

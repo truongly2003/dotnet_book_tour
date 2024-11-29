@@ -46,6 +46,22 @@ namespace BookStore.DataAccess.Repository
             return query;
         }
 
+        public async Task<Booking> UpdateBookingStatusAsync(int bookingId, int statusId)
+        {
+            var booking = await _dbContext.Bookings.FirstOrDefaultAsync(b => b.BookingId == bookingId);
+
+            if (booking == null)
+            {
+                throw new InvalidOperationException("Booking not found");
+            }
+            
+            booking.PaymentStatusId = statusId;
+            
+            await _dbContext.SaveChangesAsync();
+            
+            return booking;
+        }
+        
         public async Task<bool> ExistsByDetailRouteIdAsync(int detailRouteId)
         {
             return await _dbContext.Bookings.AnyAsync(b => b.DetailRouteId == detailRouteId);

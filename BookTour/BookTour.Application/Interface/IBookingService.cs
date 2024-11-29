@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookTour.Domain.Entity;
 
 namespace BookTour.Application.Interface
 {
@@ -11,5 +12,7 @@ namespace BookTour.Application.Interface
     {
         Task<Page<BookingResponse>> GetAllBookingByUserIdAsync(int UserId,int page,int size);
         Task<BookingDetailResponse> GetDetailBookingResponseByUserIdAsync(int UserId,int BookingId);
+        Task<bool> CheckAvailableQuantityAsync(int detailTourId, int quantity);
+        Task<bool> UpdateBookingStatusAsync(int bookingId, int statusId);
     }
 }

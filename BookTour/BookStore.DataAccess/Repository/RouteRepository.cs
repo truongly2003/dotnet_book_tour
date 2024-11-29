@@ -62,17 +62,6 @@ namespace BookStore.DataAccess.Repository
              .Include(detail => detail.Route)
              .ThenInclude(route => route.Departure)
              .Where(detail => detail.DetailRouteId == DetailRouteId)
-             .Select(detail => new Detailroute
-             {
-
-                 Route = new Route
-                 {
-                     Departure = new Departure
-                     {
-                         DepartureName = detail.Route.Departure.DepartureName
-                     }
-                 }
-             })
              .FirstOrDefaultAsync();
             return query;
         }
