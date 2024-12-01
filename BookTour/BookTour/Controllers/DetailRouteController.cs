@@ -20,7 +20,7 @@ namespace BookTour.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DetailRouteDTO>>> GetAllDetailRoutes(int page, int size)
+        public async Task<ActionResult> GetAllDetailRoutes(int page, int size)
         {
             var detailRoutes = await _detailRouteService.GetAllDetailRouteAsync(page, size);
             return Ok(detailRoutes);
@@ -28,7 +28,7 @@ namespace BookTour.Controllers
 
         // GET: api/DetailRoute/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<DetailRouteDTO>> GetDetailRouteById(int id)
+        public async Task<ActionResult<DetailRouteResponse>> GetDetailRouteById(int id)
         {
             var detailRoute = await _detailRouteService.GetDetailRouteByIdAsync(id);
 
@@ -95,9 +95,45 @@ namespace BookTour.Controllers
             }
         }
 
+        [HttpGet("CheckExist/{id}")]
+        public async Task<IActionResult> CheckExist(int id)
+        {
+            try
+            {
+                var result = await _detailRouteService.CheckExistAsync(id);
+                if (result)
+                {
+                    return Ok(new { message = "Detail route can be updated successfully." });
+                }
+                else
+                {
+                    return BadRequest(new { message = "Detail route cannot be updated." });
+                }
+            }
+            catch (InvalidOperationException ex)
+            {
+                // Xử lý ngoại lệ khi không thể cập nhật vì đã có người đặt
+                return Conflict(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi và trả về lỗi chung
+                Console.WriteLine($"Error: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
+
+
         [HttpDelete("Delete/{id}")]
         public async Task<IActionResult> DeleteDetailRoute([FromRoute] int id)
         {
+            var check = await _detailRouteService.CheckExistAsync(id);
+            if (!check)
+            {
+                return BadRequest(new { message = "Detail route cannot be updated." });
+            }
             var result = await _detailRouteService.DeleteAsync(id);
             if (result)
             {

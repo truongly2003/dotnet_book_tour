@@ -14,6 +14,7 @@ namespace BookTour.Application.Dto
         public string Description { get; set; }
         public int Stock { get; set; }
         public string DepartureName { get; set; }
+        public int BookInAdvance { get; set; }
         public float Rating { get; set; }
         public double Price { get; set; }
         public DateOnly TimeToDeparture { get; set; }

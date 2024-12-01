@@ -4,7 +4,7 @@ import { IconButton } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import PaginationComponent from '../../../components/Pagination';
 import { Visibility, Edit, Delete } from '@mui/icons-material';
-import { getAllRoutes,isCheckBooking ,deleteTour,searhcByDetailRouteId} from '../../../services/routeService';
+import { getAllRoutes,isCheckBooking ,deleteTour} from '../../../services/detailRouteService';
 import { Link,useNavigate } from 'react-router-dom';
 import { useNotification } from '../../../components/NotificationProvider';
 const sort_options = [
@@ -47,49 +47,77 @@ function ListTour() {
     const navigate = useNavigate(); 
     useEffect(() => {
         const fet = async () => {
-            let data;
-            if (searchKeyword) {
-                data = await searhcByDetailRouteId(currentPage, pageSize, 'asc', searchKeyword);
-            } else {
-                data = await getAllRoutes(currentPage, pageSize, 'asc');
+            try {
+                let data;
+                if (searchKeyword) {
+                    // data = await searhcByDetailRouteId(currentPage, pageSize, 'asc', searchKeyword);
+                } else {
+                    data = await getAllRoutes(currentPage, pageSize);
+                }
+                console.log('API response:', data); // Kiểm tra dữ liệu trả về
+        
+                // Cập nhật cách lấy dữ liệu
+                if (data && data.data) {
+                    setRoutes(data.data || []);
+                    setTotalPages(data.totalPages || 0);
+                    setTotalElements(data.totalElement || 0);
+                } else {
+                    console.warn('Invalid data format from API');
+                    setRoutes([]);
+                    setTotalPages(0);
+                    setTotalElements(0);
+                }
+            } catch (error) {
+                console.error('Error fetching routes:', error);
+                setRoutes([]);
+                setTotalPages(0);
+                setTotalElements(0);
             }
-            setRoutes(data.result.routes);
-            setTotalPages(data.result.totalPages);
-            setTotalElements(data.result.totalElements);
         };
+        
+        
         fet();
     }, [currentPage,searchKeyword]);
     const handleSearch = () => {
         setCurrentPage(1); 
     };
-    const handleEdit =async (detailRouteId) => {
+    const handleEdit = async (detailRouteId) => {
         try {
             const isCheck = await isCheckBooking(detailRouteId);
-            if (isCheck) {
-                notify(isCheck)
+            if (!isCheck) {
+                notify("Không thể cập nhật. Tour này đã có người đặt.");
                 return;
             }
             navigate(`/admin/tour/update-tour/${detailRouteId}`);
         } catch (error) {
-           
+            notify("Có lỗi xảy ra khi kiểm tra trạng thái đặt chỗ.");
         }
     };
+    
 
-    const handleDelete = async(detailRouteId) => {
+    const handleDelete = async (detailRouteId) => {
         try {
             const isCheck = await isCheckBooking(detailRouteId);
-            if (isCheck) {
-                notify(isCheck)
+            if (!isCheck) {
+                notify("Không thể xóa. Tour này đã có người đặt.");
                 return;
             }
-            const data=await deleteTour(detailRouteId);
-            notify(data)
+            const data = await deleteTour(detailRouteId);
+            
+            // Kiểm tra nếu `data` là object, trích xuất message
+            const message = typeof data === "object" ? data.message || "Xóa tour thành công!" : data;
+            
+            notify(message);
+    
+            // Cập nhật danh sách
             const updatedRoutes = routes.filter(route => route.detailRouteId !== detailRouteId);
             setRoutes(updatedRoutes);
         } catch (error) {
-           
+            console.error("Lỗi khi xóa tour:", error);
+            notify("Có lỗi xảy ra. Vui lòng thử lại.");
         }
     };
+    
     return (
         <div className="p-2">
             <div>
@@ -150,7 +178,7 @@ function ListTour() {
                                                     backgroundColor: 'rgba(0, 123, 255, 0.2)',
                                                     borderRadius: '50%',
                                                 }}
-                                                // onClick={() => handleView(route.detailRouteId)}
+                                             //onClick={() => handleView(route.detailRouteId)}
                                             >
                                                 <Visibility style={{ color: '#007bff' }} />
                                             </IconButton>

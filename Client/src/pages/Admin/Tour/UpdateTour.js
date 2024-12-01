@@ -6,7 +6,7 @@ import Leg from './Leg';
 import { getAllRouteRoad } from '../../../services/routeService';
 // import { updateTour } from '../../../services/routeService';
 import { useNotification } from '../../../components/NotificationProvider';
-import { getTourUpdate, updateTour } from '../../../services/routeService';
+import { getTourUpdate, updateTour } from '../../../services/detailRouteService';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 function UpdateTour() {
     const [loading, setLoading] = useState(false);
@@ -31,17 +31,17 @@ function UpdateTour() {
         const fetchTour = async () => {
             try {
                 const data = await getTourUpdate(detailRouteId);
-                if (data.result) {
+                if (data) {
                     setTour({
-                        detailRouteName: data.result.detailRouteName || '',
-                        price: data.result.price || '',
-                        routeId: data.result.routeId || '',
-                        stock: data.result.stock || '',
-                        timeToDeparture: data.result.timeToDeparture || '',
-                        timeToFinish: data.result.timeToFinish || '',
-                        description: data.result.description || '',
-                        images: data.result.textImageList || [],
-                        legs: data.result.legs || [],
+                        detailRouteName: data.detailRouteName || '',
+                        price: data.price || '',
+                        routeId: data.routeId || '',
+                        stock: data.stock || '',
+                        timeToDeparture: data.timeToDeparture || '',
+                        timeToFinish: data.timeToFinish || '',
+                        description: data.description || '',
+                        images: data.imageList || [],
+                        legs: data.legList || [],
                     });
                 }
             } catch (error) {
@@ -79,7 +79,7 @@ function UpdateTour() {
         const fetRoads = async () => {
             try {
                 const data = await getAllRouteRoad();
-                setRoads(data.result);
+                setRoads(data);
             } catch (error) {
                 console.log(error);
             }
@@ -87,10 +87,11 @@ function UpdateTour() {
         fetRoads();
     }, []);
 
-    const routeOptions = roads.map((item) => ({
+    const routeOptions = (roads || []).map((item) => ({
         value: item.routeId,
         label: `${item.routeId} - ${item.departureName} - ${item.arrivalName}`,
     }));
+    
 
     const handleRouteChange = (selectedOption) => {
         setTour((prev) => ({
@@ -138,7 +139,7 @@ function UpdateTour() {
             let data;
             try {
                 data = await updateTour(detailRouteId, tour);
-                notify(data, 'success');
+                notify(data.message || 'Tour updated successfully!', 'success');
                 // navigate('/admin/tour/list-tour');
             } catch (error) {
                 console.error('Error updating tour:', error);

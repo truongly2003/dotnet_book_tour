@@ -816,25 +816,27 @@
     ]
   },
   "packageFolders": {
-    "/Users/tuvu/.nuget/packages/": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj",
+      "projectUniqueName": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
       "projectName": "BookTour.Domain",
-      "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj",
-      "packagesPath": "/Users/tuvu/.nuget/packages/",
-      "outputPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/obj/",
+      "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "/Users/tuvu/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -883,7 +885,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

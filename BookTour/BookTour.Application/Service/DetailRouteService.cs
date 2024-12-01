@@ -29,8 +29,11 @@ namespace BookTour.Application.Service
 
         public async Task<Page<DetailRouteResponse>> GetAllDetailRouteAsync(int page, int size)
         {
+            if (page <= 0 || size <= 0)
+                throw new ArgumentException("Page and size must be greater than 0.");
+
             // Fetch all detail routes from the repository
-            var data = await _detailRouteRepository.GetAllDetailRouteAsync();
+            var data = await _detailRouteRepository.GetAllDetailRouteAsync() ?? new List<Detailroute>();
 
             // Apply paging logic
             var paginatedData = data.Skip((page - 1) * size).Take(size).ToList();
@@ -41,10 +44,11 @@ namespace BookTour.Application.Service
                 DetailRouteId = detailRoute.DetailRouteId,
                 RouteId = detailRoute.RouteId, // Handle null Route
                 DetailRouteName = detailRoute.DetailRouteName,
+                BookInAdvance = detailRoute.BookInAdvance,
                 DepartureName = detailRoute.Route?.Arrival?.ArrivalName ?? "Unknown",
                 Description = detailRoute.Description,
                 Stock = detailRoute.Stock,
-                Rating = detailRoute.Feedbacks.Any() ? detailRoute.Feedbacks.Average(f => f.Rating) : 0,
+                Rating = detailRoute.Feedbacks?.Any() == true ? detailRoute.Feedbacks.Average(f => f.Rating) : 0,
                 Price = detailRoute.Price,
                 TimeToDeparture = detailRoute.TimeToDeparture,
                 TimeToFinish = detailRoute.TimeToFinish,
@@ -54,7 +58,7 @@ namespace BookTour.Application.Service
                 {
                     Id = image.ImageId,
                     TextImage = image.TextImage,
-                }).ToList(),
+                }).ToList() ?? new List<ImageDTO>(),
 
                 // Map LegList
                 LegList = detailRoute.Legs?.Select(leg => new LegDTO
@@ -63,10 +67,12 @@ namespace BookTour.Application.Service
                     Title = leg.Title,
                     Description = leg.Description,
                     Sequence = leg.Sequence
-                }).ToList()
+                }).ToList() ?? new List<LegDTO>()
             }).ToList();
-            var totalElement = data.Count();
-            var totalPage = (int)Math.Ceiling((double)totalElement / size);
+
+            var totalElement = data.Count;
+            var totalPage = size > 0 ? (int)Math.Ceiling((double)totalElement / size) : 0;
+
             var result = new Page<DetailRouteResponse>
             {
                 Data = detailRouteResponse,
@@ -74,8 +80,10 @@ namespace BookTour.Application.Service
                 TotalPages = totalPage
             };
             return result;
-
         }
+
+
+
 
         public async Task<DetailRouteResponse> GetDetailRouteByIdAsync(int id)
         {
@@ -95,6 +103,7 @@ namespace BookTour.Application.Service
                     DetailRouteId = detailRoute.DetailRouteId,
                     RouteId = detailRoute.RouteId,
                     DetailRouteName = detailRoute.DetailRouteName,
+                    BookInAdvance = detailRoute.BookInAdvance,
                     DepartureName = detailRoute.Route?.Arrival?.ArrivalName ?? "Unknown",
                     Description = detailRoute.Description,
                     Stock = detailRoute.Stock,
@@ -230,6 +239,21 @@ namespace BookTour.Application.Service
             await _detailRouteRepository.UpdateAsync(detail);
             return true;
         }
+
+        public async Task<bool> CheckExistAsync(int id)
+        {
+            var bookingExists = await _bookingRepository.ExistsByDetailRouteIdAsync(id);
+
+            if (bookingExists)
+            {
+                // Nếu có đặt chỗ, trả về `false` để biểu thị không thể cập nhật
+                return false;
+            }
+
+            // Ngược lại, cho phép cập nhật
+            return true;
+        }
+
 
 
         public async Task<bool> DeleteAsync(int detailRouteId)

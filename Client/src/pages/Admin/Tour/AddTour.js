@@ -3,7 +3,7 @@ import Select from 'react-select';
 import UploadImage from './UploadImage';
 import Leg from './Leg';
 import { getAllRouteRoad } from '../../../services/routeService';
-import { addTour } from '../../../services/routeService';
+import { addTour } from '../../../services/detailRouteService';
 import { useNotification } from '../../../components/NotificationProvider';
 import { Link } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -50,7 +50,7 @@ function AddTour() {
         const fetRoads = async () => {
             try {
                 const data = await getAllRouteRoad();
-                setRoads(data.result);
+                setRoads(data);
             } catch (error) {
                 console.log(error);
             }
@@ -102,7 +102,7 @@ function AddTour() {
         }
         try {
             const data = await addTour(tour);
-            notify(data);
+            notify(data.message || 'Tour added successfully!', 'success');
             setTour({
                 detailRouteName: '',
                 price: '',
@@ -120,8 +120,7 @@ function AddTour() {
                 setResetFields(false);
             }, 100);
         } catch (error) {
-            console.error('Error adding tour:', error);
-            notify('Failed to add tour: ' + (error.message || 'Unknown error'), 'error');
+            notify(error.message || 'Failed to add tour', 'error');
         }
     };
 

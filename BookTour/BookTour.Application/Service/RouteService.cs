@@ -180,5 +180,20 @@ namespace BookTour.Application.Service
             return detailDTO;
             throw new NotImplementedException();
         }
+
+        public async Task<List<RoadRespone>> GetRoadResponsesAsync()
+        {
+            var routes = await _routeRepository.GetRoutesWithDetailsAsync();
+
+            var data = routes.Select(route => new RoadRespone
+            {
+                RouteId = route.RouteId,
+                ArrivalName = route.Arrival.ArrivalName,
+                DepartureName = route.Departure.DepartureName
+            }).ToList();
+
+            return data;
+        }
+
     }
 }

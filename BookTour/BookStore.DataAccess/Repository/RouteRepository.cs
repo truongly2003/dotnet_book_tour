@@ -65,5 +65,14 @@ namespace BookStore.DataAccess.Repository
              .FirstOrDefaultAsync();
             return query;
         }
+
+        public async Task<List<Route>> GetRoutesWithDetailsAsync()
+        {
+            return await _dbContext.Routes
+                .Include(r => r.Departure)
+                .Include(r => r.Arrival)
+                .ToListAsync();
+        }
+
     }
 }

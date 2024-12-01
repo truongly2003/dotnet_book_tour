@@ -15,5 +15,6 @@ namespace BookTour.Application.Interface
         Task<bool> InsertAsync(DetailRouteRequest d);
         Task<bool> UpdateAsync(int id, DetailRouteRequest d);
         Task<bool> DeleteAsync(int id);
+        Task<bool> CheckExistAsync(int id);
     }
 }

@@ -1,34 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour/BookTour.csproj": {}
+    "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj": {}
   },
   "projects": {
-    "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.DataAccess/BookStore.DataAccess.csproj": {
+    "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.DataAccess/BookStore.DataAccess.csproj",
+        "projectUniqueName": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
         "projectName": "BookStore.DataAccess",
-        "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.DataAccess/BookStore.DataAccess.csproj",
-        "packagesPath": "/Users/tuvu/.nuget/packages/",
-        "outputPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.DataAccess/obj/",
+        "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/tuvu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj": {
-                "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj"
+              "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+                "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
               }
             }
           }
@@ -85,38 +87,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.Infrastructure/BookStore.Infrastructure.csproj": {
+    "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.Infrastructure/BookStore.Infrastructure.csproj",
+        "projectUniqueName": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
         "projectName": "BookStore.Infrastructure",
-        "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.Infrastructure/BookStore.Infrastructure.csproj",
-        "packagesPath": "/Users/tuvu/.nuget/packages/",
-        "outputPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.Infrastructure/obj/",
+        "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/tuvu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.DataAccess/BookStore.DataAccess.csproj": {
-                "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.DataAccess/BookStore.DataAccess.csproj"
+              "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+                "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
               },
-              "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj": {
-                "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj"
+              "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+                "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
               }
             }
           }
@@ -181,35 +185,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj": {
+    "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj",
+        "projectUniqueName": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
         "projectName": "BookTour.Application",
-        "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj",
-        "packagesPath": "/Users/tuvu/.nuget/packages/",
-        "outputPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/obj/",
+        "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/tuvu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj": {
-                "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj"
+              "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+                "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
               }
             }
           }
@@ -262,27 +268,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj": {
+    "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj",
+        "projectUniqueName": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
         "projectName": "BookTour.Domain",
-        "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/BookTour.Domain.csproj",
-        "packagesPath": "/Users/tuvu/.nuget/packages/",
-        "outputPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Domain/obj/",
+        "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/tuvu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -331,38 +339,40 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour/BookTour.csproj": {
+    "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour/BookTour.csproj",
+        "projectUniqueName": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
         "projectName": "BookTour",
-        "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour/BookTour.csproj",
-        "packagesPath": "/Users/tuvu/.nuget/packages/",
-        "outputPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour/obj/",
+        "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
-          "/Users/tuvu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.Infrastructure/BookStore.Infrastructure.csproj": {
-                "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookStore.Infrastructure/BookStore.Infrastructure.csproj"
+              "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+                "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
               },
-              "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj": {
-                "projectPath": "/Users/tuvu/code/dotnet_book_tour/BookTour/BookTour.Application/BookTour.Application.csproj"
+              "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+                "projectPath": "G:\\checkpoint\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
               }
             }
           }
@@ -420,7 +430,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
