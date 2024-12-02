@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookTour.Application.Dto.Request;
 using Microsoft.Extensions.Logging;
 
 namespace BookTour.Application.Service
@@ -17,12 +18,16 @@ namespace BookTour.Application.Service
         private readonly IBookingRepository _bookingRepository;
         private readonly ITicketRepository _ticketRepository;
         private readonly IDetailRouteRepository _detailRouteRepository;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IPassengerRepository _passengerRepository;
         private readonly ILogger<BookingService> _logger;
-        public BookingService(IBookingRepository bookingRepository,ITicketRepository ticketRepository, IDetailRouteRepository detailRouteRepository, ILogger<BookingService> logger)
+        public BookingService(IBookingRepository bookingRepository,ITicketRepository ticketRepository, IDetailRouteRepository detailRouteRepository, ICustomerRepository customerRepository, IPassengerRepository passengerRepository, ILogger<BookingService> logger)
         {
             _bookingRepository = bookingRepository;
             _ticketRepository = ticketRepository;
             _detailRouteRepository = detailRouteRepository;
+            _customerRepository = customerRepository;
+            _passengerRepository = passengerRepository;
             _logger = logger;
         }
 
@@ -117,6 +122,95 @@ namespace BookTour.Application.Service
             }
             catch (Exception ex)
             {
+                return false;
+            }
+        }
+        
+        public async Task<int> CreateCustomerAsync(BookingRequest request)
+        {
+            var customer = new Customer
+            {
+                CustomerName = request.customerName,
+                CustomerEmail = request.customerEmail,
+                CustomerPhone = request.customerPhone,
+                CustomerAddress = request.customerAddress,
+                UserId = request.userId ?? 0 // Gán 0 nếu UserId là null
+            };
+
+            var savedCustomer = await _customerRepository.SaveAsync(customer);
+            return savedCustomer.CustomerId;  
+        }
+        
+        public async Task<List<int>> CreatePassengersAsync(BookingRequest request)
+        {
+            // Retrieve the list of passenger requests from the booking request
+            var passengerRequestList = request.passengerRequestList;
+            var passengerIds = new List<int>();
+
+            // Loop through the passenger request list and save each passenger
+            foreach (var passengerRequest in passengerRequestList)
+            {
+                var passenger = new Passenger
+                {
+                    PassengerName = passengerRequest.passengerName,
+                    ObjectId = passengerRequest.passengerObjectId,
+                    Gender = passengerRequest.passengerGender,
+                    DateBirth = passengerRequest.passengerDateBirth
+                };
+
+                // Save the passenger to the database
+                var savedPassenger = await _passengerRepository.SaveAsync(passenger);
+                passengerIds.Add(savedPassenger.PassengerId);
+            }
+
+            return passengerIds;
+        }
+        
+        public async Task<int> CreateBookingAsync(BookingRequest request, int customerId, int passengerCount)
+        {
+            // Tạo một đối tượng booking mới
+            var booking = new Booking
+            {
+                CustomerId = customerId,
+                TotalPrice = request.total_price,    
+                TimeToOrder = DateTime.Now, 
+                PaymentId = request.paymentMethod,
+                PaymentStatusId = 1, 
+                DetailRouteId = request.detailRouteId
+            };
+
+            UpdateBookingInAdvanceBasedOnPassengerCount(request.detailRouteId, passengerCount);
+
+            await _bookingRepository.AddAsync(booking);
+            await _bookingRepository.SaveChangesAsync();
+
+            return booking.BookingId;
+        }
+        
+        public void UpdateBookingInAdvanceBasedOnPassengerCount(int detailRouteId, int countPassenger)
+        {
+            _detailRouteRepository.UpdateBookingInAdvanceAsync(detailRouteId, countPassenger);
+        }
+        
+        public async Task<bool> CreateTicketsAsync(List<int> passengerIds, int bookingId)
+        {
+            try
+            {
+                foreach (var passengerId in passengerIds)
+                {
+                    var ticket = new Ticket
+                    {
+                        BookingId = bookingId,
+                        PassengerId = passengerId
+                    };
+
+                    await _ticketRepository.SaveAsync(ticket);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
                 return false;
             }
         }

@@ -81,5 +81,12 @@ namespace BookStore.DataAccess.Repository
             await _context.SaveChangesAsync();
             return true;
         }
+        
+        public async Task<Customer> SaveAsync(Customer customer)
+        {
+            await _context.Customers.AddAsync(customer);  // Thêm khách hàng vào DbSet
+            await _context.SaveChangesAsync();  // Lưu thay đổi vào cơ sở dữ liệu
+            return customer;  // Trả về khách hàng đã được lưu
+        }
     }
 }

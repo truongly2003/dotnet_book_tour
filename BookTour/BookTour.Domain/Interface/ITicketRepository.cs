@@ -10,5 +10,6 @@ namespace BookTour.Domain.Interface
     public interface ITicketRepository
     {
         Task<List<Ticket>> GetAllTicketByUserIdAsync(int customerId, int BookingId);
+        Task SaveAsync(Ticket ticket);
     }
 }

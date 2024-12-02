@@ -15,6 +15,7 @@ namespace BookTour.Domain.Interface
         Task<Detailroute> GetDetailRouteByIdAsync(int DetailRouteId);
         Task<Route> GetByIdAsync(int id);
         Task<List<Route>> GetRoutesWithDetailsAsync();
+        
 
     }
 }

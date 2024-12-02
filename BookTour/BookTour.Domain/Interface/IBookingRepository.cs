@@ -14,5 +14,7 @@ namespace BookTour.Domain.Interface
         Task<Booking> findById(int id);
         Task<Booking> UpdateBookingStatusAsync(int bookingId, int statusId);
         Task<bool> ExistsByDetailRouteIdAsync(int id);
+        Task AddAsync(Booking booking);
+        Task SaveChangesAsync();
     }
 }

@@ -27,5 +27,11 @@ namespace BookStore.DataAccess.Repository
                 .ToListAsync();
             return query;
         }   
+        
+        public async Task SaveAsync(Ticket ticket)
+        {
+            await _dbContext.Tickets.AddAsync(ticket);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

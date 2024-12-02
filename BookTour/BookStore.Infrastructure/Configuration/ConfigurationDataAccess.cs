@@ -43,7 +43,8 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             services.AddScoped<IBookingRepository, BookingRepository>();
             services.AddScoped<ITicketRepository, TicketRepository>();
-            
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<IPassengerRepository, PassengerRepository>();
             // 2 service
             services.AddScoped<IRouteService, RouteService>();
             services.AddScoped<IDepartureService, DepartureService>();
@@ -57,6 +58,7 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IFeedbackService, FeedbackService>();
             services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IPaymentService, PaymentService>();
         }
         public static void ConfigApi(this IServiceCollection services)
         {

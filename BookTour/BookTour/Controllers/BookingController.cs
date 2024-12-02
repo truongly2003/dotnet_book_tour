@@ -1,4 +1,5 @@
 ﻿using BookTour.Application.Dto;
+using BookTour.Application.Dto.Request;
 using BookTour.Application.Interface;
 using BookTour.Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -32,32 +33,34 @@ namespace BookTour.Controllers
             });
         }
 
-        // [HttpPost("handle-booking")]
-        // public async Task<IActionResult> HandleBooking([FromBody] BookingRequest request)
-        // {
-        //     // Call service to handle booking
-        //     var customerId = await _bookingService.CreateCustomerAsync(request);
-        //     var passengerIds = await _bookingService.CreatePassengersAsync(request);
-        //     var bookingId = await _bookingService.CreateBookingAsync(request, customerId);
-        //     var status = await _bookingService.CreateTicketsAsync(passengerIds, bookingId);
-        //
-        //     if (status)
-        //     {
-        //         return Ok(new ApiResponse<BookingResponse>
-        //         {
-        //             Message = "Booking successful",
-        //             Result = new BookingResponse() // You may return additional data here
-        //         });
-        //     }
-        //     else
-        //     {
-        //         return BadRequest(new ApiResponse<BookingResponse>
-        //         {
-        //             Message = "Booking failed",
-        //             Result = null
-        //         });
-        //     }
-        // }
+        [HttpPost("handle-booking")]
+        public async Task<IActionResult> HandleBooking(BookingRequest request)
+        {
+            var customerId = await _bookingService.CreateCustomerAsync(request);
+            var passengerCount = request.passengerRequestList.Count;
+            var passengerIds = await _bookingService.CreatePassengersAsync(request);
+            var bookingId = await _bookingService.CreateBookingAsync(request, customerId, passengerCount);
+            var status = await _bookingService.CreateTicketsAsync(passengerIds, bookingId);
+            
+            if (status)
+            {
+                return Ok(new ApiResponse<bool>
+                {
+                    code = 200,
+                    message = "Booking successfully",
+                    result = status
+                });
+            }
+            else
+            {
+                return BadRequest(new ApiResponse<bool>
+                {
+                    code = 200,
+                    message = "Booking failed",
+                    result = status
+                });
+            }
+        }
         
         [HttpPut("update-status")]
         public async Task<IActionResult> UpdateBookingStatus(int bookingId, int statusId)

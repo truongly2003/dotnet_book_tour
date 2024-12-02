@@ -29,7 +29,7 @@ function BookingTour() {
         customerEmail: '',
         customerAddress: '',
         customerPhone: '',
-        paymentMethod: '',
+        paymentMethod: 0,
         adults: 1,
         children: '0',
         infants: '0'
@@ -178,7 +178,7 @@ function BookingTour() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:8080/api/Booking/handle-booking', {
+            const response = await fetch('http://localhost:5083/api/Booking/handle-booking', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -210,6 +210,8 @@ function BookingTour() {
             setNotificationOpen(true);
         }
     };
+
+    
 
     const handlePaymentMethodChange = (event) => {
         setFormData({
@@ -245,7 +247,7 @@ function BookingTour() {
                                   value={formData.customerName}
                                   onChange={handleChange}
                                 />
-                                <div className="text-danger">{validateList['customerName']}</div>
+                                {validateList['customerName'] && <div className="text-danger">{validateList['customerName']}</div>}
                             </div>
                         </div>
                         <div className="col-md-6">
@@ -302,7 +304,7 @@ function BookingTour() {
                                     {
                                         listPaymentMethod.map((paymentMethod, index) => (
                                           <option key={index}
-                                                  value={paymentMethod.id}>{paymentMethod.paymentName}</option>
+                                                  value={paymentMethod.paymentId}>{paymentMethod.paymentName}</option>
                                         ))
                                     }
                                 </select>

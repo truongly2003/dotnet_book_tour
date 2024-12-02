@@ -26,9 +26,6 @@ public partial class Booking
     [Column("payment_status_id")]
     public int? PaymentStatusId { get; set; }
 
-    [Column("status_booking")]
-    public int StatusBooking { get; set; }
-
     [Column("detail_route_id")]
     public int? DetailRouteId { get; set; }
 

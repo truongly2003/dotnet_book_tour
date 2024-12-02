@@ -66,5 +66,15 @@ namespace BookStore.DataAccess.Repository
         {
             return await _dbContext.Bookings.AnyAsync(b => b.DetailRouteId == detailRouteId);
         }
+        
+        public async Task AddAsync(Booking booking)
+        {
+            await _dbContext.Bookings.AddAsync(booking);
+        }
+
+        public async Task SaveChangesAsync()
+        {
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

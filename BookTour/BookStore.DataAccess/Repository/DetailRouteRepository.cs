@@ -205,7 +205,17 @@ namespace BookStore.DataAccess.Repository
                 return false;
             }
         }
+        
+        public async Task<int> UpdateBookingInAdvanceAsync(int detailRouteId, int countPassenger)
+        {
+            var affectedRows = await _dbContext.Detailroutes
+                .Where(t => t.DetailRouteId == detailRouteId)
+                .ExecuteUpdateAsync(update => update
+                    .SetProperty(t => t.BookInAdvance, t => t.BookInAdvance + countPassenger)
+                );
 
+            return affectedRows;
+        }
 
     }
 }

@@ -15,5 +15,6 @@ namespace BookTour.Domain.Interface
         Task<bool> InsertAsync(Detailroute detailroute);
         Task<bool> UpdateAsync(Detailroute detailroute);
         Task<bool> DeleteAsync(int id);
+        Task<int> UpdateBookingInAdvanceAsync(int detailRouteId, int countPassenger);
     }
 }

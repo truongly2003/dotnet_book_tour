@@ -20,10 +20,9 @@ public partial class Detailroute
     public DateOnly TimeToDeparture { get; set; }
     [Column("time_to_finish")]
     public DateOnly TimeToFinish { get; set; }
-    [Column("stock")]
-    public int BookInAdvance { get; set; }
     [Column("book_in_advance")]
-        
+    public int BookInAdvance { get; set; }
+    [Column("stock")]
     public int Stock { get; set; }
 
     public virtual ICollection<Booking> Bookings { get; set; } 
