@@ -38,3 +38,4 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.pdb
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.genruntimeconfig.cache
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\ref\BookStore.DataAccess.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.sourcelink.json

@@ -53,38 +53,6 @@ namespace BookTour.Controllers
         }
 
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequestDTO request)
-        {
-            LoginDTO result;
-            try
-            {
-                result = await _userService.Login(request);
-            }
-            catch (Exception ex)
-            {
-                var errorResponse = new ApiResponse<LoginDTO>
-                {
-                    code = 1001,
-                    message = ex.Message,
-                    result = null
-                };
-                return BadRequest(errorResponse);
-            }
-
-            var response = new ApiResponse<LoginDTO>
-            {
-                code = 1000,
-                message = "Login successful",
-                result = result
-            };
-
-            Console.WriteLine($"code: {response.code}, message: {response.message}, result: {response.result}");
-
-
-            return Ok(response);
-        }
-
 
 
         [HttpPost("createUser")]

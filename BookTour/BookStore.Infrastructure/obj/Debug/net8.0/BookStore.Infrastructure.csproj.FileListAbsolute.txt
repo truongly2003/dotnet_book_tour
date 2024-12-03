@@ -41,3 +41,4 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\De
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.pdb
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.genruntimeconfig.cache
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\ref\BookStore.Infrastructure.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookStore.Infrastructure\obj\Debug\net8.0\BookStore.Infrastructure.sourcelink.json

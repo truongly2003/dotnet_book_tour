@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9FB18548-8676-4F56-B6F8-EC6AAE0C2BEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.DataAccess", "BookStore.DataAccess\BookStore.DataAccess.csproj", "{386F4C85-D8AB-4919-921E-368E48CDB10B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.DataAccess", "BookStore.DataAccess\BookStore.DataAccess.csproj", "{386F4C85-D8AB-4919-921E-368E48CDB10B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore.Infrastructure", "BookStore.Infrastructure\BookStore.Infrastructure.csproj", "{0D345ABB-67A3-4CA5-B0C3-EB47C44F5E7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Infrastructure", "BookStore.Infrastructure\BookStore.Infrastructure.csproj", "{0D345ABB-67A3-4CA5-B0C3-EB47C44F5E7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTour", "BookTour\BookTour.csproj", "{268CDB37-04CF-4EF2-8392-E6D12746A06B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookTour", "BookTour\BookTour.csproj", "{268CDB37-04CF-4EF2-8392-E6D12746A06B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTour.Application", "BookTour.Application\BookTour.Application.csproj", "{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookTour.Application", "BookTour.Application\BookTour.Application.csproj", "{34AF14E3-A5C2-4F32-B10E-8020CE62D6E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookTour.Domain", "BookTour.Domain\BookTour.Domain.csproj", "{029DFA80-612A-4FCE-B90A-B8E95932D9D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookTour.Domain", "BookTour.Domain\BookTour.Domain.csproj", "{029DFA80-612A-4FCE-B90A-B8E95932D9D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

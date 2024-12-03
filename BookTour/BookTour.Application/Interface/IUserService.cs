@@ -14,7 +14,6 @@ namespace BookTour.Application.Interface
 
         Task<User> AddUser(UserCreateRequest request);
 
-        Task<LoginDTO> Login(LoginRequestDTO request);
 
         TokenInfo GenerateToken(User user); 
 

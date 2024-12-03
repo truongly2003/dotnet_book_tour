@@ -17,4 +17,9 @@ public partial class Role
     public virtual ICollection<Roleoperation> Roleoperations { get; set; } = new List<Roleoperation>();
 
     public virtual ICollection<User> Users { get; set; } = new List<User>();
+
+    public static implicit operator Role(Task<Role> v)
+    {
+        throw new NotImplementedException();
+    }
 }

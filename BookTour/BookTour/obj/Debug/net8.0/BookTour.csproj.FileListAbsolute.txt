@@ -321,3 +321,6 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookT
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\ref\BookTour.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.Design.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.sourcelink.json
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll

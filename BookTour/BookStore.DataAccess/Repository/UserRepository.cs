@@ -14,6 +14,21 @@ namespace BookStore.DataAccess.Repository
             _context = context;
         }
 
+        public async Task<User> checkUserExist(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email cannot be null or empty.", nameof(email));
+
+            // Tìm user theo email
+            var user = await _context.Users
+                .Include(u => u.Role) // Bao gồm thông tin Role nếu cần
+                .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
+
+            // Trả về user (null nếu không tìm thấy)
+            return user;
+        }
+
+
         public async Task<bool> existsByUsernameAsync(string username)
         {
             return await _context.Users.AnyAsync(u => u.Username == username);

@@ -29,6 +29,10 @@ import ListTour from "../pages/Admin/Tour/ListTour";
 import AddTour from "../pages/Admin/Tour/AddTour";
 // 3 promotion
 import Promotion from "../pages/Admin/Promotion";
+
+import GoogleCallback from "../pages/Client/Login/GoogleCallback";
+
+import FacebookCallback from "../pages/Client/Login/FacebookCallback";
 const publicRoutes = [
   // client routes
   { path: routes.home, component: Home, layout: DefaultLayout },
@@ -57,5 +61,10 @@ const publicRoutes = [
   { path: routes.list_tour, component: ListTour, layout: AdminLayout },
   // 3 promotion
   { path: routes.list_promotion, component: Promotion, layout: AdminLayout },
+
+  {path: routes.google_callback , component: GoogleCallback, layout : null} ,
+  //facebook
+  {path: routes.facebook_callback , component: FacebookCallback, layout : null},
+
 ];
 export default publicRoutes;

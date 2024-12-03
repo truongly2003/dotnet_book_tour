@@ -4,6 +4,7 @@ using BookStore.Infrastructure.Configuration;
 using BookTour.Application.Interface;
 using BookTour.Application.Service;
 using BookTour.Domain.Interface;
+using Microsoft.AspNetCore.Authentication.Google;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,34 @@ builder.Services.ConfigApi();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables();
+
+//authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = "Cookies";
+    options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+})
+.AddCookie() // Cấu hình cookie authentication
+.AddGoogle(options =>
+{
+    options.ClientId = builder.Configuration["OAuth:Google:ClientId"];
+    options.ClientSecret = builder.Configuration["OAuth:Google:ClientSecret"];
+    options.Scope.Add("email");
+    options.Scope.Add("profile");
+    options.SaveTokens = true; // Lưu token để có thể sử dụng
+})
+.AddFacebook(options =>
+{
+    options.AppId = builder.Configuration["OAuth:Facebook:ClientId"];
+    options.AppSecret = builder.Configuration["OAuth:Facebook:ClientSecret"];
+    options.Scope.Add("email");
+    options.Scope.Add("public_profile");
+    options.SaveTokens = true;
+});
 
 var app = builder.Build();
 

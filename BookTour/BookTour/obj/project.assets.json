@@ -72,6 +72,38 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Facebook/8.0.11": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.Google/8.0.11": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cors/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -3201,6 +3233,36 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/8.0.11": {
+      "sha512": "iRBrD3rpmeRMH5jQVAcVyJ5ztrxj6ZkyeHeiEk/oFLw46z3svAeVJm7YABAi3OZBPSqs2BmXSzt1eEXZV+NZ8w==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.facebook/8.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.xml",
+        "microsoft.aspnetcore.authentication.facebook.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.facebook.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/8.0.11": {
+      "sha512": "XYjmQF9ggDnpXds7aH5CgW2SWVmubJ/F6NOnDwDseMYnEBZSwhstkY9qZszd6wsAhpW1HeT9yO9nZqFPRMiDAA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.8.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cors/2.2.0": {
@@ -9279,6 +9341,8 @@
     "net8.0": [
       "BookStore.Infrastructure >= 1.0.0",
       "BookTour.Application >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.Facebook >= 8.0.11",
+      "Microsoft.AspNetCore.Authentication.Google >= 8.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.10",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Pomelo.EntityFrameworkCore.MySql.Design >= 1.1.2",
@@ -9286,19 +9350,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ACER\\.nuget\\packages\\": {}
+    "C:\\Users\\hoang\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\_Net\\Tour\\BookTour\\BookTour\\BookTour.csproj",
+      "projectUniqueName": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
       "projectName": "BookTour",
-      "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour\\BookTour.csproj",
-      "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "E:\\_Net\\Tour\\BookTour\\BookTour\\obj\\",
+      "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
+      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9313,11 +9382,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
-              "projectPath": "E:\\_Net\\Tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
+            "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
             },
-            "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
-              "projectPath": "E:\\_Net\\Tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
+            "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+              "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
             }
           }
         }
@@ -9337,6 +9406,14 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[8.0.11, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[8.0.11, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
@@ -9375,7 +9452,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

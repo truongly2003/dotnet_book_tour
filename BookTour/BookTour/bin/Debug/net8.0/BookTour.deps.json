@@ -10,6 +10,8 @@
         "dependencies": {
           "BookStore.Infrastructure": "1.0.0",
           "BookTour.Application": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Facebook": "8.0.11",
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.11",
           "Microsoft.EntityFrameworkCore.Design": "8.0.10",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Pomelo.EntityFrameworkCore.MySql.Design": "1.1.2",
@@ -66,6 +68,22 @@
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
             "fileVersion": "2.14.1.48190"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/8.0.11": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "assemblyVersion": "8.0.11.0",
+            "fileVersion": "8.0.1124.52116"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/8.0.11": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "8.0.11.0",
+            "fileVersion": "8.0.1124.52116"
           }
         }
       },
@@ -1810,6 +1828,20 @@
       "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/8.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iRBrD3rpmeRMH5jQVAcVyJ5ztrxj6ZkyeHeiEk/oFLw46z3svAeVJm7YABAi3OZBPSqs2BmXSzt1eEXZV+NZ8w==",
+      "path": "microsoft.aspnetcore.authentication.facebook/8.0.11",
+      "hashPath": "microsoft.aspnetcore.authentication.facebook.8.0.11.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/8.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XYjmQF9ggDnpXds7aH5CgW2SWVmubJ/F6NOnDwDseMYnEBZSwhstkY9qZszd6wsAhpW1HeT9yO9nZqFPRMiDAA==",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.11",
+      "hashPath": "microsoft.aspnetcore.authentication.google.8.0.11.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cors/2.2.0": {
       "type": "package",

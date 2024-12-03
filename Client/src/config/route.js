@@ -26,6 +26,11 @@ const routes = {
   list_tour:"/admin/tour/list-tour",
   add_tour:"/admin/tour/add-tour",
   // admin promotion
-  list_promotion:"/admin/promotion/list-promotion"
+  list_promotion:"/admin/promotion/list-promotion",
+  // google oauth callback
+  google_callback: "/oauth2/redirect",
+  
+  // facebook oauth callback
+  facebook_callback: "/oauth2/callback/facebook" ,
 };
 export default routes;
