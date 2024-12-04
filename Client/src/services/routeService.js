@@ -49,3 +49,18 @@ export const getAllRouteByArrivalName = async (
     console.error("Error fetching route");
   }
 };
+
+
+
+// tour
+
+export const getAllRouteRoad = async () => {
+  try {
+      const response = await httpRequest.get('https://localhost:7146/api/Route/getRoute');
+      return response.data;
+  } catch (error) {
+      console.error('Error fetching route');
+  }
+};
+
+

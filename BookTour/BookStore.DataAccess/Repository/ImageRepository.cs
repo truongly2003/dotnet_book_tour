@@ -23,5 +23,57 @@ namespace BookStore.DataAccess.Repository
                 .ToListAsync();
             return query;
         }
+
+        public async Task<bool> InsertAsync(Image image)
+        {
+            try
+            {
+                await _dbContext.Images.AddAsync(image);
+                return await _dbContext.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inserting image: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateAsync(Image image)
+        {
+            try
+            {
+                var existingImage = await _dbContext.Images.FindAsync(image.ImageId);
+                if (existingImage == null) return false;
+
+                existingImage.TextImage = image.TextImage;
+                existingImage.IsPrimary = image.IsPrimary;
+
+                _dbContext.Images.Update(existingImage);
+                return await _dbContext.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating image: {ex.Message}");
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteAsync(int imageId)
+        {
+            try
+            {
+                var image = await _dbContext.Images.FindAsync(imageId);
+                if (image == null) return false;
+
+                _dbContext.Images.Remove(image);
+                return await _dbContext.SaveChangesAsync() > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error deleting image: {ex.Message}");
+                return false;
+            }
+        }
     }
+
 }

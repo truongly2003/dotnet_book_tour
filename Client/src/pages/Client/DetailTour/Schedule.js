@@ -2,11 +2,6 @@ import { useState } from "react";
 
 function Schedule({ detailRoute }) {
   const [visibleImage, setVisibleImage] = useState({});
-  const list=[];
-  list.push(detailRoute.legList)
-  list.push(detailRoute.imageList)
-
-  console.log(list);
   const handleToggleImage = (id) => {
     setVisibleImage((prev) => ({
       ...prev,

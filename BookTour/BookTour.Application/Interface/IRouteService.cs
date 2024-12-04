@@ -14,5 +14,6 @@ namespace BookTour.Application.Interface
         Task<DetailRouteResponse> GetDetailRouteByIdAsync(int DetailRouteId);
         Task<Page<RouteDTO>> GetAllRouteByArrivalAndDepartureAndDateAsync(string ArrivalName,string DepartureName,DateOnly TimeToDeparture,int page, int size, string sort);
         Task<Page<RouteDTO>> GetAllRouteByArrivalName(string ArrivalName,int page,int size, string sort);
+        Task<List<RoadRespone>> GetRoadResponsesAsync();
     }
 }

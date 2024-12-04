@@ -41,5 +41,12 @@ namespace BookTour.Controllers
             }
             return Ok(detailRoute);
         }
+        [HttpGet("getRoute")]
+        public async Task<IActionResult> GetRouteRoad()
+        {
+            var route = await _routeService.GetRoadResponsesAsync();
+            return Ok(route);
+        }
+
     }
 }

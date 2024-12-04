@@ -176,42 +176,25 @@ export const blockUser = async (userId) => {
 };
 
 // trưởng
-export const GetProfileByUserId = async (id) => {
-  try {
-    const token = localStorage.getItem("token");
-    const response = await httpRequest.get(
-      `/admin/customer/getCustomerById?userId=${id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching user");
-    throw error;
-  }
-};
+// export const GetProfileByUserId = async (id) => {
+//   try {
+//     const token = localStorage.getItem("token");
+//     const response = await httpRequest.get(
+//       `/admin/customer/getCustomerById?userId=${id}`,
+//       {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       }
+//     );
+//     return response.data;
+//   } catch (error) {
+//     console.error("Error fetching user");
+//     throw error;
+//   }
+// };
 
-export const UpdateProfileByUserId = async (userId, data) => {
-  try {
-    const token = localStorage.getItem("token");
-    const response = await httpRequest.put(
-      `/admin/customer/update?userId=${userId}`,
-      data,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-    return response.data;
-  } catch (error) {
-    throw error.response?.data || error.message;
-  }
-};
+
 
 export const registerUser = async ({ username, email, password }) => {
   try {
@@ -231,5 +214,31 @@ export const registerUser = async ({ username, email, password }) => {
     const errorMessage =
       error.response?.data?.message || error.message || "Something went wrong!";
     throw new Error(errorMessage);
+  }
+};
+
+
+// trưởng
+export const GetProfileByUserId = async (id) => {
+  try {
+    const response = await httpRequest.get(`/User/profile/user?userId=${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching user");
+    throw error;
+  }
+};
+
+
+export const UpdateProfileByUserId = async (userId, data) => {
+  try {
+    const response = await httpRequest.put(`/User/profile/user/update?userId=${userId}`, data, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || error.message;
   }
 };

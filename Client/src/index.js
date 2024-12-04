@@ -4,13 +4,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Style from "./components/Style_Css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { NotificationProvider } from './components/NotificationProvider';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <Style>
     {/* <React.StrictMode> */}
-      <App />
+    <NotificationProvider>
+            <App />
+            {/* </React.StrictMode> */}
+        </NotificationProvider>
     {/* </React.StrictMode> */}
   </Style>
 );

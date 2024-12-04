@@ -18,7 +18,6 @@ namespace BookStore.DataAccess.Repository
         }
         public async Task<List<Detailroute>> GetAllRouteAsync()
         {
-
             var query = await _dbContext.Detailroutes
                 .Include(detail => detail.Images)
                 .Include(detail => detail.Feedbacks)
@@ -36,10 +35,16 @@ namespace BookStore.DataAccess.Repository
                             detail.Route.Departure.DepartureName == DepartureName &&
                             detail.TimeToDeparture >= TimeToDeparture && detail.TimeToDeparture >= curendate
             )
-          
+
             .ToListAsync();
             return query;
         }
+
+        public async Task<Route> GetByIdAsync(int id)
+        {
+            return await _dbContext.Routes.FirstOrDefaultAsync(d => d.RouteId == id);
+        }
+
         public async Task<List<Detailroute>> GetAllRouteByArrivalNameAsync(string ArrivalName)
         {
             var query = await _dbContext.Detailroutes
@@ -54,22 +59,20 @@ namespace BookStore.DataAccess.Repository
             var query = await _dbContext.Detailroutes
              .Include(detail => detail.Images)
              .Include(detail => detail.Feedbacks)
-             .Include(detail=>detail.Route)
-             .ThenInclude(route=>route.Departure)
-             .Where(detail => detail.DetailRouteId==DetailRouteId)
-             .Select(detail => new Detailroute
-             {
-                
-                 Route=new Route
-                 {
-                     Departure=new Departure
-                     {
-                         DepartureName=detail.Route.Departure.DepartureName
-                     }
-                 }
-             })
+             .Include(detail => detail.Route)
+             .ThenInclude(route => route.Departure)
+             .Where(detail => detail.DetailRouteId == DetailRouteId)
              .FirstOrDefaultAsync();
             return query;
         }
+
+        public async Task<List<Route>> GetRoutesWithDetailsAsync()
+        {
+            return await _dbContext.Routes
+                .Include(r => r.Departure)
+                .Include(r => r.Arrival)
+                .ToListAsync();
+        }
+
     }
 }
