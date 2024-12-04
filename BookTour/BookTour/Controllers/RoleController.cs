@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookTour.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin/role")]
     [ApiController]
     public class RoleController : Controller
     {

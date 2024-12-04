@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using BookTour.Application.Interface;
 using BookTour.Application.Dto;
 using BookTour.Application.Service;
+using BookTour.Domain.Entity;
+using BookTour.Domain.Exception;
 
 namespace BookTour.Api.Controllers
 {
@@ -13,11 +15,14 @@ namespace BookTour.Api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthenticationService _authService;
+        private readonly IUserService _userService;
 
 
-        public AuthController(IAuthenticationService authService)
+
+        public AuthController(IAuthenticationService authService, IUserService userService)
         {
             _authService = authService;
+            _userService = userService;
         }
 
 
@@ -123,5 +128,137 @@ namespace BookTour.Api.Controllers
                 });
             }
         }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> createUser([FromBody] UserCreateRequest request)
+        {
+            try
+            {
+                // Kiểm tra xem email đã tồn tại hay chưa
+                if (await _userService.ExistsByEmailAsync(request.Email))
+                {
+                    // Trả về phản hồi nếu email đã tồn tại
+                    var errorResponse = new ApiResponse<UserDTO>
+                    {
+                        code = 1001,  // Mã lỗi email đã tồn tại
+                        message = "Email is already registered",  // Thông báo lỗi
+                        result = null  // Không có kết quả trả về
+                    };
+                    return BadRequest(errorResponse);  // Trả về mã lỗi 400
+                }
+
+                // Nếu email chưa tồn tại, tạo mới user
+                var result = await _userService.AddUser(request);
+
+                // Trả về thông báo thành công
+                var response = new ApiResponse<User>
+                {
+                    code = 1000,  // Mã thành công
+                    message = "Registration successful",  // Thông báo thành công
+                    result = result  
+                };
+
+                return Ok(response);  // Trả về kết quả thành công
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra trong quá trình tạo người dùng, trả về lỗi
+                var errorResponse = new ApiResponse<UserDTO>
+                {
+                    code = 1002,  // Mã lỗi chung
+                    message = ex.Message,  // Thông báo lỗi từ exception
+                    result = null  // Không có kết quả trả về
+                };
+                return BadRequest(errorResponse);  // Trả về mã lỗi 400
+            }
+        }
+
+
+        [HttpPost("verify")]
+        public IActionResult VerifyAccount([FromBody] Dictionary<string, string> payload)
+        {
+            if (!payload.ContainsKey("token"))
+            {
+                return BadRequest(new ApiResponse<string>
+                {
+                    code = 400,
+                    message = "Token is missing.",
+                    result = null
+                });
+            }
+
+            string token = payload["token"];
+            Console.WriteLine($"Token verify: {token}");
+
+            try
+            {
+                _userService.VerifyEmail(token);
+
+                return Ok(new ApiResponse<string>
+                {
+                    code = 200,
+                    message = "Account verified successfully! You can now log in.",
+                    result = null
+                });
+            }
+            catch (AppException ex)
+            {
+                Console.WriteLine($"Error during email verification: {ex.Message}");
+
+                return BadRequest(new ApiResponse<string>
+                {
+                    code = 400,
+                    message = ex.Message,
+                    result = null
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error during email verification: {ex.Message}");
+
+                return StatusCode(500, new ApiResponse<string>
+                {
+                    code = 500,
+                    message = "An unexpected error occurred during email verification.",
+                    result = null
+                });
+            }
+        }
+
+
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetUserById(int userId)
+        {
+            try
+            {
+                // Lấy thông tin người dùng từ service
+                var userResponse = await _userService.GetUserById(userId);
+
+                // Trả về kết quả với mã thành công 200 OK
+                var response = new ApiResponse<UserDTO>
+                {
+                    code = 200,
+                    message = "User retrieved successfully",
+                    result = userResponse
+                };
+
+                return Ok(response);  // Trả về thông tin người dùng
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra, trả về lỗi 500 (Lỗi máy chủ)
+                var errorResponse = new ApiResponse<UserDTO>
+                {
+                    code = 500,
+                    message = ex.Message,
+                    result = null
+                };
+
+                return StatusCode(500, errorResponse);
+            }
+        }
+
+
+
     }
 }

@@ -175,7 +175,6 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Micro
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -324,3 +323,6 @@ C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Pomel
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.sourcelink.json
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\JWT.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour\bin\Debug\net8.0\Microsoft.Bcl.TimeProvider.dll

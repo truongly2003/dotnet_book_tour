@@ -20,6 +20,8 @@ namespace BookTour.Domain.Exception
                 ErrorCode.CUSTOMER_NOT_EXIST => "Customer not found",
                 ErrorCode.USER_OR_PASSWORD_WRONG => "User or password is incorrect",
                 ErrorCode.OAUTH_ERROR => "Oauth2 authentication failed",
+                ErrorCode.EXPIRED_TOKEN => "token invalid",
+                ErrorCode.INVALID_TOKEN_SIGNATURE => "Token invalid signature",
                 _ => "Unknown error"
             };
         }

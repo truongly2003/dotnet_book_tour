@@ -19,18 +19,31 @@ const routes = {
   dashboard: "/admin/dashboard",
   receipt: "/admin/receipt",
   // admin user
-  list_user:"/admin/user/list-user",
-  add_user:"/admin/user/add-user",
-  
+  list_user: "/admin/user/list-user",
+  add_user: "/admin/user/add-user",
+
   // admin tour
-  list_tour:"/admin/tour/list-tour",
-  add_tour:"/admin/tour/add-tour",
+  list_tour: "/admin/tour/list-tour",
+  add_tour: "/admin/tour/add-tour",
   // admin promotion
-  list_promotion:"/admin/promotion/list-promotion",
+  list_promotion: "/admin/promotion/list-promotion",
   // google oauth callback
   google_callback: "/oauth2/redirect",
-  
+
   // facebook oauth callback
-  facebook_callback: "/oauth2/callback/facebook" ,
+  facebook_callback: "/oauth2/callback/facebook",
+
+  //customer
+  list_customer: "/admin/customer",
+  //employee
+  list_employee: "/admin/employee",
+
+  //list feedback
+  list_feedback: "/admin/feedback/list-feedback",
+
+  //admin decentrazation
+  decentralization: "/admin/decentralization",
+  //verify email
+  verify: "/verify",
 };
 export default routes;

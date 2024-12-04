@@ -1,17 +1,19 @@
 ﻿
 using BookStore.DataAccess.Repository;
 using BookStore.Infrastructure.Configuration;
+using BookTour.Application.Dto;
 using BookTour.Application.Interface;
 using BookTour.Application.Service;
 using BookTour.Domain.Interface;
 using Microsoft.AspNetCore.Authentication.Google;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
 });
+
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -52,6 +54,7 @@ builder.Services.AddAuthentication(options =>
     options.Scope.Add("public_profile");
     options.SaveTokens = true;
 });
+
 
 var app = builder.Build();
 

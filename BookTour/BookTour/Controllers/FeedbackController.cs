@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookTour.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin/feedback/")]
     [ApiController]
     public class FeedbackController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace BookTour.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("client")]
         public async Task<IActionResult> getListFeedback(int page, int size, int detailRouteId)
         {
             ApiResponse<Page<FeedbackDTO>> response;
@@ -51,7 +51,7 @@ namespace BookTour.Controllers
             return Ok(response);
         }
 
-        [HttpPost("comment")]
+        [HttpPost("client/comment")]
         public async Task<IActionResult> createComment([FromBody] FeedbackRequest request)
         {
             FeedbackDTO result;
@@ -79,6 +79,33 @@ namespace BookTour.Controllers
             };
 
             return Ok(response);
+        }
+
+
+        [HttpGet("client/checkBooking")]
+        public async Task<IActionResult> CheckBooking([FromQuery] int userId, [FromQuery] int detailRouteId)
+        {
+            try
+            {
+                // Gọi service để kiểm tra booking (giả sử service trả về Task<bool>)
+                var result = await _feedbackService.CheckBooking(userId, detailRouteId);
+
+                return Ok(new ApiResponse<bool>
+                {
+                    code = 200,
+                    message = "Success",
+                    result = result
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse<bool>
+                {
+                    code = 400,
+                    message = ex.Message,
+                    result = false
+                });
+            }
         }
 
     }

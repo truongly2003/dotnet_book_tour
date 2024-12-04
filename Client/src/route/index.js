@@ -5,8 +5,8 @@ import Login from "../pages/Client/Login";
 import Register from "../pages/Client/Register";
 import About from "../pages/Client/AboutUs";
 import Payment from "../pages/Client/Payment";
-import DetailTour from "../pages/Client/DetailTour"
-import Tour from "../pages/Client/Tour"
+import DetailTour from "../pages/Client/DetailTour";
+import Tour from "../pages/Client/Tour";
 // client profile
 import Profile from "../pages/Client/Profile";
 import Score from "../pages/Client/Profile/score";
@@ -33,6 +33,14 @@ import Promotion from "../pages/Admin/Promotion";
 import GoogleCallback from "../pages/Client/Login/GoogleCallback";
 
 import FacebookCallback from "../pages/Client/Login/FacebookCallback";
+
+import ListCustomer from "../pages/Admin/Customer";
+import ListEmployee from "../pages/Admin/Employee";
+
+import Decentralization from "../pages/Admin/Decentralization";
+import ListFeedback from "../pages/Admin/Feedback";
+import VerifyEmail from "../pages/Client/Register/verifyEmail";
+
 const publicRoutes = [
   // client routes
   { path: routes.home, component: Home, layout: DefaultLayout },
@@ -62,9 +70,25 @@ const publicRoutes = [
   // 3 promotion
   { path: routes.list_promotion, component: Promotion, layout: AdminLayout },
 
-  {path: routes.google_callback , component: GoogleCallback, layout : null} ,
+  { path: routes.google_callback, component: GoogleCallback, layout: null },
   //facebook
-  {path: routes.facebook_callback , component: FacebookCallback, layout : null},
+  { path: routes.facebook_callback, component: FacebookCallback, layout: null },
+  //customer
+  { path: routes.list_customer, component: ListCustomer, layout: AdminLayout },
 
+  //employee
+  { path: routes.list_employee, component: ListEmployee, layout: AdminLayout },
+
+  { path: routes.list_feedback, component: ListFeedback, layout: AdminLayout },
+
+  //admiin decentralization
+  {
+    path: routes.decentralization,
+    component: Decentralization,
+    layout: AdminLayout,
+  }, //}
+
+  // authentication user
+  { path: routes.verify, component: VerifyEmail, layout: DefaultLayout },
 ];
 export default publicRoutes;

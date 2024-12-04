@@ -35,6 +35,17 @@ namespace BookStore.DataAccess.Repository
             return feedback;
 
         }
+
+      
+
+        public async Task<bool> ExistsByUserIdAndDetailRouteId(int userId, int detailRouteId)
+        {
+            var exists = await _dbContext.Bookings
+                .Where(b => b.Customer.UserId == userId && b.DetailRouteId == detailRouteId)
+                .AnyAsync();
+
+            return exists;
+        }
     }
 }
 

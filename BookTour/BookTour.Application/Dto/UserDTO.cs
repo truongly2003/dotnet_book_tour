@@ -18,6 +18,6 @@ namespace BookTour.Application.Dto
 
         public int status { get; set; }
 
-      
+        public string token { get; set; }
     }
 }

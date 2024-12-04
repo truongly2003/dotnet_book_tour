@@ -25,6 +25,10 @@ public partial class User
     [Column("status")]
     public int Status { get; set; }
 
+    [Column("verify_token", TypeName = "varchar(512)")]
+    public string VerifyToken { get; set; }
+
+
     public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
 
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();

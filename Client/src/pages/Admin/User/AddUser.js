@@ -30,7 +30,7 @@ const AddUser = ({ open, onClose }) => {
     useEffect(() => {
         const fetchRoles = async () => {
             try {
-                const response = await axios.get("https://localhost:7146/api/Role");
+                const response = await axios.get("https://localhost:7146/api/admin/role");
                 if (Array.isArray(response.data.result)) {
                     setRoles(response.data.result);
                 }

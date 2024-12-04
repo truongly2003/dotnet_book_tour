@@ -11,5 +11,7 @@ namespace BookTour.Domain.Interface
     {
         Task<List<Feedback>> getListFeedbackAsync(int detailRouteId);
         Task<Feedback> saveFeedback(Feedback feedback);
+
+        public Task<bool> ExistsByUserIdAndDetailRouteId(int userId, int detailRouteId);
     }
 }

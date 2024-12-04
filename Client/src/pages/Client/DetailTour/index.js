@@ -7,6 +7,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import { getRouteDetailById } from "../../../services/routeService";
 import styles from "./DetailTour.module.css";
+import FeedbackTour from "../Feedback/FeedbackTour";
 function DetailTour() {
   const { id } = useParams();
   const [detailRoute, setDetailRoute] = useState({});
@@ -15,6 +16,7 @@ function DetailTour() {
     const fetchDetailRoute = async () => {
       try {
         const data = await getRouteDetailById(id);
+        console.log(data)
         setDetailRoute(data);
         setTitle(data.detailRouteName);
       } catch (error) {
@@ -77,9 +79,11 @@ function DetailTour() {
       <div className="row">
         <div className="col-8">
           {Object.keys(detailRoute).length > 0 && (
-            <Schedule detailRoute={detailRoute} />
+            <>
+              <Schedule detailRoute={detailRoute} />
+              <FeedbackTour detailRouteId={detailRoute.detailRouteId} />
+            </>
           )}
-          <StartDatePriceTour />
         </div>
         <div className="col-4"></div>
       </div>

@@ -30,7 +30,7 @@ export const getFeedbackListClient = async (page, size, detailRouteId) => {
 };
 export const createFeedback = async () => {
     try {
-        const response = await httpRequest.post(`/feedback/comment`);
+        const response = await httpRequest.post(`/admin/feedback/client/comment`);
         return response.data;
     } catch (error) {
         console.error('Error creating feedback');
@@ -40,7 +40,7 @@ export const createFeedback = async () => {
 export const checkCustomerOrderTour = async (userId, detailRouteId) => {
     try {
         const response = await httpRequest.get(
-            `/feedback/checkBooking?userId=${userId}&detailRouteId=${detailRouteId}`,
+            `/admin/feedback/client/checkBooking?userId=${userId}&detailRouteId=${detailRouteId}`,
         );
         return response.data;
     } catch (error) {

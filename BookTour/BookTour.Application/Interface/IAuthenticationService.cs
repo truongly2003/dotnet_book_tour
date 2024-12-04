@@ -16,7 +16,7 @@ namespace BookTour.Application.Interface
         Task<Dictionary<string, object>> HandleFacebookLogin(string code);
 
        
-        TokenInfo GenerateToken(User user);
+        public Task<TokenInfo> GenerateToken(User user);
 
      
         Task<string> GetAccessTokenFromGoogle(string code);
@@ -38,7 +38,9 @@ namespace BookTour.Application.Interface
 
         void CreateCustomer(User user);
 
-     
-        Dictionary<string, object> GenerateUserTokenResponse(User user, string picture, string name, string email);
+
+        Task<Dictionary<string, object>> GenerateUserTokenResponse(User user, string picture, string name, string email);
+
+        public Task<string> VerifyToken(string token, bool isRefresh);
     }
 }

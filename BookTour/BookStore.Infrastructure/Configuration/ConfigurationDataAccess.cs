@@ -56,6 +56,8 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IFeedbackService, FeedbackService>();
             services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IEmailService, EmailService>();
+
         }
         public static void ConfigApi(this IServiceCollection services)
         {

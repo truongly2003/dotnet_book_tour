@@ -11,8 +11,13 @@ using BookTour.Application.Interface;
 using BookTour.Domain.Entity;
 using BookTour.Domain.Exception;
 using BookTour.Domain.Interface;
+using JWT;
+using JWT.Algorithms;
+using JWT.Exceptions;
+using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using JWT.Serializers;
 
 namespace BookTour.Application.Service
 {
@@ -81,7 +86,7 @@ namespace BookTour.Application.Service
                 userName = user.Username;
             }
 
-            var tokenInfo = GenerateToken(user);
+            TokenInfo tokenInfo = await GenerateToken(user);
 
             var userDTO = new LoginDTO
             {
@@ -100,65 +105,7 @@ namespace BookTour.Application.Service
         }
 
 
-        private TokenInfo GenerateToken(User user)
-        {
-            // Kiểm tra giá trị đầu vào
-            if (user == null)
-            {
-                throw new ArgumentNullException(nameof(user), "User cannot be null.");
-            }
 
-            if (string.IsNullOrEmpty(user.Username))
-            {
-                throw new ArgumentNullException(nameof(user.Username), "Username cannot be null or empty.");
-            }
-
-            if (user.UserId == 0)
-            {
-                throw new ArgumentException("UserId cannot be zero or null.", nameof(user.UserId));
-            }
-
-            if (string.IsNullOrEmpty(_signerKey))
-            {
-                throw new ArgumentNullException(nameof(_signerKey), "Signer key cannot be null or empty.");
-            }
-
-            // Tạo JWT
-            var issueTime = DateTime.UtcNow;
-            var expiryTime = issueTime.AddHours(1); // Token expires in 1 hour
-
-            var claims = new[]
-            {
-        new Claim(JwtRegisteredClaimNames.Sub, user.Username),
-        new Claim(JwtRegisteredClaimNames.Iss, "hoangtuan.com"),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim("user_id", user.UserId.ToString()),
-        new Claim("scope", user.Role.RoleName.Trim()),
-        new Claim("username", user.Username),
-        new Claim("email", user.Email)
-    };
-
-            Console.WriteLine("Claims created.");
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_signerKey));
-            Console.WriteLine($"Key generated: {_signerKey}");
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
-            Console.WriteLine($"Signing credentials created.");
-
-            var token = new JwtSecurityToken(
-                issuer: "hoangtuan.com",
-                audience: "hoangtuan.com",
-                claims: claims,
-                expires: expiryTime,
-                signingCredentials: creds
-            );
-
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-            Console.WriteLine($"Token generated: {tokenString}");
-
-            return new TokenInfo(tokenString, expiryTime);
-        }
 
 
         private async Task<string> GetAccessTokenFromGoogle(string code)
@@ -263,7 +210,7 @@ namespace BookTour.Application.Service
 
                         if (existingUser != null)
                         {
-                            return GenerateUserTokenResponse(existingUser, name, email);
+                            return await GenerateUserTokenResponse(existingUser, name, email);
                         }
 
                         User newUser = await CreateUserFromGoogleInfo(name, email);
@@ -273,7 +220,7 @@ namespace BookTour.Application.Service
                         Console.WriteLine("name: " + name);
                         Console.WriteLine("email: " + email);
 
-                        return GenerateUserTokenResponse(newUser, name, email);
+                        return await GenerateUserTokenResponse(newUser, name, email);
                     }
                     else
                     {
@@ -348,7 +295,7 @@ namespace BookTour.Application.Service
             };
         }
 
-        private Dictionary<string, object> GenerateUserTokenResponse(User user, string name, string email)
+        private async Task<Dictionary<string, object>> GenerateUserTokenResponse(User user, string name, string email)
         {
             Console.WriteLine("Generating token response...");
             if (user == null)
@@ -366,16 +313,16 @@ namespace BookTour.Application.Service
                 throw new ArgumentNullException(nameof(email), "Email cannot be null or empty.");
             }
 
-            var tokenInfo = GenerateToken(user);
+            TokenInfo tokenInfo = await GenerateToken(user);
             Console.WriteLine("Token info generated successfully.");
 
             return new Dictionary<string, object>
-    {
-        { "token", tokenInfo.Token },
-        { "expiryTime", tokenInfo.ExpiryDate },
-        { "email", email },
-        { "name", name },
-    };
+            {
+                { "token", tokenInfo.Token },
+                { "expiryTime", tokenInfo.ExpiryDate },
+                { "email", email },
+                { "name", name },
+            };
         }
 
         public async Task<Dictionary<string, object>> DecodeTokenAsync(string token)
@@ -457,7 +404,7 @@ namespace BookTour.Application.Service
 
                         if (existingUser != null)
                         {
-                            return GenerateUserTokenResponse(existingUser, name, email);
+                            return await GenerateUserTokenResponse(existingUser, name, email);
                         }
 
                         // Tạo người dùng mới từ thông tin Facebook
@@ -468,7 +415,7 @@ namespace BookTour.Application.Service
                         Console.WriteLine("name: " + name);
                         Console.WriteLine("email: " + email);
 
-                        return GenerateUserTokenResponse(newUser, name, email);
+                        return await GenerateUserTokenResponse(newUser, name, email);
                     }
                     else
                     {
@@ -490,10 +437,7 @@ namespace BookTour.Application.Service
 
 
 
-        TokenInfo IAuthenticationService.GenerateToken(User user)
-        {
-            throw new NotImplementedException();
-        }
+
 
         Task<string> IAuthenticationService.GetAccessTokenFromGoogle(string code)
         {
@@ -575,7 +519,7 @@ namespace BookTour.Application.Service
             throw new NotImplementedException();
         }
 
-        Dictionary<string, object> IAuthenticationService.GenerateUserTokenResponse(User user, string picture, string name, string email)
+        Task<Dictionary<string, object>> IAuthenticationService.GenerateUserTokenResponse(User user, string picture, string name, string email)
         {
             throw new NotImplementedException();
         }
@@ -639,5 +583,122 @@ namespace BookTour.Application.Service
             }
 
         }
+
+        public async Task<string> VerifyToken(string token, bool isRefresh)
+        {
+            try
+            {
+                var handler = new JwtSecurityTokenHandler();
+
+                // Cấu hình các tham số xác minh
+                var validationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,   // Bạn có thể tùy chỉnh theo nhu cầu
+                    ValidateAudience = false, // Tùy chỉnh theo nhu cầu
+                    ValidateLifetime = true,  // Kiểm tra thời gian hết hạn
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_signerKey)) // Chìa khóa bí mật
+                };
+
+                SecurityToken validatedToken;
+
+                // Xác minh token với các tham số đã cấu hình
+                var principal = handler.ValidateToken(token, validationParameters, out validatedToken);
+
+                // Kiểm tra các claim (thông tin của token)
+                var jwtToken = validatedToken as JwtSecurityToken;
+                if (jwtToken == null)
+                {
+                    throw new AppException(ErrorCode.EXPIRED_TOKEN);
+                }
+
+                // Log thông tin token để debug
+                Console.WriteLine("Decoded token: " + string.Join(", ", jwtToken.Claims.Select(kv => $"{kv.Type}: {kv.Value}")));
+
+                // Kiểm tra thời gian hết hạn (expiration time)
+                var expiryTime = jwtToken.ValidTo;
+                if (expiryTime <= DateTime.UtcNow)
+                {
+                    throw new AppException(ErrorCode.EXPIRED_TOKEN);  // Nếu token đã hết hạn
+                }
+
+                // Trả về token hợp lệ nếu tất cả các điều kiện đều đúng
+                return token;
+            }
+            catch (SecurityTokenExpiredException)
+            {
+                throw new AppException(ErrorCode.EXPIRED_TOKEN);  // Nếu token hết hạn
+            }
+            catch (SecurityTokenInvalidSignatureException)
+            {
+                throw new AppException(ErrorCode.INVALID_TOKEN_SIGNATURE);  // Nếu chữ ký không hợp lệ
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Unexpected error: " + ex.Message);
+                throw new AppException(ErrorCode.UNAUTHENTICATED);  // Lỗi không xác định
+            }
+        }
+
+        public async Task<TokenInfo> GenerateToken(User user)
+        {
+            // Kiểm tra giá trị đầu vào
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user), "User cannot be null.");
+            }
+
+            if (string.IsNullOrEmpty(user.Username))
+            {
+                throw new ArgumentNullException(nameof(user.Username), "Username cannot be null or empty.");
+            }
+
+            if (user.UserId == 0)
+            {
+                throw new ArgumentException("UserId cannot be zero or null.", nameof(user.UserId));
+            }
+
+            if (string.IsNullOrEmpty(_signerKey))
+            {
+                throw new ArgumentNullException(nameof(_signerKey), "Signer key cannot be null or empty.");
+            }
+
+            // Tạo JWT
+            var issueTime = DateTime.UtcNow;
+            var expiryTime = issueTime.AddHours(1); // Token expires in 1 hour
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
+                new Claim(JwtRegisteredClaimNames.Iss, "hoangtuan.com"),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("user_id", user.UserId.ToString()),
+                new Claim("scope", user.Role.RoleName.Trim()),
+                new Claim("username", user.Username),
+                new Claim("email", user.Email)
+            };
+
+            Console.WriteLine("Claims created.");
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_signerKey));
+            Console.WriteLine($"Key generated: {_signerKey}");
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+            Console.WriteLine($"Signing credentials created.");
+
+            var token = new JwtSecurityToken(
+                issuer: "hoangtuan.com",
+                audience: "hoangtuan.com",
+                claims: claims,
+                expires: expiryTime,
+                signingCredentials: creds
+            );
+
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+            Console.WriteLine($"Token generated: {tokenString}");
+
+            return new TokenInfo(tokenString, expiryTime);
+        }
     }
+
+
 }

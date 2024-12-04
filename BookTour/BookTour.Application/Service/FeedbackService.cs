@@ -22,6 +22,19 @@ namespace BookTour.Application.Service
             this._feedbackRepository = feedbackRepository;
             this._bookRepository = bookingRepository;
         }
+
+        public async Task<bool> CheckBooking(int userId, int detailRouteId)
+        {
+            try
+            {
+                return await _feedbackRepository.ExistsByUserIdAndDetailRouteId(userId, detailRouteId);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while checking booking", ex);
+            }
+        }
+
         public async Task<FeedbackDTO> comment(FeedbackRequest request)
         {
             Booking booking = await _bookRepository.findById(request.bookingId);

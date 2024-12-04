@@ -16,6 +16,7 @@ namespace BookTour.Domain.Exception
         CUSTOMER_NOT_EXIST = 1006, // Khách hàng không tồn tại
         USER_OR_PASSWORD_WRONG = 1007, // Người dùng hoặc mật khẩu sai
         OAUTH_ERROR = 1008,       // Lỗi OAuth2
-
+        EXPIRED_TOKEN = 1009,
+        INVALID_TOKEN_SIGNATURE = 1010
     }
 }

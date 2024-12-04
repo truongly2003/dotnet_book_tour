@@ -52,10 +52,10 @@ const Login = () => {
         try {
             const data = await loginUser({ username, password });
             const token = data.token;
-
-            localStorage.setItem('userId', data.userId);
+            console.log(data)
+            localStorage.setItem('userId', data.id);
             localStorage.setItem('token', token);
-            localStorage.setItem('username', data.userName);
+            localStorage.setItem('username', data.username);
 
             setNotificationMessage('Đăng nhập thành công!');
             setNotificationType('success');
