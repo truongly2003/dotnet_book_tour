@@ -3148,6 +3148,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "BookStore.DataAccess": "1.0.0",
           "BookTour.Domain": "1.0.0",
           "JWT": "11.0.0",
           "Microsoft.IdentityModel.Tokens": "8.2.0",
@@ -9564,13 +9565,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

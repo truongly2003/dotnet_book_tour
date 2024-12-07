@@ -110,4 +110,5 @@ G:\checkpoint\dotnet_book_tour\BookTour\BookTour.Application\obj\Debug\net8.0\Bo
 G:\checkpoint\dotnet_book_tour\BookTour\BookTour.Application\obj\Debug\net8.0\refint\BookTour.Application.dll
 G:\checkpoint\dotnet_book_tour\BookTour\BookTour.Application\obj\Debug\net8.0\BookTour.Application.pdb
 G:\checkpoint\dotnet_book_tour\BookTour\BookTour.Application\obj\Debug\net8.0\ref\BookTour.Application.dll
-
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Application\bin\Debug\net8.0\BookStore.DataAccess.dll
+C:\Users\hoang\Desktop\dotnet_book_tour\BookTour\BookTour.Application\bin\Debug\net8.0\BookStore.DataAccess.pdb

@@ -155,7 +155,7 @@ namespace BookTour.Api.Controllers
                 {
                     code = 1000,  // Mã thành công
                     message = "Registration successful",  // Thông báo thành công
-                    result = result  
+                    result = result
                 };
 
                 return Ok(response);  // Trả về kết quả thành công
@@ -175,7 +175,7 @@ namespace BookTour.Api.Controllers
 
 
         [HttpPost("verify")]
-        public IActionResult VerifyAccount([FromBody] Dictionary<string, string> payload)
+        public async Task<IActionResult> VerifyAccount([FromBody] Dictionary<string, string> payload)
         {
             if (!payload.ContainsKey("token"))
             {
@@ -187,12 +187,12 @@ namespace BookTour.Api.Controllers
                 });
             }
 
-            string token = payload["token"];
+            var token = payload["token"];
             Console.WriteLine($"Token verify: {token}");
 
             try
             {
-                _userService.VerifyEmail(token);
+                await _userService.VerifyEmail(token);
 
                 return Ok(new ApiResponse<string>
                 {

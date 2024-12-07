@@ -16,6 +16,7 @@ namespace BookStore.DataAccess.Repository
 
         public async Task<User> checkUserExist(string email)
         {
+            Console.WriteLine("emai repo :", email);
             if (string.IsNullOrWhiteSpace(email))
                 throw new ArgumentException("Email cannot be null or empty.", nameof(email));
 

@@ -264,6 +264,9 @@ namespace BookTour.Application.Service
 
         public async Task VerifyEmail(string token)
         {
+
+            Console.WriteLine("verify token service :", token);
+
             try
             {
                 var signedJWT = _authenticationService.VerifyToken(token, false); // Giả sử có phương thức VerifyToken trong AuthenticationService
@@ -293,7 +296,7 @@ namespace BookTour.Application.Service
                 }
 
                 user.Status = 1;  // Đặt trạng thái thành "verified"
-                user.VerifyToken = null;  // Xoá token xác thực
+                user.VerifyToken = "token";  // Xoá token xác thực
                 await _userRepository.updateUser(user);  // Giả sử bạn đã có phương thức Update trong UserRepository
             }
             catch (AppException ex)

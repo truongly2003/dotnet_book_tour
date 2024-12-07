@@ -1125,6 +1125,7 @@
       "BookTour.Application/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "BookStore.DataAccess": "1.0.0",
           "BookTour.Domain": "1.0.0",
           "JWT": "11.0.0",
           "Microsoft.IdentityModel.Tokens": "8.2.0",

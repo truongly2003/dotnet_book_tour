@@ -92,21 +92,11 @@ export const getUserById = async (id) => {
 
 export const verifyEmailToken = async (token) => {
   try {
-    const token = localStorage.getItem("token");
-    const response = await httpRequest.post(
-      "/auth/verify",
-      { token },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
-        },
-      }
-    );
-    return response.data;
+      const response = await httpRequest.post('/auth/verify', { token });
+      return response.data;
   } catch (error) {
-    console.error("Error verifying email token:", error);
-    throw error;
+      console.error('Error verifying email token:', error);
+      throw error;
   }
 };
 

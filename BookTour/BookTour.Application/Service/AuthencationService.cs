@@ -18,11 +18,14 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using JWT.Serializers;
+using Microsoft.EntityFrameworkCore;
+using BookStore.DataAccess;
 
 namespace BookTour.Application.Service
 {
     public class AuthenticationService : IAuthenticationService
     {
+        private readonly BookTourDbContext _context;
         private readonly string _signerKey;
         private readonly string _googleClientId;
         private readonly string _googleClientSecret;
@@ -34,7 +37,7 @@ namespace BookTour.Application.Service
         private readonly IRoleRepository _roleRepository;
         private readonly ICustomerRepository _customerRepository;
 
-        public AuthenticationService(IConfiguration configuration, IUserRepository userRepository, IRoleRepository roleRepository, ICustomerRepository customerRepository)
+        public AuthenticationService(IConfiguration configuration, IUserRepository userRepository, IRoleRepository roleRepository, ICustomerRepository customerRepository, BookTourDbContext context)
         {
             _signerKey = configuration["Jwt:SignerKey"];
             _googleClientId = configuration["OAuth:Google:ClientId"];
@@ -44,6 +47,8 @@ namespace BookTour.Application.Service
             _userRepository = userRepository;
             _roleRepository = roleRepository;
             _customerRepository = customerRepository;
+            _context = context;
+
         }
 
         public async Task<LoginDTO> Login(LoginRequestDTO request)
@@ -190,8 +195,7 @@ namespace BookTour.Application.Service
                         throw new Exception("Email is null or empty after trimming.");
                     }
 
-                    Console.WriteLine("email: " + email);  // Log giá trị email
-
+                 
                     // Lấy giá trị name từ userInfo
                     if (userInfo.TryGetValue("name", out var nameObj) && nameObj != null)
                     {
@@ -204,9 +208,14 @@ namespace BookTour.Application.Service
 
                         Console.WriteLine("name: " + name);  // Log giá trị name
 
+                        Console.WriteLine("email: " + email);  // Log giá trị email
+
                         // Kiểm tra người dùng đã tồn tại hay chưa
-                        var existingUser = await _userRepository.checkUserExist(email);
-                        Console.WriteLine("Existing user: " + existingUser);
+                        var existingUser = await _context.Users
+                        .Include(u => u.Role) // Bao gồm thông tin Role nếu cần
+                        .FirstOrDefaultAsync(u => u.Email.ToLower() == email.ToLower());
+
+                        Console.WriteLine("Existing user: {} " + existingUser);
 
                         if (existingUser != null)
                         {
@@ -291,7 +300,8 @@ namespace BookTour.Application.Service
                 Email = email,
                 Password = "oauth2_default_password_google",
                 Role = role,
-                Status = 1
+                Status = 1,
+                VerifyToken = "token"
             };
         }
 

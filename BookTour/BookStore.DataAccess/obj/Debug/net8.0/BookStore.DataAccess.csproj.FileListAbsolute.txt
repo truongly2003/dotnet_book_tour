@@ -134,4 +134,3 @@ G:\checkpoint\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\re
 G:\checkpoint\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.pdb
 G:\checkpoint\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\BookStore.DataAccess.genruntimeconfig.cache
 G:\checkpoint\dotnet_book_tour\BookTour\BookStore.DataAccess\obj\Debug\net8.0\ref\BookStore.DataAccess.dll
-
