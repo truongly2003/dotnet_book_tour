@@ -5,9 +5,10 @@ function ModalDetailBook({ booking, onClose }) {
   const [details, setDetail] = useState({});
   useEffect(() => {
     const fet = async () => {
+        var userId = localStorage.getItem('userId');
       try {
         if (booking) {
-          const data = await getDetailBookingByUserId(6, booking.bookingId);
+          const data = await getDetailBookingByUserId(userId, booking.bookingId);
           setDetail(data);
         }
       } catch (error) {

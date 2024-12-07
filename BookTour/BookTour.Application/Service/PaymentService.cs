@@ -5,16 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookTour.Application.Dto.Payment;
+using BookTour.Domain.Entity;
 
 namespace BookTour.Application.Service
 {
     public class PaymentService : IPaymentService
     {
         private readonly IPaymentRepository _paymentRepository;
-
-        public PaymentService(IPaymentRepository paymentRepository)
+        private readonly IVNPayService _vNPayService;
+        public PaymentService(IPaymentRepository paymentRepository, IVNPayService vNPayService)
         {
             _paymentRepository = paymentRepository;
+            _vNPayService = vNPayService;
         }
 
         public async Task<List<PaymentResponse>> getAllPayments()
@@ -49,5 +52,28 @@ namespace BookTour.Application.Service
                 throw new InvalidOperationException("An error occurred while retrieving payments.", ex);
             }
         }
+        
+        public async Task<string> CreatePaymentUrlAsync(PaymentRequestDTO request)
+        {
+            var paymentUrl=_vNPayService.CreatePaymentUrl(request);
+
+            return paymentUrl;
+        }
+
+        public async Task<bool> ProcessCallbackAsync(VNPayCallbackDTO callbackData)
+        {
+            var payment = await _paymentRepository.GetPaymentByIdAsync(int.Parse(callbackData.TransactionId));
+            if (payment == null) return false;
+            bool isValid = _vNPayService.ValidateSignature(callbackData.Signature, callbackData.RawData);
+            if (!isValid) return false;
+            //
+            // payment.PaymentStatus = callbackData.ResponseCode == "00" ? PaymentStatus.Success : PaymentStatus.Failed;
+            // //payment.BankCode = callbackData.BankCode;
+            // //payment.Description = callbackData.Description;
+            // payment.PaymentDate = callbackData.PaymentDate;
+            // await _paymentRepository.UpdatePaymentAsync(payment);
+            return true;
+        }   
+        
     }
 }

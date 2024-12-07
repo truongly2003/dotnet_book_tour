@@ -61,6 +61,7 @@ namespace BookStore.Infrastructure.Configuration
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<IVNPayService,VNPayService>();
         }
         public static void ConfigApi(this IServiceCollection services)
         {
