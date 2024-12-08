@@ -17,4 +17,19 @@ public class PaymentRepository : IPaymentRepository
     {
         return await _context.Payments.ToListAsync();
     }
+    
+    public async Task CreatePaymentAsync(Payment payment)
+    {
+        await _context.Payments.AddAsync(payment);
+        await _context.SaveChangesAsync();
+    }
+    public async Task<Payment> GetPaymentByIdAsync(int paymentId)
+    {
+        return await _context.Payments.FirstOrDefaultAsync(p => p.PaymentId == paymentId);
+    }
+    public async Task UpdatePaymentAsync(Payment payment)
+    {
+        _context.Set<Payment>().Update(payment);
+        await _context.SaveChangesAsync();
+    }
 }

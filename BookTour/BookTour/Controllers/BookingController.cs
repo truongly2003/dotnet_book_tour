@@ -107,5 +107,30 @@ namespace BookTour.Controllers
             var booking=await _bookingService.GetDetailBookingResponseByUserIdAsync(UserId,BookingId);
             return Ok(booking);
         }
+        
+        [HttpGet("cancel-tour")]
+        public async Task<IActionResult> CancelTour(int bookingId, int statusId)
+        {
+            var success = await _bookingService.UpdateBookingStatusAsync(bookingId, statusId);
+            if (success)
+            {
+                return Ok(new ApiResponse<object>
+                {
+                    code = 200,
+                    message = "Status updated successfully",
+                    result = success
+                });
+            }
+            else
+            {
+                return BadRequest(new ApiResponse<object>
+                {
+                    code = 400,
+                    message = "Failed to update status",
+                    result = "Error"
+                });
+            }
+        }
+
     }
 }

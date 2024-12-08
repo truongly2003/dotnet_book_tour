@@ -1,26 +1,5 @@
 [
   {
-    "ContainingType": "BookTour.Controllers.CustomerController",
-    "Method": "getListCustomer",
-    "RelativePath": "api/admin/customer",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "page",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "size",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "BookTour.Controllers.DecentralizationController",
     "Method": "AddPermissions",
     "RelativePath": "api/admin/decentralization/addPermissions",
@@ -110,27 +89,6 @@
         "Name": "request",
         "Type": "BookTour.Application.Dto.Request.RolePermissionRequest",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BookTour.Controllers.EmployeeController",
-    "Method": "getListEmployee",
-    "RelativePath": "api/admin/employee",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "page",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "size",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -521,6 +479,27 @@
   },
   {
     "ContainingType": "BookTour.Controllers.BookingController",
+    "Method": "CancelTour",
+    "RelativePath": "api/Booking/cancel-tour",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "statusId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.BookingController",
     "Method": "CheckAvailability",
     "RelativePath": "api/Booking/check-available-quantity",
     "HttpMethod": "GET",
@@ -745,6 +724,32 @@
       {
         "Name": "detailRouteRequest",
         "Type": "BookTour.Application.Dto.Request.DetailRouteRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.PaymentController",
+    "Method": "Callback",
+    "RelativePath": "api/Payment/callback",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.PaymentController",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "api/Payment/create-payment-url",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookTour.Application.Dto.Payment.PaymentRequestDTO",
         "IsRequired": true
       }
     ],
