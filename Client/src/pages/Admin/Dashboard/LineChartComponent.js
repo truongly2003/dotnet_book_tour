@@ -1,43 +1,13 @@
 import React, { useState, useEffect } from 'react';
-// import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid, 
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  BarChart,
-  Bar
-} from 'recharts';
-import { 
-  getMonthlyRevenueStatistics,
-  getBookingStatisticsByPaymentStatus,
-  getPopularTourStatistics
-} from '../../../services/statisticsService';
+import { Line } from 'react-chartjs-2';
+import { Chart, registerables } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
+import { getMonthlyRevenueStatistics } from '../../../services/statisticsService';
 
-// Utility function to shorten route names
-const shortenRouteName = (name) => {
-  // Remove common prefixes and suffixes
-  const cleanedName = name
-    .replace(/^Tour\s*/i, '')
-    .replace(/\s*Tour$/i, '')
-    .replace(/\s*Route$/i, '');
-  
-  // Split the name and take first few words or characters
-  const words = cleanedName.split(/\s+/);
-  if (words.length > 2) {
-    return words.slice(0, 2).map(word => word.charAt(0)).join('');
-  }
-  return cleanedName.substring(0, 10);
-};
+Chart.register(...registerables, zoomPlugin);
 
-const LineChartComponent = () => {
+function LineChartComponent() {
   const [monthlyData, setMonthlyData] = useState([]);
-  const [paymentStatusData, setPaymentStatusData] = useState([]);
-  const [popularTourData, setPopularTourData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -45,39 +15,21 @@ const LineChartComponent = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
+        const data = await getMonthlyRevenueStatistics();
         
-        // Fetch monthly revenue statistics
-        const monthlyResult = await getMonthlyRevenueStatistics();
-        const chartData = monthlyResult.map(item => ({
-          name: `${item.year}-${item.month}`, // Format as YYYY-MM
-          totalBookings: item.totalBookings,
-          totalRevenue: item.totalRevenue / 1000000, // Convert to millions
-        })).sort((a, b) => a.name.localeCompare(b.name));
-        
-        // Fetch booking statistics by payment status
-        const paymentStatusResult = await getBookingStatisticsByPaymentStatus();
-        const processedPaymentStatusData = paymentStatusResult.map(item => ({
-          statusName: item.statusName,
-          totalBookings: item.totalBookings,
-          totalRevenue: item.totalRevenue / 1000000, // Convert to millions
-        }));
+        const sortedData = [...data].sort((a, b) => {
+          if (a.year !== b.year) return a.year - b.year;
+          return a.month - b.month;
+        });
 
-        // Fetch popular tour statistics
-        const popularTourResult = await getPopularTourStatistics();
-        const processedPopularTourData = popularTourResult.map(item => ({
-          detailRouteName: shortenRouteName(item.detailRouteName),
-          totalBookings: item.totalBookings,
-          totalRevenue: item.totalRevenue / 1000000, // Convert to millions
-          averageRating: item.averageRating
-        })).sort((a, b) => b.totalBookings - a.totalBookings); // Sort by total bookings
-        
-        setMonthlyData(chartData);
-        setPaymentStatusData(processedPaymentStatusData);
-        setPopularTourData(processedPopularTourData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching statistics:", error);
-        setError(error);
+        setMonthlyData(sortedData.map(item => ({
+          name: `${item.month}/${item.year}`,
+          revenue: item.totalRevenue / 1000000,
+          totalBookings: item.totalBookings
+        })));
+      } catch (err) {
+        setError(err.message);
+      } finally {
         setLoading(false);
       }
     };
@@ -86,133 +38,88 @@ const LineChartComponent = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading statistics...</div>;
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"/>
+      </div>
+    );
   }
 
   if (error) {
-    return <div>Error loading statistics: {error.message}</div>;
+    return (
+      <div className="text-red-500 p-4 text-center border rounded">
+        Error: {error}
+      </div>
+    );
   }
 
+  const data = {
+    labels: monthlyData.map(item => item.name),
+    datasets: [
+      {
+        label: 'Doanh Thu (Triệu VND)',
+        data: monthlyData.map(item => item.revenue),
+        borderColor: '#6366f1',
+        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `Doanh thu: ${context.raw.toFixed(2)} triệu VND`;
+          },
+        },
+      },
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'x',
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'x',
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 8,
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Doanh Thu (Triệu VND)',
+        },
+      },
+    },
+  };
+
   return (
-    <div className="space-y-6">
-      {/* Monthly Revenue Line Chart */}
-      <ResponsiveContainer width="100%" height={300} style={{ backgroundColor: "transparent" }}>
-        <LineChart
-          data={monthlyData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis 
-            label={{ value: 'Revenue (triệu đồng)', angle: -90, position: 'insideLeft' }}
-          />
-          <Tooltip 
-            formatter={(value, name) => {
-              if (name === 'totalRevenue') {
-                return [`${value.toFixed(2)} triệu`, 'Doanh thu'];
-              }
-              return [value, 'Số booking'];
-            }}
-          />
-          <Legend 
-            formatter={(value) => {
-              const legendMap = {
-                totalBookings: 'Số lượng booking',
-                totalRevenue: 'Doanh thu'
-              };
-              return legendMap[value] || value;
-            }}
-          />
-          <Line 
-            type="monotone" 
-            dataKey="totalBookings" 
-            name="totalBookings"
-            stroke="#8884d8" 
-            activeDot={{ r: 8 }} 
-          />
-          <Line 
-            type="monotone" 
-            dataKey="totalRevenue" 
-            name="totalRevenue"
-            stroke="#82ca9d" 
-          />
-        </LineChart>
-      </ResponsiveContainer>
-
-      {/* Payment Status Statistics */}
-      <div className="bg-white p-4 rounded-lg shadow">
-        <h3 className="text-lg font-semibold mb-3">Booking Statistics by Payment Status</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {paymentStatusData.map((status, index) => (
-            <div 
-              key={index} 
-              className="p-3 border rounded-lg shadow-sm"
-            >
-              <p className="font-medium text-gray-700">{status.statusName}</p>
-              <p className="text-blue-600">Total Bookings: {status.totalBookings}</p>
-              <p className="text-green-600">Total Revenue: {status.totalRevenue.toFixed(2)} triệu</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Popular Tours Statistics */}
-      <div className="bg-white p-4 rounded-lg shadow">
-        <h3 className="text-lg font-semibold mb-3">Popular Tours</h3>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={popularTourData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis 
-              dataKey="detailRouteName" 
-              angle={-45} 
-              textAnchor="end"
-              interval={0}
-              height={100}
-            />
-            <YAxis 
-              label={{ 
-                value: 'Bookings & Revenue (triệu đồng)', 
-                angle: -90, 
-                position: 'insideLeft' 
-              }} 
-            />
-            <Tooltip 
-              formatter={(value, name, props) => {
-                if (name === 'totalRevenue') {
-                  return [`${value.toFixed(2)} triệu`, 'Doanh thu'];
-                }
-                return [value, 'Số booking'];
-              }}
-            />
-            <Legend 
-              formatter={(value) => {
-                const legendMap = {
-                  totalBookings: 'Số lượng booking',
-                  totalRevenue: 'Doanh thu'
-                };
-                return legendMap[value] || value;
-              }}
-            />
-            <Bar 
-              dataKey="totalBookings" 
-              name="totalBookings" 
-              fill="#8884d8" 
-            />
-            <Bar 
-              dataKey="totalRevenue" 
-              name="totalRevenue" 
-              fill="#82ca9d" 
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+    <div className="bg-white p-6 rounded-xl shadow-lg">
+      <h3 className="text-xl font-bold mb-6 text-gray-800">
+        Biểu Đồ Doanh Thu Theo Tháng
+      </h3>
+      <Line data={data} options={options} />
     </div>
   );
-};
+}
 
 export default LineChartComponent;

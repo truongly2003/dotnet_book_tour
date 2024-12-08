@@ -12,50 +12,98 @@ const fetchStatistics = async (endpoint, errorMessage) => {
 };
 
 // Refactored service functions using the generic fetchStatistics function
-export const getBookingStatisticsByPaymentStatus = () => 
+export const getBookingStatisticsByPaymentStatus = () =>
     fetchStatistics(
-        "/statistics/booking-status", 
+        "/statistics/booking-status",
         "Error fetching booking statistics by payment status:"
     );
 
-export const getMonthlyRevenueStatistics = () => 
+export const getMonthlyRevenueStatistics = () =>
     fetchStatistics(
-        "/statistics/monthly-revenue", 
+        "/statistics/monthly-revenue",
         "Error fetching monthly revenue statistics:"
     );
-
-export const getPopularTourStatistics = () => 
+export const getPopularTourStatistics = () =>
     fetchStatistics(
-        "/statistics/popular-tours", 
+        "/statistics/popular-tours",
         "Error fetching popular tour statistics:"
     ); // -------------------
 
-export const getCustomerBookingStatistics = () => 
+export const getCustomerBookingStatistics = () =>
     fetchStatistics(
-        "/statistics/customer-bookings", 
+        "/statistics/customer-bookings",
         "Error fetching customer booking statistics:"
     ); //---------------------
 
-export const getTourRatingStatistics = () => 
+export const getTourRatingStatistics = () =>
     fetchStatistics(
-        "/statistics/tour-ratings", 
+        "/statistics/tour-ratings",
         "Error fetching tour rating statistics:"
     );
 
-export const getRouteTourStatistics = () => 
+export const getRouteTourStatistics = () =>
     fetchStatistics(
-        "/statistics/route-tours", 
+        "/statistics/route-tours",
         "Error fetching route tour statistics:"
     );
 
-export const getPassengerTypeStatistics = () => 
+export const getPassengerTypeStatistics = () =>
     fetchStatistics(
-        "/statistics/passenger-types", 
+        "/statistics/passenger-types",
         "Error fetching passenger type statistics:"
     );
 
-export const getPassengerAgeGroupStatistics = () => 
+export const getPassengerAgeGroupStatistics = () =>
     fetchStatistics(
-        "/statistics/passenger-age-groups", 
+        "/statistics/passenger-age-groups",
         "Error fetching passenger age group statistics:"
     );
+
+
+
+
+
+
+//     import axios from 'axios';
+
+// const API_URL = 'api/Statistics'; // Adjust base URL as needed
+
+// export const getMonthlyRevenueStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/monthly-revenue`);
+//   return response.data;
+// };
+
+// export const getBookingStatisticsByPaymentStatus = async () => {
+//   const response = await axios.get(`${API_URL}/booking-status`);
+//   return response.data;
+// };
+
+// export const getTourRatingStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/tour-ratings`);
+//   return response.data;
+// };
+
+// export const getRouteTourStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/route-tours`);
+//   return response.data;
+// };
+
+// export const getPopularTourStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/popular-tours`);
+//   return response.data;
+// };
+
+// export const getCustomerBookingStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/customer-bookings`);
+//   return response.data;
+// };
+
+// export const getPassengerTypeStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/passenger-types`);
+//   return response.data;
+// };
+
+// export const getPassengerAgeGroupStatistics = async () => {
+//   const response = await axios.get(`${API_URL}/passenger-age-groups`);
+//   return response.data;
+// };

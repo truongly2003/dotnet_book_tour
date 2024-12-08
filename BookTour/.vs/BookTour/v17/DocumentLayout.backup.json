@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\dotnet\\dotnet_book_tour\\dotnet_book_tour\\booktour\\booktour\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|c:\\dotnet\\dotnet_book_tour\\dotnet_book_tour\\booktour\\booktour\\controllers\\statisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{268CDB37-04CF-4EF2-8392-E6D12746A06B}|BookTour\\BookTour.csproj|solutionrelative:booktour\\controllers\\statisticscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|c:\\dotnet\\dotnet_book_tour\\dotnet_book_tour\\booktour\\bookstore.dataaccess\\booktourdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{386F4C85-D8AB-4919-921E-368E48CDB10B}|BookStore.DataAccess\\BookStore.DataAccess.csproj|solutionrelative:bookstore.dataaccess\\booktourdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|c:\\dotnet\\dotnet_book_tour\\dotnet_book_tour\\booktour\\booktour.domain\\entity\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{029DFA80-612A-4FCE-B90A-B8E95932D9D2}|BookTour.Domain\\BookTour.Domain.csproj|solutionrelative:booktour.domain\\entity\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,55 +24,8 @@
               "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "BookTour\\Controllers\\BookingController.cs",
-              "ToolTip": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "BookTour\\Controllers\\BookingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T16:12:06.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Payment.cs",
-              "DocumentMoniker": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Payment.cs",
-              "RelativeDocumentMoniker": "BookTour.Domain\\Entity\\Payment.cs",
-              "ToolTip": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookTour.Domain\\Entity\\Payment.cs",
-              "RelativeToolTip": "BookTour.Domain\\Entity\\Payment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T10:41:19.13Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StatisticsController.cs",
-              "DocumentMoniker": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\StatisticsController.cs",
-              "RelativeDocumentMoniker": "BookTour\\Controllers\\StatisticsController.cs",
-              "ToolTip": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookTour\\Controllers\\StatisticsController.cs",
-              "RelativeToolTip": "BookTour\\Controllers\\StatisticsController.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAwwBEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T10:23:16.956Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BookTourDbContext.cs",
-              "DocumentMoniker": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookTourDbContext.cs",
-              "RelativeDocumentMoniker": "BookStore.DataAccess\\BookTourDbContext.cs",
-              "ToolTip": "C:\\DotNet\\dotnet_book_tour\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookTourDbContext.cs",
-              "RelativeToolTip": "BookStore.DataAccess\\BookTourDbContext.cs",
-              "ViewState": "AgIAACwBAAAAAAAAAAAAADQBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T09:32:25.121Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             }
           ]
         }
