@@ -1,8 +1,14 @@
 import httpRequest from '../utils/httpRequest';
 export const getFeedbackListAdmin = async (page, size, detailRouteId) => {
+    const token = localStorage.getItem('token');
     try {
         const response = await httpRequest.get(
-            `/admin/feedback/admin?detailRouteId=${detailRouteId}&page=${page}&size=${size}`,
+            `/admin/feedback/admin?page=${page}&size=${size}`,
+            {
+                headers: { 
+                    Authorization: `Bearer ${token}`,
+                },
+            },
         );
         return response.data;
     } catch (error) {
@@ -51,7 +57,7 @@ export const checkCustomerOrderTour = async (userId, detailRouteId) => {
 
 export const searchFeedbackByDetailName = async (detailRouteName, page, size) => {
     try {
-        const response = await httpRequest.get(`/feedback/search?detailRouteName=${detailRouteName}`);
+        const response = await httpRequest.get(`/admin/feedback/search?detailRouteName=${detailRouteName}&page=${page}&size=${size}`);
         return response.data;
     } catch (error) {
         console.error('Error search feedback');

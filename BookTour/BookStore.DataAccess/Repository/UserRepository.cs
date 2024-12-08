@@ -124,6 +124,24 @@ namespace BookStore.DataAccess.Repository
             return existingUser;
         }
 
+        public async Task<List<User>> FindUsersByUsernameAsync(string usernameSearch)
+        {
+            if (string.IsNullOrWhiteSpace(usernameSearch))
+                throw new ArgumentException("Search term cannot be null or empty.", nameof(usernameSearch));
+
+            // Tìm kiếm người dùng theo username (không phân biệt hoa thường)
+            var users = await _context.Users
+                .Include(u => u.Role)  // Bao gồm thông tin Role nếu cần
+                .Where(u => u.Username.ToLower().Contains(usernameSearch.ToLower()))  // Tìm kiếm theo username chứa từ khóa
+                .ToListAsync();
+
+            // In ra kết quả query để kiểm tra
+            Console.WriteLine("Found users: " + string.Join(", ", users.Select(u => u.Username)));
+
+            return users;
+        }
+
+
 
     }
 

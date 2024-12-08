@@ -14,5 +14,8 @@ namespace BookTour.Application.Interface
         public Task<FeedbackDTO> comment(FeedbackRequest request);
 
         public Task<bool> CheckBooking(int userId, int detailRouteId);
+
+        public Task<Page<FeedbackDTO>> getListFeedbackAdminAsync(int page, int size);
+        Task<Page<FeedbackDTO>> getListUserByDetailRouteName(int page, int size, string detailRouteName);
     }
 }

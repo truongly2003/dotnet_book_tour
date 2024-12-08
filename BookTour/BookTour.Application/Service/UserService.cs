@@ -70,6 +70,37 @@ namespace BookTour.Application.Service
         }
 
 
+        public async Task<Page<UserDTO>> getListUserByUsesName(int page, int size, string username)
+        {
+            var data = await _userRepository.FindUsersByUsernameAsync(username);
+
+            var userDTO = data.Select(user => new UserDTO
+            {
+                id = user.UserId,
+                username = user.Username,
+                password = user.Password,
+                email = user.Email,
+                roleId = user.RoleId,
+                roleName = user.Role != null ? user.Role.RoleName : null,
+                status = user.Status
+            })
+           .Skip((page - 1) * size)
+           .Take(size)
+           .ToList();
+
+            var totalElement = data.Count();
+            var totalPage = (int)Math.Ceiling((double)totalElement / size);
+            var result = new Page<UserDTO>
+            {
+                Data = userDTO,
+                TotalElement = totalElement,
+                TotalPages = totalPage
+            };
+
+            return result;
+        }
+
+
         TokenInfo IUserService.GenerateToken(User user)
         {
             throw new NotImplementedException();
@@ -122,7 +153,6 @@ namespace BookTour.Application.Service
                 Employee employee = new Employee
                 {
                     EmployeeId = employeeId,
-                    EmployeeName = user.Username,
                     EmployeeEmail = $"{user.Username}@gmail.com",
                     User = user // Link employee to user
                 };

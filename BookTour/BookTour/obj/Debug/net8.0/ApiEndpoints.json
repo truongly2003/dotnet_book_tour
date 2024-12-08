@@ -1,5 +1,162 @@
 [
   {
+    "ContainingType": "BookTour.Controllers.CustomerController",
+    "Method": "getListCustomer",
+    "RelativePath": "api/admin/customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.DecentralizationController",
+    "Method": "AddPermissions",
+    "RelativePath": "api/admin/decentralization/addPermissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookTour.Application.Dto.Request.RolePermissionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BookTour.Application.Dto.ApiResponse\u00601[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BookTour.Controllers.DecentralizationController",
+    "Method": "GetListPermission",
+    "RelativePath": "api/admin/decentralization/getPermission",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BookTour.Application.Dto.ApiResponse\u00601[[System.Collections.Generic.List\u00601[[BookTour.Application.Dto.PermissionDTO, BookTour.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BookTour.Controllers.DecentralizationController",
+    "Method": "GetPermissionsByRoleId",
+    "RelativePath": "api/admin/decentralization/getPermissionsByRoleId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.DecentralizationController",
+    "Method": "GetRoleAndPermissionsByUserId",
+    "RelativePath": "api/admin/decentralization/getRoleAndPermissionsByUserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.DecentralizationController",
+    "Method": "UpdatePermissions",
+    "RelativePath": "api/admin/decentralization/updatePermissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "BookTour.Application.Dto.Request.RolePermissionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.EmployeeController",
+    "Method": "getListEmployee",
+    "RelativePath": "api/admin/employee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.FeedbackController",
+    "Method": "getAllFeedbackAdminAsync",
+    "RelativePath": "api/admin/feedback/admin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.FeedbackController",
     "Method": "getListFeedback",
     "RelativePath": "api/admin/feedback/client",
@@ -58,6 +215,32 @@
         "Name": "request",
         "Type": "BookTour.Application.Dto.Request.FeedbackRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.FeedbackController",
+    "Method": "getListFeedbackByUsername",
+    "RelativePath": "api/admin/feedback/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "detailRouteName",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -147,6 +330,32 @@
         "Name": "customerDTO",
         "Type": "BookTour.Application.Dto.CustomerDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.UserController",
+    "Method": "getListUserByUsername",
+    "RelativePath": "api/admin/user/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

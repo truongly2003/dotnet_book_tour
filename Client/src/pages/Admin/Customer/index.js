@@ -44,7 +44,7 @@ function ListCustomer() {
                 }
 
                 if (response && response.code === 1000) {
-                    setCustomers(response.result.customers || []);
+                    setCustomers(response.result.data || []);
                     setTotalPages(response.result.totalPages || 1);
                 } else {
                     setCustomers([]);
@@ -74,7 +74,7 @@ function ListCustomer() {
                     <Typography variant="h2" style={{ fontSize: '24px', fontWeight: 'bold', marginLeft: '16px' }}>
                         LIST CUSTOMER
                     </Typography>
-                    <Box display="flex" justifyContent="center" flexGrow={1}>
+                    {/* <Box display="flex" justifyContent="center" flexGrow={1}>
                         <TextField
                             variant="outlined"
                             placeholder="Search customers by username"
@@ -82,7 +82,7 @@ function ListCustomer() {
                             onChange={handleSearchChange}
                             style={{ width: '300px', marginRight: '150px' }}
                         />
-                    </Box>
+                    </Box> */}
                 </Box>
                 <TableContainer>
                     <Table>

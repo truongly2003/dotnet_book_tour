@@ -45,7 +45,7 @@ function ListEmployee() {
                 }
         
                 if (response && response.code === 1000) {
-                    setEmployees(response.result.employees || []);
+                    setEmployees(response.result.data || []);
                     setTotalPages(response.result.totalPages || 1);
                 } else {
                     setEmployees([]);
@@ -74,7 +74,7 @@ function ListEmployee() {
                     <Typography variant="h2" style={{ fontSize: '24px', fontWeight: 'bold', marginLeft: '16px' }}>
                         LIST EMPLOYEE
                     </Typography>
-                    <Box display="flex" justifyContent="center" flexGrow={1}>
+                    {/* <Box display="flex" justifyContent="center" flexGrow={1}>
                         <TextField
                             variant="outlined"
                             placeholder="Search employees by name"
@@ -82,7 +82,7 @@ function ListEmployee() {
                             onChange={handleSearchChange}
                             style={{ width: '300px', marginRight: '150px' }}
                         />
-                    </Box>
+                    </Box> */}
                 </Box>
                 <TableContainer>
                     <Table>
@@ -99,8 +99,8 @@ function ListEmployee() {
                                 <TableRow key={employee.id}>
                                     {/* Tính số thứ tự dựa trên trang hiện tại */}
                                     <TableCell>{(currentPage - 1) * pageSize + index + 1}</TableCell>
-                                    <TableCell>{employee.id}</TableCell>
-                                    <TableCell>{employee.email || 'N/A'}</TableCell>
+                                    <TableCell>{employee.employeeId}</TableCell>
+                                    <TableCell>{employee.employeeEmail || 'N/A'}</TableCell>
                                     <TableCell>{employee.userId || 'N/A'}</TableCell>
                                 </TableRow>
                             ))}

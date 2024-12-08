@@ -1,4 +1,4 @@
-﻿using BookTour.Domain.Entity;
+using BookTour.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +11,6 @@ namespace BookTour.Domain.Interface
     {
         Task<Employee> saveEmployee(Employee employee);
         Task<int> CountAsync();
+        // Task<List<Employee>> getListEmployeeAsync();
     }
 }

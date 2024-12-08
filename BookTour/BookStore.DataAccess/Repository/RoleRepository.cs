@@ -27,6 +27,18 @@ namespace BookStore.DataAccess.Repository
         {
             return await _context.Roles.ToListAsync();
         }
+
+        public async Task<string> FindRoleNameByIdAsync(int roleId)
+        {
+            // Truy vấn roleName dựa trên roleId
+            var roleName = await _context.Roles
+                                          .Where(r => r.RoleId == roleId)
+                                          .Select(r => r.RoleName)
+                                          .SingleOrDefaultAsync();  // Thay vì FirstOrDefaultAsync() vì roleId là duy nhất
+
+            return roleName;
+        }
+
     }
 
 }

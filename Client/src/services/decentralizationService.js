@@ -16,39 +16,8 @@ export const getListDecentralization = async (page, size) => {
   };
 
 
-export const getAllPermission = async () => {
-  try { 
-    const token = localStorage.getItem('token')
-    console.log(token)
-    const response = await fetch(`/api/admin/decentralization/getPermission`,{
-      headers: {
-        Authorization: `Bearer ${token}`, 
-      },  
-    });
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching permissions:", error);
-    return null;
-  }
-};
 
 
-
-
-export const getPermissionByRoleId = async (roleId) => {
-  try {
-    const token = localStorage.getItem('token')
-    const response = await fetch(`/admin/decentralization/getPermissionById?roleId=${roleId}`,{
-      headers: {
-        Authorization: `Bearer ${token}`, 
-      },
-    });
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching permissions:", error);
-    return null;
-  }
-}
 
 
 export const getAllOperation = async () => {
@@ -159,4 +128,46 @@ export const getRoleAndPermissionsByUserId = async (userId) => {
       return null;
   }
 };
+
+export const getPermissionByRoleId = async (roleId) => {
+  console.log("role service :", roleId);
+  try {
+    const token = localStorage.getItem('token');
+    
+    // Gửi yêu cầu GET tới API
+    const response = await httpRequest.get(`/admin/decentralization/getPermissionsByRoleId?roleId=${roleId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    
+    // Kiểm tra nếu phản hồi không thành công
+    if (response.status !== 200) {
+      throw new Error("Failed to fetch permissions");
+    }
+
+    // Giả sử dữ liệu trả về nằm trong response.data (hoặc response.result, tùy vào cấu trúc API)
+    console.log(response.data);
+    return response.data; // Hoặc nếu API trả về data trong trường khác: response.result
+  } catch (error) {
+    console.error("Error fetching permissions:", error);
+    return null;
+  }
+};
+export const getAllPermission = async () => {
+  try { 
+    const token = localStorage.getItem('token')
+    console.log(token)
+    const response = await httpRequest.get(`/admin/decentralization/getPermission`,{
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },  
+    });
+    return response.data
+  } catch (error) {
+    console.error("Error fetching permissions:", error);
+    return null;
+  }
+};
+
 

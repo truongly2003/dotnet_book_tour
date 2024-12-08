@@ -28,7 +28,32 @@ namespace BookStore.DataAccess.Repository
 
             return query;
         }
-        public  async Task<Feedback> saveFeedback(Feedback feedback)
+
+        public async Task<List<Feedback>> getListFeedbackAdminAsync()
+        {
+            var query = await _dbContext.Feedback
+                .Include(b => b.DetailRoute)
+                .Include(b => b.Booking)
+                .ToListAsync();
+
+            // Kiểm tra null cho từng phần tử trong query
+            foreach (var feedback in query)
+            {
+                // Kiểm tra nếu `Booking` hoặc `DetailRoute` là null
+                if (feedback.Booking == null)
+                {
+                    Console.WriteLine($"FeedbackId {feedback.FeedbackId} has null Booking");
+                }
+                if (feedback.DetailRoute == null)
+                {
+                    Console.WriteLine($"FeedbackId {feedback.FeedbackId} has null DetailRoute");
+                }
+            }
+
+            return query;
+        }
+
+        public async Task<Feedback> saveFeedback(Feedback feedback)
         {
             await _dbContext.Feedback.AddAsync(feedback);
             await _dbContext.SaveChangesAsync();
@@ -45,6 +70,23 @@ namespace BookStore.DataAccess.Repository
                 .AnyAsync();
 
             return exists;
+        }
+
+
+        public async Task<List<Feedback>> FindFeedbackByDetailRouteNameAsync(string usernameSearch)
+        {
+            if (string.IsNullOrWhiteSpace(usernameSearch))
+                throw new ArgumentException("DetailRouteName cannot be null or empty.", nameof(usernameSearch));
+
+            // Tìm kiếm các phản hồi theo tên tuyến chi tiết (không phân biệt hoa thường)
+            var feedbacks = await _dbContext.Feedback
+                .Include(f => f.Booking)            // Bao gồm thông tin Booking nếu cần
+                .Include(f => f.Booking.Customer)   // Bao gồm thông tin Customer nếu cần
+                .Include(f => f.DetailRoute)        // Bao gồm thông tin DetailRoute nếu cần
+                .Where(f => f.DetailRoute.DetailRouteName.ToLower().Contains(usernameSearch.ToLower()))  // Tìm kiếm theo tên tuyến chi tiết chứa từ khóa
+                .ToListAsync();
+
+            return feedbacks;
         }
     }
 }

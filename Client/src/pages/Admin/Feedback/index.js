@@ -53,13 +53,13 @@ function ListFeedback() {
         let response;
 
         if (debouncedSearchFeedback) {
-            response = await searchFeedbackByDetailName(debouncedSearchFeedback);
+            response = await searchFeedbackByDetailName(debouncedSearchFeedback, currentPage, pageSize);
         } else {
           response = await getFeedbackListAdmin(currentPage, pageSize);
         }
-
+        console.log(response.result.data);
         if (response && response.code === 1000) {
-          setFeedbacks(response.result.feedbacks || []);
+          setFeedbacks(response.result.data || []);
           setTotalPages(response.result.totalPages || 1);
         } else {
           setFeedbacks([]); // If not successful, set feedbacks to an empty array

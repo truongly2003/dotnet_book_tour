@@ -19,5 +19,6 @@ namespace BookTour.Domain.Interface
         Task<User> checkUserExist(string email);
         Task<User> FindUserById(int id);
         Task<bool> ExistsByEmailAsync(string email);
+        Task<List<User>> FindUsersByUsernameAsync(string usernameSearch);
     }
 }

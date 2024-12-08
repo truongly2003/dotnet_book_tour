@@ -11,17 +11,17 @@ import {
   Checkbox,
   FormControlLabel,
 } from "@mui/material";
-import { getOperationByRoleId, updatePermissions } from "../../../services/decentralizationService";
+import { getPermissionByRoleId, updatePermissions } from "../../../services/decentralizationService";
 import Notification from "../../../components/Notification";
+
 function EditDecentralization({ open, onClose, decentralization, onSave }) {
   const [formData, setFormData] = useState({
     id: "",
     roleId: "",
     roleName: "",
   });
-  const [permissions, setPermissions] = useState([]); // Danh sách permissions với operations
+  const [permissions, setPermissions] = useState([]); // Danh sách permissions
   const [notificationOpen, setNotificationOpen] = useState(false); // Trạng thái thông báo
-  const [snackBarMessage, setSnackBarMessage] = useState("");
 
   useEffect(() => {
     if (open && decentralization?.roleId) {
@@ -30,73 +30,41 @@ function EditDecentralization({ open, onClose, decentralization, onSave }) {
         roleId: decentralization.roleId,
         roleName: decentralization.roleName,
       });
-  
-      // Lấy dữ liệu permissions và operations
-      fetchPermissionsAndOperations(decentralization.roleId);
+
+      // Lấy dữ liệu permissions khi roleId thay đổi
+      fetchPermissionsByRoleId(decentralization.roleId);
     }
   }, [open, decentralization]);
-  
 
-  const fetchPermissionsAndOperations = async (roleId) => {
+  // Hàm lấy permissions theo roleId
+  const fetchPermissionsByRoleId = async (roleId) => {
     try {
-      const response = await getOperationByRoleId(roleId);
-  
+      const response = await getPermissionByRoleId(roleId);
       if (response && response.code === 1000) {
-        const { permissions } = response.result || [];
-        const permissionsWithOperations = permissions.map((permission) => ({
-          ...permission,
-          isGranted: true, // Mặc định permission được tích
-          operations: permission.operations.map((operation) => ({
-            ...operation,
-            isGranted: true, // Mặc định operation được tích
-          })),
+        // Giả sử response.result là danh sách permissions
+        const permissionsData = response.result || [];
+
+        // Chuyển đổi danh sách permissions thành mảng với các permission name và operationIds
+        const permissionList = permissionsData.map(permission => ({
+          id: permission.id,
+          permissionName: permission.permissionName,
+          isGranted: permission.isGranted || true, // Mặc định là true (được tích chọn)
+          operationIds: permission.operationIds || [1], // Đảm bảo có operationIds mặc định
         }));
-  
-        setPermissions(permissionsWithOperations);
+
+        setPermissions(permissionList);
       }
     } catch (error) {
-      console.error("Error fetching permissions and operations:", error);
+      console.error("Error fetching permissions:", error);
     }
   };
-  
-  
-  
 
+  // Hàm thay đổi trạng thái của permission (checked/unchecked)
   const handlePermissionChange = (permissionId) => {
     setPermissions((prev) =>
       prev.map((permission) =>
         permission.id === permissionId
-          ? {
-              ...permission,
-              isGranted: !permission.isGranted,
-              operations: permission.operations.map((operation) => ({
-                ...operation,
-                isGranted: !permission.isGranted, // Đồng bộ trạng thái operations
-              })),
-            }
-          : permission
-      )
-    );
-  };
-
-  const handleOperationChange = (permissionId, operationId) => {
-    setPermissions((prev) =>
-      prev.map((permission) =>
-        permission.id === permissionId
-          ? {
-              ...permission,
-              operations: permission.operations.map((operation) =>
-                operation.id === operationId
-                  ? { ...operation, isGranted: !operation.isGranted }
-                  : operation
-              ),
-              isGranted: permission.operations.some(
-                (operation) =>
-                  operation.id === operationId
-                    ? !operation.isGranted
-                    : operation.isGranted
-              ),
-            }
+          ? { ...permission, isGranted: !permission.isGranted }
           : permission
       )
     );
@@ -105,17 +73,17 @@ function EditDecentralization({ open, onClose, decentralization, onSave }) {
   const handleSave = async () => {
     const payload = {
       roleId: formData.roleId,
-      permissions: permissions.map((permission) => ({
-        permissionId: permission.id,
-        operationIds: permission.operations
-          .filter((operation) => operation.isGranted) // Chỉ lấy các operations được cấp
-          .map((operation) => operation.id),
-      })),
+      permissions: permissions
+        .filter(permission => permission.isGranted) // Chỉ lấy các permission được tích
+        .map(permission => ({
+          permissionId: permission.id,
+          // Đảm bảo rằng operationIds không rỗng
+          operationIds: permission.operationIds || [1], // Mặc định là một mảng với 1 (hoặc bạn có thể lấy giá trị khác)
+        })),
     };
 
     try {
       await updatePermissions(payload.roleId, payload.permissions);
-      console.log("Permissions updated successfully!");
       setNotificationOpen(true); // Hiển thị thông báo
       onSave(payload); // Gửi dữ liệu lên component cha
       onClose(); // Đóng dialog
@@ -124,6 +92,7 @@ function EditDecentralization({ open, onClose, decentralization, onSave }) {
     }
   };
 
+  // Đóng thông báo khi đã hiển thị
   const handleNotificationClose = () => {
     setNotificationOpen(false); // Đóng thông báo
   };
@@ -135,72 +104,39 @@ function EditDecentralization({ open, onClose, decentralization, onSave }) {
         <DialogContent>
           <Box display="flex" flexDirection="column" gap={2} mt={2}>
             <TextField
-              label="Role ID"
-              name="roleId"
-              value={formData.roleId}
-              fullWidth
-              disabled
-            />
-            <TextField
               label="Role Name"
-              name="roleName"
               value={formData.roleName}
               fullWidth
               disabled
             />
-            <Typography variant="h6" mt={3}>
-              Permissions & Operations
-            </Typography>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {permissions.map((permission) => (
-                <li key={permission.id}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={permission.isGranted} // Trạng thái của permission
-                        onChange={() => handlePermissionChange(permission.id)} // Xử lý chọn/bỏ chọn permission
-                      />
-                    }
-                    label={permission.name}
+            <Typography variant="h6">List Permissions</Typography>
+            {permissions.map((permission) => (
+              <FormControlLabel
+                key={permission.id}
+                control={
+                  <Checkbox
+                    checked={permission.isGranted} // Kiểm tra trạng thái của permission
+                    onChange={() => handlePermissionChange(permission.id)} // Cập nhật trạng thái khi thay đổi
+                    name={permission.permissionName}
                   />
-                  <ul style={{ listStyle: "none", paddingLeft: "20px" }}>
-                    {permission.operations.map((operation) => (
-                      <li key={operation.id}>
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              checked={operation.isGranted} // Trạng thái đã được cấp
-                              onChange={() =>
-                                handleOperationChange(permission.id, operation.id)
-                              } // Xử lý chọn/bỏ chọn operation
-                            />
-                          }
-                          label={operation.operationName} // Tên operation
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              ))}
-            </ul>
+                }
+                label={permission.permissionName}
+              />
+            ))}
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleSave} variant="contained" color="primary">
+          <Button onClick={onClose}>Cancel</Button>
+          <Button onClick={handleSave} color="primary">
             Save
           </Button>
         </DialogActions>
       </Dialog>
 
-      {/* Notification Component */}
       <Notification
         open={notificationOpen}
         message="Permissions updated successfully!"
         onClose={handleNotificationClose}
-        type="success"
       />
     </>
   );

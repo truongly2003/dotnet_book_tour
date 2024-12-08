@@ -12,5 +12,6 @@ namespace BookTour.Application.Interface
     {
         Task<CustomerDTO> FindCustomerByUserIdAsync(int UserId);
         Task<bool> UpdateCustomerByUserIdAsync(int UserId, CustomerDTO customerDTO);
+        // Task<Page<CustomerDTO>> GetAllUserAsync(int page, int size);
     }
 }

@@ -11,5 +11,6 @@ namespace BookTour.Domain.Interface
     {
         Task<Role> findById(int id);
         Task<List<Role>> getAllRoleAsync();
+        Task<string> FindRoleNameByIdAsync(int roleId);
     }
 }

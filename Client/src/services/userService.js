@@ -49,12 +49,12 @@ export const getListUser = async (page, size) => {
   }
 };
 
-export const getUserByAllSearch = async (username) => {
+export const getUserByAllSearch = async (username , page , size) => {
   try {
     const token = localStorage.getItem("token");
 
     const response = await httpRequest.get(
-      `/admin/user/search?username=${username}`,
+      `/admin/user/search?username=${username}&page=${page}&size=${size}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

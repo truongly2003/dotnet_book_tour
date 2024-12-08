@@ -51,7 +51,8 @@ function FeedbackTour({ detailRouteId, customerId }) {
   const loadFeedback = async (page, reset = false) => {
     try {
       const data = await getFeedbackListClient(page, 3, detailRouteId);
-      const newFeedbacks = data.result.feedbacks;
+      const newFeedbacks = data.result.data;
+      console.log("list feedback:", newFeedbacks)
 
       if (reset) {
         setFeedbackData(newFeedbacks);
@@ -110,7 +111,7 @@ function FeedbackTour({ detailRouteId, customerId }) {
 
       try {
         await axios.post(
-          "http://localhost:8080/api/admin/feedback/comment",
+          "https://localhost:7146/api/admin/feedback/client/comment",
           newComment
         );
         setNewFeedback("");

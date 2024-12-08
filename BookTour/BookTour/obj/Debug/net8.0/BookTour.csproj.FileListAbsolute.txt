@@ -1136,4 +1136,3 @@ G:\checkpoint\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\refint\BookTou
 G:\checkpoint\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.pdb
 G:\checkpoint\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\BookTour.genruntimeconfig.cache
 G:\checkpoint\dotnet_book_tour\BookTour\BookTour\obj\Debug\net8.0\ref\BookTour.dll
-

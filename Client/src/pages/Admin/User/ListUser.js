@@ -62,19 +62,27 @@ function ListUser() {
                 let response;
                 if (debouncedSearchUser) {
                     // Tìm kiếm người dùng theo từ khóa
-                    response = await getUserByAllSearch(debouncedSearchUser);
+                    response = await getUserByAllSearch(debouncedSearchUser ,currentPage , pageSize);
                 } else {
                     // Lấy danh sách người dùng theo trang hiện tại và kích thước trang
                     response = await getListUser(currentPage, pageSize);
                 }
     
-                console.log("response: " ,response);
+                console.log("API response: ", response.result.data); // Debug API response
                 if (response && response.code === 1000) {
-                    setUsers(response.result.data || []);
-                    setTotalPages(response.result.totalPages || 1);
+                    // Kiểm tra xem dữ liệu có hợp lệ không
+                    if (response.result && Array.isArray(response.result.data)) {
+                        setUsers(response.result.data || []);
+                        setTotalPages(response.result.totalPages > 0 ? response.result.totalPages : 1); // Đảm bảo totalPages hợp lệ
+                    } else {
+                        console.warn("No user data found");
+                        setUsers([]); // Nếu không có kết quả, trả về danh sách rỗng
+                        setTotalPages(1); // Đảm bảo tổng số trang không âm
+                    }
                     setAccessError(''); // Xóa lỗi nếu truy cập thành công
                 } else {
                     setUsers([]); // Nếu không có kết quả, trả về danh sách rỗng
+                    setTotalPages(1); // Đảm bảo totalPages có giá trị hợp lệ
                 }
             } catch (error) {
                 console.error('Error fetching users:', error);
@@ -86,19 +94,10 @@ function ListUser() {
             }
         };
     
-        const fetchRoles = async () => {
-            try {
-                const response = await getAllRole();
-                setRoles(response.result || []);
-            } catch (error) {
-                console.error('Error fetching roles:', error);
-            }
-        };
-    
         // Gọi hàm để lấy người dùng và vai trò
         fetchUsers();
-        fetchRoles();
-    }, [currentPage, debouncedSearchUser, updateUserOpen , selectedUser]); // Chạy lại mỗi khi currentPage hoặc debouncedSearchUser thay đổi
+    }, [currentPage, debouncedSearchUser]); // Chạy lại mỗi khi currentPage hoặc debouncedSearchUser thay đổi
+    
     
     const handleSearchChange = (event) => {
         setSearchUser(event.target.value);

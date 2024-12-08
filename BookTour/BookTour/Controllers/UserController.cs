@@ -49,11 +49,36 @@ namespace BookTour.Controllers
 
             return Ok(response);
         }
+        [HttpGet("search")]
+        public async Task<IActionResult> getListUserByUsername(int page, int size, string username)
+        {
+            ApiResponse<Page<UserDTO>> response;
+            Page<UserDTO> result;
 
+            try
+            {
+                result = await _userService.getListUserByUsesName(page, size, username);
+            }
+            catch (Exception ex)
+            {
+                response = new ApiResponse<Page<UserDTO>>
+                {
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
+                };
+                return BadRequest(response);
+            }
 
+            response = new ApiResponse<Page<UserDTO>>
+            {
+                code = 1000,
+                message = "User list fetched successfully",
+                result = result
+            };
 
-
-      
+            return Ok(response);
+        }
 
 
         [HttpPut("update/{id}")]

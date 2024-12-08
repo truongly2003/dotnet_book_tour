@@ -26,5 +26,7 @@ namespace BookTour.Application.Interface
         Task SendVerificationEmailAsync(User user);
         Task VerifyEmail(string token);
         Task<UserDTO> GetUserById(int id);
+
+        Task<Page<UserDTO>> getListUserByUsesName(int page, int size, string username);
     }
 }

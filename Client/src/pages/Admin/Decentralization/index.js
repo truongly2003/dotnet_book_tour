@@ -36,6 +36,7 @@ function Decentralization() {
     const fetchDecentralization = async () => {
       try {
         const response = await getAllRole();
+        console.log(response)
         if (response && response.code === 1000) {
           setDecentralization(response.result || []);
           setTotalPages(response.result.totalPages || 1);
@@ -61,7 +62,7 @@ function Decentralization() {
     const selectedData = {
       id: item.id,
       roleId: item.roleId || item.id, // Nếu roleId không tồn tại, dùng id làm fallback
-      roleName: item.name || "Unknown Role", // Đặt giá trị mặc định nếu không có roleName
+      roleName: item.roleName || "Unknown Role", // Đặt giá trị mặc định nếu không có roleName
     };
 
     setSelectedItem(selectedData); // Lưu lại thông tin đã chọn
@@ -147,8 +148,8 @@ function Decentralization() {
               {decentralization.map((item, index) => (
                 <TableRow key={item.id || index}>
                   <TableCell align="center">{index + 1}</TableCell>
-                  <TableCell align="center">{item.id}</TableCell>
-                  <TableCell align="center">{item.name}</TableCell>
+                  <TableCell align="center">{item.roleId}</TableCell>
+                  <TableCell align="center">{item.roleName}</TableCell>
                   <TableCell align="center">
                     <Box display="flex" justifyContent="center">
                       <Button

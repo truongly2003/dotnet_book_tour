@@ -51,6 +51,38 @@ namespace BookTour.Controllers
             return Ok(response);
         }
 
+
+        [HttpGet("admin")]
+        public async Task<IActionResult> getAllFeedbackAdminAsync(int page, int size)
+        {
+            ApiResponse<Page<FeedbackDTO>> response;
+            Page<FeedbackDTO> result;
+
+            try
+            {
+                result = await _feedbackService.getListFeedbackAdminAsync(page, size);
+            }
+            catch (Exception ex)
+            {
+                response = new ApiResponse<Page<FeedbackDTO>>
+                {
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
+                };
+                return BadRequest(response);
+            }
+
+            response = new ApiResponse<Page<FeedbackDTO>>
+            {
+                code = 1000,
+                message = "Feedback list fetched successfully",
+                result = result
+            };
+
+            return Ok(response);
+        }
+
         [HttpPost("client/comment")]
         public async Task<IActionResult> createComment([FromBody] FeedbackRequest request)
         {
@@ -108,5 +140,35 @@ namespace BookTour.Controllers
             }
         }
 
+        [HttpGet("search")]
+        public async Task<IActionResult> getListFeedbackByUsername(int page, int size, string detailRouteName)
+        {
+            ApiResponse<Page<FeedbackDTO>> response;
+            Page<FeedbackDTO> result;
+
+            try
+            {
+                result = await _feedbackService.getListUserByDetailRouteName(page, size, detailRouteName);
+            }
+            catch (Exception ex)
+            {
+                response = new ApiResponse<Page<FeedbackDTO>>
+                {
+                    code = 1001,
+                    message = ex.Message,
+                    result = null
+                };
+                return BadRequest(response);
+            }
+
+            response = new ApiResponse<Page<FeedbackDTO>>
+            {
+                code = 1000,
+                message = "User list fetched successfully",
+                result = result
+            };
+
+            return Ok(response);
+        }
     }
 }
