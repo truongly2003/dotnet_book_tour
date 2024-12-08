@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Import dấu tích
 import './Payment.css';
 
 const Payment = () => {
@@ -23,6 +24,8 @@ const Payment = () => {
   return (
     <div className="payment-container">
       <div className="payment-header">
+      <CheckCircleIcon style={{ color: 'green', marginRight: '10px', fontSize: '60px' }} />
+
         <h2>Thông tin hoá đơn</h2>
       </div>
       <div className="payment-details">

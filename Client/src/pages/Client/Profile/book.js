@@ -5,6 +5,9 @@ import ModalDetailBook from "./modalDetailBook";
 import { getBookingByUserId } from "../../../services/bookingService";
 import { Line } from "recharts";
 import { Link } from "react-router-dom";
+import { IconButton, Button } from "@mui/material";
+import { Visibility, Delete } from "@mui/icons-material";
+import Notification from "../../../components/Notification";
 
 function Book() {
   const [bookings, setBooking] = useState([]);
@@ -14,6 +17,10 @@ function Book() {
   const pageSize = 4;
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
+  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
+  const [notificationType, setNotificationType] = useState("success");
 
   useEffect(() => {
     const fetch = async () => {
@@ -56,6 +63,57 @@ function Book() {
     }
   };
 
+  const handleCancelClick = async (bookingId, statusId) => {
+    try {
+      const url = `http://localhost:5083/api/Booking/cancel-tour?bookingId=${bookingId}&statusId=${statusId}`;
+
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const data = await response.json();
+
+      if (data.code === 200) {
+        setNotificationMessage("Huỷ đơn hàng thành công");
+        setNotificationType("success");
+        setNotificationOpen(true);
+
+        // Cập nhật paymentStatusName sau khi huỷ thành công
+        setBooking((prevBookings) =>
+          prevBookings.map((booking) =>
+            booking.bookingId === bookingId
+              ? { ...booking, paymentStatusName: "Đã huỷ" }
+              : booking
+          )
+        );
+
+        // Gọi lại hàm fetch() để tải lại danh sách bookings
+        var userId = localStorage.getItem("userId");
+        const responseBookings = await getBookingByUserId(
+          userId,
+          currentPage,
+          pageSize
+        );
+        setBooking(responseBookings.data);
+        setTotalPages(responseBookings.totalPages);
+      } else {
+        console.error("Error:", data.message);
+        setNotificationMessage("Huỷ đơn hàng thất bại");
+        setNotificationType("error");
+        setNotificationOpen(true);
+      }
+    } catch (error) {
+      console.error("Error during payment creation:", error);
+    }
+  };
+
   const handleShowModal = (bookings) => {
     setSelectedBooking(bookings);
     setShowModal(true);
@@ -66,6 +124,7 @@ function Book() {
     setSelectedBooking(null);
   };
 
+  const handleCloseNotification = () => setNotificationOpen(false);
   return (
     <div className="container">
       <h5 className="mt-2">Lịch Sử Đặt Chỗ</h5>
@@ -97,13 +156,16 @@ function Book() {
                     <span
                       className={`fs-6 badge text-wrap ${
                         booking.paymentStatusName === "Chờ thanh toán\r\n"
-                          ? "bg-danger"
-                          : "bg-success"
+                          ? "bg-warning"
+                          : booking.paymentStatusName === "Đã thanh toán"
+                          ? "bg-success"
+                          : booking.paymentStatusName === "Đã huỷ"
+                          ? "bg-secondary"
+                          : ""
                       }`}
                     >
                       {booking.paymentStatusName}
                     </span>
-
                   </div>
                 </div>
                 <div className="card-body d-flex align-items-center justify-content-between">
@@ -127,13 +189,22 @@ function Book() {
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <button
-                      className="rounded btn btn-success"
+                  <div className="d-flex align-items-center">
+                    <Button
                       onClick={() => handleShowModal(booking)}
-                    >
-                      Xem chi tiết
-                    </button>
+                      startIcon={<Visibility />}
+                    ></Button>
+
+                    {/* Button Xoá */}
+                    {booking.paymentStatusName === "Chờ thanh toán\r\n" && (
+                      <IconButton
+                        color="error"
+                        style={{ marginLeft: "10px" }}
+                        onClick={() => handleCancelClick(booking.bookingId, 3)} // Gọi hàm trong một hàm ẩn danh
+                      >
+                        <Delete />
+                      </IconButton>
+                    )}
                   </div>
                 </div>
               </div>
@@ -157,6 +228,12 @@ function Book() {
       {showModal && (
         <ModalDetailBook booking={selectedBooking} onClose={handleCloseModal} />
       )}
+      <Notification
+        open={notificationOpen}
+        message={notificationMessage}
+        onClose={handleCloseNotification}
+        type={notificationType}
+      />
     </div>
   );
 }

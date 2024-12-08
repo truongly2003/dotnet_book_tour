@@ -176,7 +176,16 @@ function BookingTour() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
+        // Kiểm tra userId trong localStorage
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+            setNotificationMessage("Vui lòng đăng nhập trước khi thực hiện đặt chỗ!");
+            setNotificationType("error");
+            setNotificationOpen(true);
+            return; // Ngừng xử lý nếu không có userId
+        }
+    
         try {
             const response = await fetch('http://localhost:5083/api/Booking/handle-booking', {
                 method: 'POST',
@@ -185,31 +194,32 @@ function BookingTour() {
                 },
                 body: JSON.stringify(payload),
             });
-
+    
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-
+    
             const data = await response.json();
-
             setValidateList(data);
             console.log(validateList['paymentMethod']);
+            
             if(data.message) {
                 setNotificationMessage(
-                  "Đặt chỗ thành công, vui lòng thanh toán trong 24h, nếu không đơn giữ chỗ sẽ tự động huỷ!"
+                    "Đặt chỗ thành công, vui lòng thanh toán trong 24h, nếu không đơn giữ chỗ sẽ tự động huỷ!"
                 );
-                setNotificationType("success"); 
+                setNotificationType("success");
                 setNotificationOpen(true);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
             setNotificationMessage(
-              "Đã có lỗi trong lúc đặt tour, vui lòng thử lại!"
+                "Đã có lỗi trong lúc đặt tour, vui lòng thử lại!"
             );
-            setNotificationType("error"); 
+            setNotificationType("error");
             setNotificationOpen(true);
         }
     };
+    
 
     
 
