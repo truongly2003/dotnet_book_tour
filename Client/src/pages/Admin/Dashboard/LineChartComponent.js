@@ -1,59 +1,125 @@
-import React, { PureComponent } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
-const data = [
-  { name: "T1", uv: 4000, pv: 2400 },
-  { name: "T2", uv: 3000, pv: 1398 },
-  { name: "T3", uv: 2000, pv: 9800 },
-  { name: "T4", uv: 2780, pv: 3908 },
-  { name: "T5", uv: 1890, pv: 4800 },
-  { name: "T6", uv: 2390, pv: 3800 },
-  { name: "T7", uv: 3490, pv: 4300 },
-  { name: "T8", uv: 3490, pv: 4300 },
-  { name: "T9", uv: 3490, pv: 4300 },
-  { name: "T10", uv: 3490, pv: 4300 },
-  { name: "T11", uv: 3490, pv: 4300 },
-  { name: "T12", uv: 3490, pv: 4300 },
-];
-class LineChartComponent extends PureComponent {
-  render() {
+import React, { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
+import { Chart, registerables } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
+import { getMonthlyRevenueStatistics } from '../../../services/statisticsService';
+
+Chart.register(...registerables, zoomPlugin);
+
+function LineChartComponent() {
+  const [monthlyData, setMonthlyData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const data = await getMonthlyRevenueStatistics();
+        
+        const sortedData = [...data].sort((a, b) => {
+          if (a.year !== b.year) return a.year - b.year;
+          return a.month - b.month;
+        });
+
+        setMonthlyData(sortedData.map(item => ({
+          name: `${item.month}/${item.year}`,
+          revenue: item.totalRevenue / 1000000,
+          totalBookings: item.totalBookings
+        })));
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
     return (
-      <ResponsiveContainer style={{backgroundColor:"transparent"}}>
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="pv"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
+      <div className="flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"/>
+      </div>
     );
   }
+
+  if (error) {
+    return (
+      <div className="text-red-500 p-4 text-center border rounded">
+        Error: {error}
+      </div>
+    );
+  }
+
+  const data = {
+    labels: monthlyData.map(item => item.name),
+    datasets: [
+      {
+        label: 'Doanh Thu (Triệu VND)',
+        data: monthlyData.map(item => item.revenue),
+        borderColor: '#6366f1',
+        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            return `Doanh thu: ${context.raw.toFixed(2)} triệu VND`;
+          },
+        },
+      },
+      zoom: {
+        pan: {
+          enabled: true,
+          mode: 'x',
+        },
+        zoom: {
+          wheel: {
+            enabled: true,
+          },
+          pinch: {
+            enabled: true,
+          },
+          mode: 'x',
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          maxTicksLimit: 8,
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Doanh Thu (Triệu VND)',
+        },
+      },
+    },
+  };
+
+  return (
+    <div className="bg-white p-6 rounded-xl shadow-lg">
+      <h3 className="text-xl font-bold mb-6 text-gray-800">
+        Biểu Đồ Doanh Thu Theo Tháng
+      </h3>
+      <Line data={data} options={options} />
+    </div>
+  );
 }
 
 export default LineChartComponent;

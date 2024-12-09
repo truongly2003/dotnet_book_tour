@@ -187,7 +187,7 @@ function BookingTour() {
         }
     
         try {
-            const response = await fetch('http://localhost:5083/api/Booking/handle-booking', {
+            const response = await fetch('https://localhost:7146/api/Booking/handle-booking', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

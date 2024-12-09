@@ -44,7 +44,7 @@ function Book() {
   const handlePaymentNow = async (Amount, BookingId) => {
     try {
       const response = await axios.post(
-        "http://localhost:5083/api/Payment/create-payment-url",
+        "https://localhost:7146/api/Payment/create-payment-url",
         {
           Amount: Amount,
           BookingId: BookingId,
@@ -65,7 +65,7 @@ function Book() {
 
   const handleCancelClick = async (bookingId, statusId) => {
     try {
-      const url = `http://localhost:5083/api/Booking/cancel-tour?bookingId=${bookingId}&statusId=${statusId}`;
+      const url = `https://localhost:7146/api/Booking/cancel-tour?bookingId=${bookingId}&statusId=${statusId}`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -159,7 +159,7 @@ function Book() {
                           ? "bg-warning"
                           : booking.paymentStatusName === "Đã thanh toán"
                           ? "bg-success"
-                          : booking.paymentStatusName === "Đã huỷ"
+                          : booking.paymentStatusName === "Đã hủy"
                           ? "bg-secondary"
                           : ""
                       }`}

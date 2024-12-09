@@ -32,7 +32,7 @@ namespace BookTour.Application.Service
             _vnpayLibrary.AddRequestData("vnp_IpAddr", "127.0.0.1");
             _vnpayLibrary.AddRequestData("vnp_Locale", "vn");
             _vnpayLibrary.AddRequestData("vnp_OrderInfo", Uri.EscapeDataString($"Thanh Toan Don Hang {request.BookingId}"));
-            _vnpayLibrary.AddRequestData("vnp_ReturnUrl", "http://localhost:5083/api/Payment/callback");
+            _vnpayLibrary.AddRequestData("vnp_ReturnUrl", "https://localhost:7146/api/Payment/callback");
 
             string txnRef = $"{request.BookingId}";
             _vnpayLibrary.AddRequestData("vnp_TxnRef", txnRef);
