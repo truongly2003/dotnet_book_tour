@@ -11,6 +11,6 @@ namespace BookTour.Application.Interface
     public interface IEmployeeService
     {
         Task<string> generateEmployeeIdBy();
-        // Task<Page<EmployeeDTO>> GetAllUserAsync(int page, int size);
+        Task<Page<EmployeeDTO>> GetAllUserAsync(int page, int size);
     }
 }

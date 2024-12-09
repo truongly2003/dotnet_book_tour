@@ -45,7 +45,38 @@ namespace BookTour.Application.Service
             return true;
         }
 
+        public async Task<Page<CustomerDTO>> GetAllUserAsync(int page, int size)
+        {
+            // L?y t?t c? khách hàng t? repository
+            var data = await _customerRepository.getListCustomerAsync();
 
-     
+            // Chuy?n ??i d? li?u thành d?ng DTO
+            var userDTO = data.Select(user => new CustomerDTO
+            {
+                userId = user.UserId, // ??m b?o là 'user' ch? không ph?i 'data'
+                name = user.CustomerName,
+                address = user.CustomerAddress,
+                email = user.CustomerEmail,
+                phone = user.CustomerPhone,
+            })
+            .Skip((page - 1) * size)  // Phân trang
+            .Take(size)  // L?y s? l??ng theo trang
+            .ToList();
+
+            // Tính t?ng s? khách hàng
+            var totalElement = data.Count();
+            var totalPage = (int)Math.Ceiling((double)totalElement / size);
+
+            // Tr? v? ??i t??ng ch?a d? li?u phân trang
+            var result = new Page<CustomerDTO>
+            {
+                Data = userDTO,
+                TotalElement = totalElement,
+                TotalPages = totalPage
+            };
+
+            return result;
+        }
+
     }
 }
