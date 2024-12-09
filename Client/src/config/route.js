@@ -46,5 +46,7 @@ const routes = {
   decentralization: "/admin/decentralization",
   //verify email
   verify: "/verify",
+
+  list_receipt: "/admin/booking/detail/:id",
 };
 export default routes;

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookTour.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a536bcb5f863c51415226f72034140f99e5058a9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08120111a624b79a19d7acc66b818ea97d684d88")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookTour.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookTour.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

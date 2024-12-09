@@ -44,11 +44,11 @@ namespace BookTour.Controllers
             
             if (status)
             {
-                return Ok(new ApiResponse<bool>
+                return Ok(new ApiResponse<int>
                 {
                     code = 200,
                     message = "Booking successfully",
-                    result = status
+                    result = bookingId
                 });
             }
             else
@@ -130,6 +130,13 @@ namespace BookTour.Controllers
                     result = "Error"
                 });
             }
+        }
+
+        [HttpGet("export")]
+        public async Task<IActionResult> ExportBookings()
+        {
+            var bookings = await _bookingService.GetAllBookingsAsync();
+            return Ok(bookings);
         }
 
     }

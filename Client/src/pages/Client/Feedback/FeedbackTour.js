@@ -22,6 +22,7 @@ function FeedbackTour({ detailRouteId, customerId }) {
   const [notificationMessage, setNotificationMessage] = useState("");
   const [notificationType, setNotificationType] = useState("error");
 
+  const bookingId = localStorage.getItem("bookingId");
   console.log("detailRouteId :", detailRouteId)
   // Function to check if the customer has booked the tour
   const handleShowModal = async () => {
@@ -106,7 +107,7 @@ function FeedbackTour({ detailRouteId, customerId }) {
         rating,
         text: newFeedback,
         detailRouteId,
-        bookingId: 1,
+        bookingId : bookingId,
       };
 
       try {
@@ -118,8 +119,9 @@ function FeedbackTour({ detailRouteId, customerId }) {
         setRating(0);
         setShowModal(false);
         setNotificationMessage("Đánh giá của bạn đã được thêm thành công!");
-        setNotificationType("success"); // Set to "success" after successful feedback submission
+        setNotificationType("success");
         setNotificationOpen(true);
+        loadFeedback(1, true);
       } catch (error) {
         console.error("Error submitting feedback:", error);
         alert("Error submitting feedback. Please try again.");

@@ -521,6 +521,16 @@
   },
   {
     "ContainingType": "BookTour.Controllers.BookingController",
+    "Method": "ExportBookings",
+    "RelativePath": "api/Booking/export",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.BookingController",
     "Method": "HandleBooking",
     "RelativePath": "api/Booking/handle-booking",
     "HttpMethod": "POST",

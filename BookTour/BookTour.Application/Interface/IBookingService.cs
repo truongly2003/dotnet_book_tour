@@ -19,5 +19,8 @@ namespace BookTour.Application.Interface
         Task<List<int>> CreatePassengersAsync(BookingRequest request);
         Task<int> CreateBookingAsync(BookingRequest request, int customerId, int passengerCount);
         Task<bool> CreateTicketsAsync(List<int> passengerIds, int bookingId);
+
+        Task<List<BookingResponse>> GetAllBookingsAsync();
+        Task<BookingDetailResponse> GetBookingDetailByIdAsync(int bookingId);
     }
 }

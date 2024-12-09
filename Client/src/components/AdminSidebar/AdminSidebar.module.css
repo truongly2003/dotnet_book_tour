@@ -1,22 +1,48 @@
-
-
-.submenu-open {
-  /* max-height: 500px;  
-  opacity: 1;  */
-}
+/* AdminSidebar.module.css */
 .sidebar {
-  font-size: 14px; /* Smaller text for the entire sidebar */
+
+
+}
+
+/* Thêm phần thu nhỏ sidebar khi cần thiết */
+.sidebar.collapsed {
+  width: 60px; /* Chiều rộng của sidebar khi thu nhỏ */
 }
 
 .menuLink {
-  font-size: 14px; /* Adjust the font size for the main menu */
+  font-size: 16px;
+  font-weight: 500;
+  transition: padding 0.3s ease;
 }
 
 .submenu {
-  font-size: 12px; 
+  display: none;
+  list-style-type: none;
+  margin-top: 10px;
 }
 
+.submenu-open {
+  display: block;
+}
+
+.submenuItem {
+  margin-bottom: 10px;
+}
 
 .submenuLink {
-  font-size: 12px; /* Smaller font size for the submenu links */
+  font-size: 14px;
+  color: #fff; /* Đổi màu chữ của submenu thành trắng để dễ đọc trên nền xanh */
+}
+
+.submenuLink:hover {
+  color: #cce7ff; /* Thêm màu hover cho các submenu */
+}
+
+.submenuItem > .nav-link {
+  padding-left: 20px;
+}
+
+.selectedItem {
+  background-color: #0056b3 !important; /* Màu nền khi chọn mục */
+  color: #fff !important; /* Màu chữ khi chọn mục */
 }

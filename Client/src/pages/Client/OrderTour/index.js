@@ -209,6 +209,7 @@ function BookingTour() {
                 );
                 setNotificationType("success");
                 setNotificationOpen(true);
+                localStorage.setItem("bookingId", data.result)
             }
         } catch (error) {
             console.error('Error submitting form:', error);

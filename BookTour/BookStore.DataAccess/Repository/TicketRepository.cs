@@ -33,5 +33,15 @@ namespace BookStore.DataAccess.Repository
             await _dbContext.Tickets.AddAsync(ticket);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<List<Ticket>> GetAllTicketByBookingIdAsync(int bookingId)
+        {
+            var query = await _dbContext.Tickets
+                .Include(t => t.Passenger)
+                .ThenInclude(pas => pas.Object)
+                .Where(t => t.BookingId == bookingId)
+                .ToListAsync();
+            return query;
+        }
     }
 }

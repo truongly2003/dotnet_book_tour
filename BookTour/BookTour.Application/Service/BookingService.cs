@@ -214,5 +214,51 @@ namespace BookTour.Application.Service
                 return false;
             }
         }
+
+
+        public async Task<List<BookingResponse>> GetAllBookingsAsync()
+        {
+            var data = await _bookingRepository.GetAllBookingsAsync();
+            var bookingResponse = data.Select(booking => new BookingResponse
+            {
+                BookingId = booking.BookingId,
+                DetailRouteName = booking.DetailRoute?.DetailRouteName,
+                PaymentStatusName = booking.PaymentStatus.StatusName,
+                TimeToDeparture = booking.DetailRoute.TimeToDeparture,
+                TimeToFinish = booking.DetailRoute.TimeToFinish,
+                TimeToOrder = booking.TimeToOrder,
+                TotalPassengers = booking.Ticket.Select(ticket => ticket.Passenger).Count(),
+                DepartureName = booking.DetailRoute.Route.Departure.DepartureName
+            }).ToList();
+
+            return bookingResponse;
+        }
+
+
+
+        // Lấy booking theo id
+        public async Task<BookingDetailResponse> GetBookingDetailByIdAsync(int bookingId)
+        {
+            var booking = await _bookingRepository.FindByIdAsync(bookingId);
+            if (booking == null)
+            {
+                return null;
+            }
+            var ticket = await _ticketRepository.GetAllTicketByBookingIdAsync(bookingId);
+            var bookingDetailResponse = new BookingDetailResponse
+            {
+                CustomerEmail = booking.Customer?.CustomerEmail,
+                CustomerName = booking.Customer?.CustomerName,
+                CustomerPhone = booking.Customer?.CustomerPhone,
+                ListTicket = ticket.Select(t => new TicketResponse
+                {
+                    ObjectName = t.Passenger?.Object?.ObjectName ?? "",
+                    Price = 1000,
+                    Quantity = 1,
+                    TotalPrice = 10
+                }).ToList()
+            };
+            return bookingDetailResponse;
+        }
     }
 }

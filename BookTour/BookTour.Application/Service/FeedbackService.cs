@@ -88,9 +88,22 @@ namespace BookTour.Application.Service
 
         public async Task<FeedbackDTO> comment(FeedbackRequest request)
         {
+            // Lấy đối tượng Booking và DetailRoute từ cơ sở dữ liệu
             Booking booking = await _bookRepository.findById(request.bookingId);
             Detailroute detailroute = await _detailRouteRepository.findById(request.detailRouteId);
 
+            // Kiểm tra nếu không tìm thấy Booking hoặc DetailRoute
+            if (booking == null)
+            {
+                throw new ArgumentException($"Booking with ID {request.bookingId} not found.");
+            }
+
+            if (detailroute == null)
+            {
+                throw new ArgumentException($"DetailRoute with ID {request.detailRouteId} not found.");
+            }
+
+            // Tạo đối tượng Feedback mới từ request
             Feedback feedback = new Feedback
             {
                 Rating = request.rating,
@@ -100,15 +113,25 @@ namespace BookTour.Application.Service
                 DateCreate = DateTime.Now
             };
 
+            // Lưu Feedback vào cơ sở dữ liệu
             await _feedbackRepository.saveFeedback(feedback);
 
+            // Ánh xạ từ Feedback entity sang FeedbackDTO
             FeedbackDTO feedbackDTO = new FeedbackDTO
             {
-                feedbackId = feedback.FeedbackId
+                feedbackId = feedback.FeedbackId,
+                bookingId = booking.BookingId,
+
+                detailRouteId = detailroute.DetailRouteId,
+                text = feedback.Text,
+                rating = feedback.Rating,
+                date = feedback.DateCreate
             };
 
+            // Trả về FeedbackDTO đã được ánh xạ
             return feedbackDTO;
         }
+
 
         public async Task<Page<FeedbackDTO>> getListFeedbackAsync(int page, int size, int detailRouteId)
         {

@@ -11,5 +11,7 @@ namespace BookTour.Domain.Interface
     {
         Task<List<Ticket>> GetAllTicketByUserIdAsync(int customerId, int BookingId);
         Task SaveAsync(Ticket ticket);
+
+        Task<List<Ticket>> GetAllTicketByBookingIdAsync(int bookingId);
     }
 }

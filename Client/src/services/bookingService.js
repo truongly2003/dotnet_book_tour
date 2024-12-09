@@ -51,3 +51,25 @@ export const checkAvailablequantity = async (detailRouteId, totalPassengers) => 
         throw error;
     }
 };
+
+//receipt
+export const exportBookings = async () => {
+    try {
+        const response = await httpRequest.get("/booking/export");
+        return response.data;
+    } catch (error) {
+        console.error("Error exporting bookings:", error);
+        throw error;
+    }
+};
+
+export const getBookingDetailById = async (bookingId) => {
+    try {
+        const response = await httpRequest.get(`/booking/detail/${bookingId}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching booking detail:", error);
+        throw error;
+    }
+};
+

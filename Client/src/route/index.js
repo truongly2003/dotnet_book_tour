@@ -42,6 +42,8 @@ import Decentralization from "../pages/Admin/Decentralization";
 import ListFeedback from "../pages/Admin/Feedback";
 import VerifyEmail from "../pages/Client/Register/verifyEmail";
 
+import BookingDetail from "../pages/Admin/Receipt/detail";
+import { Add } from "@mui/icons-material";
 const publicRoutes = [
   // client routes
   { path: routes.home, component: Home, layout: DefaultLayout },
@@ -93,5 +95,7 @@ const publicRoutes = [
 
   // authentication user
   { path: routes.verify, component: VerifyEmail, layout: DefaultLayout },
+  //list receipt
+  { path: routes.list_receipt, component: BookingDetail, layout: AdminLayout },
 ];
 export default publicRoutes;

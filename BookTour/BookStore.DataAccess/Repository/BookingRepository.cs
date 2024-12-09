@@ -76,5 +76,28 @@ namespace BookStore.DataAccess.Repository
         {
             await _dbContext.SaveChangesAsync();
         }
+        public async Task<Booking> FindByIdAsync(int id)
+        {
+            return await _dbContext.Bookings
+                .Include(book => book.Customer)
+                .Include(book => book.PaymentStatus)
+                .Include(book => book.DetailRoute)
+                .ThenInclude(detail => detail.Route)
+                .ThenInclude(route => route.Departure)
+                .Include(book => book.Ticket)
+                .ThenInclude(ticket => ticket.Passenger)
+                .FirstOrDefaultAsync(book => book.BookingId == id);
+        }
+        public async Task<List<Booking>> GetAllBookingsAsync()
+        {
+            return await _dbContext.Bookings
+                .Include(book => book.PaymentStatus)
+                .Include(book => book.DetailRoute)
+                .ThenInclude(detail => detail.Route)
+                .ThenInclude(route => route.Departure)
+                .Include(book => book.Ticket)
+                .ThenInclude(ticket => ticket.Passenger)
+                .ToListAsync();
+        }
     }
 }
