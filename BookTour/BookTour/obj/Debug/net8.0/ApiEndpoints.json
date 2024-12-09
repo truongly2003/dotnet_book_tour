@@ -1,5 +1,26 @@
 [
   {
+    "ContainingType": "BookTour.Controllers.CustomerController",
+    "Method": "getListCustomer",
+    "RelativePath": "api/admin/customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BookTour.Controllers.DecentralizationController",
     "Method": "AddPermissions",
     "RelativePath": "api/admin/decentralization/addPermissions",
@@ -89,6 +110,27 @@
         "Name": "request",
         "Type": "BookTour.Application.Dto.Request.RolePermissionRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BookTour.Controllers.EmployeeController",
+    "Method": "getListEmployee",
+    "RelativePath": "api/admin/employee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "page",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "size",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

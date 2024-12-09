@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repository
 {
-    public class EmployeeRepository:IEmployeeRepository
+    public class EmployeeRepository : IEmployeeRepository
     {
         private readonly BookTourDbContext _context;
 
@@ -29,29 +29,29 @@ namespace BookStore.DataAccess.Repository
             return await _context.Employees.CountAsync();
         }
 
-      public async Task<List<Employee>> getListEmployeeAsync()
-{
-    try
-    {
-        // Lấy danh sách tất cả nhân viên từ cơ sở dữ liệu
-        var data = await _context.Employees.ToListAsync();
-
-        // In ra dữ liệu
-        Console.WriteLine("Data fetched from database:");
-        foreach (var employee in data)
+        public async Task<List<Employee>> getListEmployeeAsync()
         {
-            Console.WriteLine($"UserId: {employee.UserId}, EmployeeId: {employee.EmployeeId}, Email: {employee.EmployeeEmail}");
-        }
+            try
+            {
+                // Lấy danh sách tất cả nhân viên từ cơ sở dữ liệu
+                var data = await _context.Employees.ToListAsync();
 
-        return data;
-    }
-    catch (Exception ex)
-    {
-        // Log lỗi nếu có
-        Console.WriteLine($"Error in GetListEmployeeAsync: {ex.Message}");
-        throw new Exception("Error fetching employee list", ex);
-    }
-}
+                // In ra dữ liệu
+                Console.WriteLine("Data fetched from database:");
+                foreach (var employee in data)
+                {
+                    Console.WriteLine($"UserId: {employee.UserId}, EmployeeId: {employee.EmployeeId}, Email: {employee.EmployeeEmail}");
+                }
+
+                return data;
+            }
+            catch (Exception ex)
+            {
+                // Log lỗi nếu có
+                Console.WriteLine($"Error in GetListEmployeeAsync: {ex.Message}");
+                throw new Exception("Error fetching employee list", ex);
+            }
+        }
 
     }
 }

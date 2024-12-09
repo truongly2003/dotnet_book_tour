@@ -14,6 +14,6 @@ namespace BookTour.Domain.Interface
         Task<Customer> FindCustomerByUserIdAsync(int UserId);
         Task<bool> UpdateCustomerByUserIdAsync(int UserId ,Customer customer);
         Task<Customer> SaveAsync(Customer customer);
-        // Task<List<Customer>> getListCustomerAsync();
+         Task<List<Customer>> getListCustomerAsync();
     }
 }

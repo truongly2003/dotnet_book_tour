@@ -11,6 +11,6 @@ namespace BookTour.Domain.Interface
     {
         Task<Employee> saveEmployee(Employee employee);
         Task<int> CountAsync();
-        // Task<List<Employee>> getListEmployeeAsync();
+        Task<List<Employee>> getListEmployeeAsync();
     }
 }
