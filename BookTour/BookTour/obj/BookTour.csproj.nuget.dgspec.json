@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj": {}
+    "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+    "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "projectUniqueName": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
         "projectName": "BookStore.DataAccess",
-        "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\obj\\",
+        "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -33,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
               }
             }
           }
@@ -99,25 +95,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+    "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "projectUniqueName": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
         "projectName": "BookStore.Infrastructure",
-        "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\obj\\",
+        "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -132,11 +124,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
               },
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
               }
             }
           }
@@ -209,25 +201,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+    "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
+        "projectUniqueName": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
         "projectName": "BookTour.Application",
-        "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\obj\\",
+        "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -242,11 +230,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
               },
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj"
               }
             }
           }
@@ -303,25 +291,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
+    "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "projectUniqueName": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
         "projectName": "BookTour.Domain",
-        "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Domain\\obj\\",
+        "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\BookTour.Domain.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -386,25 +370,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj": {
+    "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
+        "projectUniqueName": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
         "projectName": "BookTour",
-        "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
-        "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour\\obj\\",
+        "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour\\BookTour.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -419,11 +399,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookStore.Infrastructure\\BookStore.Infrastructure.csproj"
               },
-              "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
-                "projectPath": "C:\\Users\\hoang\\Desktop\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
+              "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj": {
+                "projectPath": "C:\\thinh\\dotnet_book_tour\\BookTour\\BookTour.Application\\BookTour.Application.csproj"
               }
             }
           }
@@ -497,7 +477,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

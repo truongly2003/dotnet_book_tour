@@ -77,8 +77,8 @@ function CustomerBookingsChart() {
         Top 10 Khách Hàng Theo Chi Tiêu
       </h3>
       <div style={{ overflowX: 'auto' }}>
-        <div style={{ width: `${data.length * 100}px` }}>
-          <ResponsiveContainer width="100%" height={400}>
+        <div style={{ width: '100%' }}>
+          <ResponsiveContainer width="100%" height={500}>
             <BarChart
               data={data}
               margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
@@ -86,7 +86,7 @@ function CustomerBookingsChart() {
               <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
               <XAxis 
                 dataKey="name"
-                tick={{ fill: '#666666' }}
+                tick={{ fill: '#666666', fontSize: 12 }} 
                 angle={-45}
                 textAnchor="end"
                 height={60}

@@ -79,7 +79,7 @@ const AddUser = ({ open, onClose }) => {
         try {
             const newUser = { username, password, email, roleId};
             console.log("role id :",roleId)
-            await axios.post("http://localhost:7146/api/User/createUser", newUser);
+            await axios.post("https://localhost:7146/api/User/createUser", newUser);
             // Clear form fields
             setUsername("");
             setPassword("");

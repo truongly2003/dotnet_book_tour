@@ -65,7 +65,7 @@ function Book() {
 
   const handleCancelClick = async (bookingId, statusId) => {
     try {
-      const url = `https://localhost:7146/api/Booking/cancel-tour?bookingId=${bookingId}&statusId=${statusId}`;
+      const url = `https://localhost:7146/api/api/Booking/cancel-tour?bookingId=${bookingId}&statusId=${statusId}`;
 
       const response = await fetch(url, {
         method: "GET",

@@ -18,16 +18,16 @@ namespace BookStore.DataAccess.Repository
         }
         public async Task<List<Ticket>> GetAllTicketByUserIdAsync(int UserId, int BookingId)
         {
-            var query= await _dbContext.Tickets
-                .Include(t=>t.Passenger)
-                .ThenInclude(pas=>pas.Object)
-                .Include(t=>t.Booking)
-                .ThenInclude(book=>book.DetailRoute)
-                .Where(book=>book.Booking.Customer.UserId == UserId && book.BookingId==BookingId)
+            var query = await _dbContext.Tickets
+                .Include(t => t.Passenger)
+                .ThenInclude(pas => pas.Object)
+                .Include(t => t.Booking)
+                .ThenInclude(book => book.DetailRoute)
+                .Where(book => book.Booking.Customer.UserId == UserId && book.BookingId == BookingId)
                 .ToListAsync();
             return query;
-        }   
-        
+        }
+
         public async Task SaveAsync(Ticket ticket)
         {
             await _dbContext.Tickets.AddAsync(ticket);
@@ -40,6 +40,18 @@ namespace BookStore.DataAccess.Repository
                 .Include(t => t.Passenger)
                 .ThenInclude(pas => pas.Object)
                 .Where(t => t.BookingId == bookingId)
+                .ToListAsync();
+            return query;
+        }
+
+        public async Task<List<Ticket>> GetAllTicketByCustomerIdAsync(int customerId)
+        {
+            var query = await _dbContext.Tickets
+                .Include(t => t.Passenger)
+                .ThenInclude(pas => pas.Object)
+                .Include(t => t.Booking)
+                .ThenInclude(book => book.Customer)
+                .Where(t => t.Booking.Customer.CustomerId == customerId)
                 .ToListAsync();
             return query;
         }

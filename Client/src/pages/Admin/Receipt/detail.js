@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getBookingDetailById } from "../../../services/bookingService"; // Điều chỉnh đường dẫn nếu cần
-import { useParams } from "react-router-dom";
+import { getBookingDetailById } from "../../../services/bookingService"; 
+import { useParams, useNavigate } from "react-router-dom";
 
 function BookingDetail() {
-    const { bookingId } = useParams();
+    const { id } = useParams(); 
+    const bookingId = id; 
+    const navigate = useNavigate(); 
     const [bookingDetail, setBookingDetail] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -11,7 +13,7 @@ function BookingDetail() {
         const fetchBookingDetail = async () => {
             try {
                 const data = await getBookingDetailById(bookingId);
-                setBookingDetail(data);
+                setBookingDetail(data.result); 
                 setLoading(false);
             } catch (error) {
                 console.error("Lỗi khi lấy chi tiết đặt chỗ:", error);
@@ -19,7 +21,12 @@ function BookingDetail() {
             }
         };
 
-        fetchBookingDetail();
+        if (bookingId) {
+            fetchBookingDetail();
+        } else {
+            console.error("No bookingId found in URL");
+            setLoading(false);
+        }
     }, [bookingId]);
 
     if (loading) {
@@ -32,6 +39,7 @@ function BookingDetail() {
 
     return (
         <div>
+           
             <h1>Chi tiết đặt chỗ</h1>
             <p>Tên Khách Hàng: {bookingDetail.customerName}</p>
             <p>Email Khách Hàng: {bookingDetail.customerEmail}</p>
@@ -57,6 +65,7 @@ function BookingDetail() {
                     ))}
                 </tbody>
             </table>
+            <button onClick={() => navigate(-1)}>Back</button> 
         </div>
     );
 }

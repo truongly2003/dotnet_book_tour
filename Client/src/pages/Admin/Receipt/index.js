@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { exportBookings } from "../../../services/bookingService"; 
+import { exportBookings, getBookingDetailById } from "../../../services/bookingService";
 import { Link } from "react-router-dom";
 
 function Receipt() {
@@ -19,24 +19,32 @@ function Receipt() {
     };
 
     fetchBookings();
+
+    const bookingId = 17; // Thay thế bằng ID đặt chỗ bạn muốn lấy chi tiết
+    getBookingDetailById(bookingId)
+      .then(data => {
+        console.log("Chi tiết đặt chỗ:", data);
+      })
+      .catch(error => {
+        console.error("Lỗi:", error);
+      });
   }, []);
 
   if (loading) {
-    return <div>Đang tải...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h1>Biên lai đơn hàng</h1>
-      <table className="table">
+      <table>
         <thead>
           <tr>
-            <th>ID Đặt Chỗ</th>
-            <th>Tên Tuyến Chi Tiết</th>
+            <th>Mã Đặt Chỗ</th>
+            <th>Tên Tuyến Đường</th>
             <th>Trạng Thái Thanh Toán</th>
             <th>Thời Gian Khởi Hành</th>
             <th>Thời Gian Kết Thúc</th>
-            <th>Thời Gian Đặt Hàng</th>
+            <th>Thời Gian Đặt</th>
             <th>Tổng Số Hành Khách</th>
             <th>Tên Điểm Khởi Hành</th>
             <th>Chi Tiết</th>

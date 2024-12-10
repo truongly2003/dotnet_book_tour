@@ -54,19 +54,19 @@ namespace BookStore.DataAccess.Repository
             {
                 throw new InvalidOperationException("Booking not found");
             }
-            
+
             booking.PaymentStatusId = statusId;
-            
+
             await _dbContext.SaveChangesAsync();
-            
+
             return booking;
         }
-        
+
         public async Task<bool> ExistsByDetailRouteIdAsync(int detailRouteId)
         {
             return await _dbContext.Bookings.AnyAsync(b => b.DetailRouteId == detailRouteId);
         }
-        
+
         public async Task AddAsync(Booking booking)
         {
             await _dbContext.Bookings.AddAsync(booking);
@@ -86,6 +86,7 @@ namespace BookStore.DataAccess.Repository
                 .ThenInclude(route => route.Departure)
                 .Include(book => book.Ticket)
                 .ThenInclude(ticket => ticket.Passenger)
+                 .AsNoTracking() 
                 .FirstOrDefaultAsync(book => book.BookingId == id);
         }
         public async Task<List<Booking>> GetAllBookingsAsync()
@@ -98,6 +99,31 @@ namespace BookStore.DataAccess.Repository
                 .Include(book => book.Ticket)
                 .ThenInclude(ticket => ticket.Passenger)
                 .ToListAsync();
+        }
+
+        public async Task<Customer> GetDetailBookingResponseByCustomerIdAsync(int customerId)
+        {
+            var query = await _dbContext.Customers
+                .Include(cus => cus.Bookings)
+                .ThenInclude(book => book.DetailRoute)
+                .Where(cus => cus.CustomerId == customerId)
+                .FirstOrDefaultAsync();
+            return query;
+        }
+
+        public async Task<List<Booking>> GetAllBookingByCustomerIdAsync(int customerId)
+        {
+            var query = await _dbContext.Bookings
+                .Include(book => book.Customer)
+                .Include(book => book.PaymentStatus)
+                .Include(book => book.DetailRoute)
+                .ThenInclude(detail => detail.Route)
+                .ThenInclude(route => route.Departure)
+                .Include(book => book.Ticket)
+                .ThenInclude(ticket => ticket.Passenger)
+                .Where(book => book.Customer.CustomerId == customerId)
+                .ToListAsync();
+            return query;
         }
     }
 }

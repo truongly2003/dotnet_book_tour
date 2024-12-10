@@ -41,7 +41,7 @@ function PieChartComponent() {
       <h3 className="text-xl font-bold mb-6 text-gray-800">
         Phân Loại Hành Khách
       </h3>
-      <ResponsiveContainer width="100%" height={290}>
+      <ResponsiveContainer width="100%" height={390}>
         <PieChart>
           <Pie
             data={data}

@@ -3,6 +3,7 @@ import LineChartComponent from "./LineChartComponent";
 import PieChartComponent from "./PieChartComponent";
 import CustomerBookingsChart from './CustomerBookingsChart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import TourRatingChart from './TourRatingChart';
 import { faUsers, faMoneyBillWave, faStar, faRoute } from '@fortawesome/free-solid-svg-icons';
 import {
   getMonthlyRevenueStatistics,
@@ -21,7 +22,6 @@ function DashBoard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // index.js
   useEffect(() => {
     const fetchStats = async () => {
       try {
@@ -38,11 +38,16 @@ function DashBoard() {
         // Calculate total revenue from the result array
         const totalRevenue = revenue?.reduce((sum, item) => sum + item.totalRevenue, 0) || 0;
 
+        // Calculate total average rating
+        const totalFeedback = ratings?.reduce((sum, item) => sum + item.totalFeedback, 0) || 0;
+        const totalRatingSum = ratings?.reduce((sum, item) => sum + (item.averageRating * item.totalFeedback), 0) || 0;
+        const averageRating = totalFeedback ? totalRatingSum / totalFeedback : 0;
+
         setStats(prevStats => ({
           ...prevStats,
           totalRevenue,
           totalBookings: bookings?.reduce((sum, item) => sum + item.totalBookings, 0) || 0,
-          averageRating: ratings?.averageRating || 0,
+          averageRating,
           totalRoutes: routes?.length || 0
         }));
 
@@ -56,11 +61,6 @@ function DashBoard() {
 
     fetchStats();
   }, []);
-
-  // Update the display in the card
-  <h3>
-    {loading ? "..." : `${(stats.totalRevenue / 1000000).toFixed(2)}M VND`}
-  </h3>
 
   if (error) {
     return (
@@ -154,40 +154,14 @@ function DashBoard() {
           <CustomerBookingsChart />
         </div>
       </div>
-      
+
+      <div className="row mt-4">
+        <div className="col-12">
+          <TourRatingChart />
+        </div>
+      </div>
     </div>
   );
 }
 
 export default DashBoard;
-
-
-
-// import LineChartComponent from "./LineChartComponent";
-// import PieChartComponent from "./PieChartComponent";
-
-// function DashBoard() {
-//   return (
-//     <div className=" ">
-//       <div className="d-flex justify-content-between">
-//         <h6 className="text-lg mb-0">Doanh Thu</h6>
-//         <select className="form-select form-select-sm w-auto">
-//           <option>Năm</option>
-//           <option>Tháng</option>
-//           <option>Tuần</option>
-//           <option>Ngày</option>
-//         </select>
-//       </div>
-//       <div className="row mt-2 g-3">
-//         <div className="col-lg-7 border p-2 mb-3" style={{ height: "300px" }}>
-//           <LineChartComponent />
-//         </div>
-//         <div className="col-lg-5 border p-2 mb-3" style={{ height: "300px" }}>
-//           <PieChartComponent />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default DashBoard;

@@ -89,7 +89,7 @@ namespace BookTour.Application.Service
         public async Task<FeedbackDTO> comment(FeedbackRequest request)
         {
             // Lấy đối tượng Booking và DetailRoute từ cơ sở dữ liệu
-            Booking booking = await _bookRepository.findById(request.bookingId);
+            Booking booking = await _bookRepository.FindByIdAsync(request.bookingId);
             Detailroute detailroute = await _detailRouteRepository.findById(request.detailRouteId);
 
             // Kiểm tra nếu không tìm thấy Booking hoặc DetailRoute

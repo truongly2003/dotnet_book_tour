@@ -13,7 +13,7 @@ namespace BookTour.Controllers
         private readonly IRouteService _routeService;
         private readonly IBookingService _bookingService;
         private readonly ILogger<BookingController> _logger;
-        
+
         public BookingController(IRouteService routeService, IBookingService bookingService, ILogger<BookingController> logger)
         {
             _routeService = routeService;
@@ -41,7 +41,7 @@ namespace BookTour.Controllers
             var passengerIds = await _bookingService.CreatePassengersAsync(request);
             var bookingId = await _bookingService.CreateBookingAsync(request, customerId, passengerCount);
             var status = await _bookingService.CreateTicketsAsync(passengerIds, bookingId);
-            
+
             if (status)
             {
                 return Ok(new ApiResponse<int>
@@ -61,7 +61,7 @@ namespace BookTour.Controllers
                 });
             }
         }
-        
+
         [HttpPut("update-status")]
         public async Task<IActionResult> UpdateBookingStatus(int bookingId, int statusId)
         {
@@ -85,7 +85,7 @@ namespace BookTour.Controllers
                 });
             }
         }
-        
+
         [HttpGet("check-available-quantity")]
         public async Task<IActionResult> CheckAvailability(int detailRouteId, int totalPassengers)
         {
@@ -95,19 +95,19 @@ namespace BookTour.Controllers
         }
 
         [HttpGet("profile/user")]
-        public async Task<IActionResult> GetBookingCustomerId(int UserId, int page,int size)
+        public async Task<IActionResult> GetBookingCustomerId(int UserId, int page, int size)
         {
-            var booking = await _bookingService.GetAllBookingByUserIdAsync(UserId, page,size);
+            var booking = await _bookingService.GetAllBookingByUserIdAsync(UserId, page, size);
             return Ok(booking);
         }
-        
+
         [HttpGet("profile/detail")]
-        public async Task<IActionResult> GetBookingDetailByCustomerId(int UserId,int BookingId)
+        public async Task<IActionResult> GetBookingDetailByCustomerId(int UserId, int BookingId)
         {
-            var booking=await _bookingService.GetDetailBookingResponseByUserIdAsync(UserId,BookingId);
+            var booking = await _bookingService.GetDetailBookingResponseByUserIdAsync(UserId, BookingId);
             return Ok(booking);
         }
-        
+
         [HttpGet("cancel-tour")]
         public async Task<IActionResult> CancelTour(int bookingId, int statusId)
         {
@@ -137,6 +137,31 @@ namespace BookTour.Controllers
         {
             var bookings = await _bookingService.GetAllBookingsAsync();
             return Ok(bookings);
+        }
+
+        [HttpGet("detail/{bookingId}")]
+        public async Task<IActionResult> GetBookingDetailById(int bookingId)
+        {
+            _logger.LogInformation($"Getting booking details for ID: {bookingId}");
+
+            var bookingDetail = await _bookingService.GetBookingDetailByIdAsync(bookingId);
+            if (bookingDetail == null)
+            {
+                _logger.LogWarning($"Booking not found for ID: {bookingId}");
+                return NotFound(new ApiResponse<string>
+                {
+                    code = 404,
+                    message = "Booking not found",
+                    result = null
+                });
+            }
+
+            return Ok(new ApiResponse<BookingDetailResponse>
+            {
+                code = 200,
+                message = "Success",
+                result = bookingDetail
+            });
         }
 
     }
